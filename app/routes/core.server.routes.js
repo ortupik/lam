@@ -426,6 +426,9 @@ var products = [{
 	app.get('/about', function (req, res) {
 	  res.render('pages/about.pug');
 	});
+	app.get('/account', function (req, res) {
+	  res.render('pages/account.pug');
+	});
 	app.get('/article', function (req, res) {
 	  res.render('pages/article.pug');
 	});

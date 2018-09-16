@@ -17,7 +17,7 @@ div#nav-offcanvas(uk-offcanvas="overlay: true")
               if item.items
                 ul.uk-nav-sub.uk-list-divider
                   each category in item.items
-                    li: a(href="subcategory.html")= category.name
+                    li: a(href="subcategory")= category.name
                   if item.name === "Catalog"
                     li.uk-text-center
                       +link-to-all('see all categories', item.href)
@@ -25,7 +25,7 @@ div#nav-offcanvas(uk-offcanvas="overlay: true")
                     li.uk-text-center
                       +link-to-all('see all brands', item.href)
           li
-            a(href="compare.html") Compare
+            a(href="compare") Compare
               span.uk-badge.uk-margin-xsmall-left 3
 
       nav.uk-card-small.uk-card-body

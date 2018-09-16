@@ -462,8 +462,8 @@ var products = [{
 	app.get('/faq', function (req, res) {
 	  res.render('pages/faq.pug');
 	});
-	app.get('/favourites', function (req, res) {
-	  res.render('pages/favourites.pug');
+	app.get('/favorites', function (req, res) {
+	  res.render('pages/favorites.pug');
 	});
 	app.get('/news', function (req, res) {
 	  res.render('pages/news.pug');

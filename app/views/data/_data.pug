@@ -10,14 +10,14 @@
   }
 
   var catalog = [{
-    name: 'Laptops & Tablets',
+    name: 'Laptops & Desktops',
     id: 'laptops-tablets',
-    href: 'category',
+    href: 'category=Laptops%20and%20Desktops',
     image: 'images/catalog/computers.svg',
     quantity: 367,
     items: [
       'Laptops',
-      'Tablets',
+      'Desktops',
       'Peripherals',
       'Keyboards',
       'Accessories'
@@ -25,12 +25,13 @@
   }, {
     name: 'Phones & Gadgets',
     id: 'phones-gadgets',
-    href: 'category',
+    href: 'category=Phones%20and%20Gadgets',
     image: 'images/catalog/phones.svg',
     quantity: 144,
     items: [
       'Smartphones',
       'Mobile Phones',
+      'Tablets',
       'Smart watches',
       'Charging and batteries',
       'Accessories'
@@ -38,7 +39,7 @@
   }, {
     name: 'TV & Video',
     id: 'tv-video',
-    href: 'category',
+    href: 'category=Tv%20and%20Radio',
     image: 'images/catalog/tv.svg',
     quantity: 58,
     items: [
@@ -52,7 +53,7 @@
   }, {
     name: 'Games & Entertainment',
     id: 'games-entertainment',
-    href: 'category',
+    href: 'category=Games%20and%20Entertainment',
     image: 'images/catalog/games.svg',
     quantity: 13,
     items: [
@@ -65,7 +66,7 @@
   }, {
     name: 'Photo',
     id: 'photo',
-    href: 'category',
+    href: 'category=Photo',
     image: 'images/catalog/photo.svg',
     quantity: 59,
     items: [
@@ -255,7 +256,7 @@
     icon: 'instagram'
   }]
 
-  var products = [{
+  var products = [{ 
     id: 1,
     name: 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)',
     type: 'Laptop',

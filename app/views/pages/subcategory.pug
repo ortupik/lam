@@ -1,16 +1,5 @@
 extends /layouts/_pages
 
-block vars
-  -
-    page = {
-      title: 'Laptops',
-      breadcrumbs: {
-        'Catalog': '/catalog',
-        'Laptops & Tablets': 'category'
-      },
-      quantity: 289
-    }
-
 block pages
   div.uk-grid-medium(uk-grid)
 
@@ -90,7 +79,7 @@ block pages
 
             div.uk-card-body
               button.uk-button.uk-button-default.uk-width-1-1
-                +icon("close", ".75")(class="uk-margin-xsmall-right")
+                +icon("close", ".75")(class="uk-margin-xsmall-right") 
                 | Reset all filters
 
     //- Content

@@ -52,13 +52,11 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
 
         //- Items
         div
-          div(class="uk-grid-collapse " +
+          div#product_div(class="uk-grid-collapse " +
                     "uk-child-width-1-3 " +
                     "tm-products-grid " +
                     "js-products-grid"
               uk-grid)
-            each product in products
-              +product(product)
 
         //- Load more
         div
@@ -78,3 +76,6 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
       li.uk-disabled: span …
       li: a(href="#") 20
       li: a(href="#"): span(uk-pagination-next)
+
+
+script(src="scripts/handler.js")          

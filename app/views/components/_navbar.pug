@@ -49,7 +49,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                                 ul.uk-nav.uk-nav-default
                                   each subcategory in category.items
                                     li
-                                      a(href="/subcategory")= subcategory
+                                      a(href="subcategory?"+category.href+"&subcategory="+subcategory)= subcategory
 
                   if item.name === "Brands"
                     div.uk-container.uk-container-small.uk-margin-top.uk-margin-bottom

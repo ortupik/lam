@@ -3,6 +3,7 @@
 
 module.exports = function(app) {
 
+
 var products = [{
     id: 1,
     name: 'Apple MaX Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)',
@@ -444,9 +445,7 @@ var products = [{
 	app.get('/catalog', function (req, res) {
 	  res.render('pages/catalog.pug');
 	});
-	app.get('/category', function (req, res) {
-	  res.render('pages/category.pug');
-	});
+	
 	app.get('/checkout', function (req, res) {
 	  res.render('pages/checkout.pug');
 	});
@@ -472,13 +471,50 @@ var products = [{
 	  res.render('pages/personal.pug');
 	});
 	app.get('/product', function (req, res) {
-	  res.render('pages/product.pug', {man:products[0]});
+	  res.render('pages/product.pug');
 	});
 	app.get('/settings', function (req, res) {
 	  res.render('pages/settings.pug');
 	});
-	app.get('/subcategory', function (req, res) {
-	  res.render('pages/subcategory.pug');
-	});
+	
+
+  app.get('/category', function (req, res) {
+
+      var category = req.param("category");
+
+      var page = {
+        title: category,
+        breadcrumbs: {
+          'Catalog': '/catalog'
+        },
+        quantity: 120
+      }
+
+      res.render('pages/category.pug',{page:page});
+
+  });
+
+    app.get('/subcategory', function (req, res) {
+
+      var category = req.param("category");
+      var subcategory = req.param("subcategory");
+
+      var page = {
+        title: subcategory,
+        breadcrumbs: {
+          'Catalog': '/catalog'
+        },
+        quantity: 120
+      }
+
+       page.breadcrumbs[category] = "category";
+
+       res.render('pages/subcategory.pug',{page:page});
+
+  });
+
+  app.get('/products_list', function (req, res) {
+    res.send({data:products});
+  });
  
 };

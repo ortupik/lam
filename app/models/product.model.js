@@ -7,16 +7,21 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   crypto = require('crypto');
 
-
 /**
- * Laptop Schema
+ * Product Schema
  */
 
-var ComputerSchema = new Schema({
+var ProductSchema = new Schema({
   id: {
     type: 'Number'
   },
   name: {
+    type: 'String'
+  },
+  category: {
+    type: 'String'
+  },
+  subcategory: {
     type: 'String'
   },
   type: {
@@ -63,6 +68,9 @@ var ComputerSchema = new Schema({
       'Mixed'
     ]
   },
+  overview: {
+    type: 'String'
+  },
   specifications: {
     type: [
       'Mixed'
@@ -99,19 +107,10 @@ var ComputerSchema = new Schema({
     ]
   },
   properties: {
-    'Diagonal display': {
-      type: 'String'
-    },
-    CPU: {
-      type: 'String'
-    },
-    RAM: {
-      type: 'String'
-    },
-    'Video Card': {
-      type: 'String'
-    }
+    type: [
+      'Mixed'
+    ]
   }
-});
+}); 
 
-mongoose.model('Computer', ComputerSchema);
+mongoose.model('Product', ProductSchema);

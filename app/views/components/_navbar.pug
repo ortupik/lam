@@ -37,7 +37,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                         each category in item.items
                           li
                             div.uk-margin-top.uk-margin-bottom
-                              a.uk-link-reset(href= category.href)
+                              a.uk-link-reset(href= "category?"+category.href)
                                 if category.image
                                   img(class="uk-display-block uk-margin-auto uk-margin-bottom"
                                       src= category.image

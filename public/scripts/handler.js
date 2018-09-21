@@ -1,8 +1,9 @@
 $(function(){
 
-    $.get("/products_list",function(res){
+    $.get("/products/all",function(res){
 
         var products = res.data;
+        console.log(products);
 
         for(x in products){
 	    	var product = products[x];
@@ -17,7 +18,7 @@ $(function(){
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+
 		      '<div class="tm-ratio tm-ratio-4-3">'+
-		         '<a class="tm-media-box" href="'+product.href+'">'+
+		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
 		            '<figure class="tm-media-box-wrap"><img src="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
@@ -26,7 +27,7 @@ $(function(){
 		   '<div class="tm-product-card-body">'+
 		      '<div class="tm-product-card-info">'+
 		         '<div class="uk-text-meta uk-margin-xsmall-bottom">Laptop</div>'+
-		         '<h3 class="tm-product-card-title"><a class="uk-link-heading" href="'+product.href+'">'+product.name+'</a></h3>'+
+		         '<h3 class="tm-product-card-title"><a class="uk-link-heading" href="product?id='+product.id+'">'+product.name+'</a></h3>'+
 		         '<ul class="uk-list uk-text-small tm-product-card-properties">'+
 		            '<li><span class="uk-text-muted">Diagonal display: </span><span>15.4"</span></li>'+
 		            '<li><span class="uk-text-muted">CPU: </span><span>Intel®&nbsp;Core™ i7</span></li>'+

@@ -10,7 +10,7 @@ block default
         div.uk-text-center
           if page.breadcrumbs
             ul.uk-breadcrumb.uk-flex-center.uk-margin-remove
-              li: a(href="index.html") Home
+              li: a(href="/") Home
               each href, breadcrumb in page.breadcrumbs
                 li: a(href= href)= breadcrumb
               if page.title

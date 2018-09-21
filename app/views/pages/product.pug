@@ -2,7 +2,6 @@ extends /layouts/_pages
 
 block vars
   -
-    product = products[0];
   
     page = {
       title: product.name,
@@ -243,7 +242,7 @@ block pages
                 section
                   article.uk-article
                     div.uk-article-body
-                      include /partials/_article
+                       #{product.overview}
 
                 //- Specifications
                 section

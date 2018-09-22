@@ -15,19 +15,11 @@ html(lang="en")
     link(rel="stylesheet" href="styles/style.css")
     script(src="scripts/uikit.js")
     script(src="scripts/uikit-icons.js")
-    script(src="scripts/echo.min.js")
+    script(src="scripts/blazy.min.js")
     script(src="scripts/jquery-3.2.1.min.js")
 
     script.
-         echo.init({
-          offset: 0,
-          throttle: 250,
-          unload: false,
-          callback: function (element, op) {
-            console.log(element, 'has been', op + 'ed')
-          }
-        });
-        
+         var bLazy = new Blazy(); 
 
   body
     div.uk-offcanvas-content

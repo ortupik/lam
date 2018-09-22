@@ -19,7 +19,7 @@ $(function(){
 		      '<div class="tm-ratio tm-ratio-4-3">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
-		            '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-src="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
+		            '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-echo="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
 		      '</div>'+
 		   '</div>'+
@@ -62,16 +62,9 @@ $(function(){
 		   '</div>'+
 		'</article>';
 
-		var bLazy = new Blazy({});
-
 		return product_html;
     }  
 
-    window.bLazy = new Blazy({
-      success: function(element){
-        console.log("Element loaded: ", element.nodeName);
-      }
-    });     
 
 
 });

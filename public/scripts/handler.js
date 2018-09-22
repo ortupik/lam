@@ -14,12 +14,17 @@ $(function(){
 
     function getProductHtml(product){
 
+        var image_src = product.image.medium;
+    	if(image_src == undefined){
+    	   image_src = "https://placeholder.pics/svg/450/No%20Image"	
+    	}
+
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+
 		      '<div class="tm-ratio tm-ratio-4-3">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
-		            '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-echo="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
+		            '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
 		      '</div>'+
 		   '</div>'+
@@ -61,6 +66,8 @@ $(function(){
 		      '</div>'+
 		   '</div>'+
 		'</article>';
+
+		  bLazy.revalidate();
 
 		return product_html;
     }  

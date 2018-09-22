@@ -6,7 +6,7 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
       div#products.uk-grid-collapse.uk-child-width-1-1(uk-grid)
 
         //- Settings
-        div.uk-card-header
+        div.uk-card-header.settings-header.uk-hidden
           div.uk-grid-small.uk-flex-middle(uk-grid)
 
             //- Sorting
@@ -58,15 +58,17 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
                     "js-products-grid"
               uk-grid)
 
+
         //- Load more
-        div
+        div.load_div.uk-hidden
           button.uk-button.uk-button-default.uk-button-large.uk-width-1-1(
             style="border-top-left-radius: 0; border-top-right-radius: 0;")
             +icon("plus", ".75")(class="uk-margin-small-right")
             span Load more
+        img.loader(src="images/loading51.gif")    
 
   //- Pagination
-  div
+  div.pagination_div.uk-hidden
     ul.uk-pagination.uk-flex-center
       li.uk-active: span 1
       li: a(href="#") 2

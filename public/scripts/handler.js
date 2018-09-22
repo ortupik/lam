@@ -6,6 +6,10 @@ $(function(){
 
         for(x in products){
 	    	var product = products[x];
+	    	$(".loader").hide();
+	    	$(".settings-header").removeClass("uk-hidden");
+	    	$(".load_div").removeClass("uk-hidden");
+	    	$(".pagination_div").removeClass("uk-hidden");
 	    	$("#product_div").append(getProductHtml(product));
 	    }
 

@@ -11,7 +11,6 @@ block vars
         'Laptops': 'subcategory'
       }
     }
-     
 
 
 block pages
@@ -34,7 +33,7 @@ block pages
                     if product.image
                       a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large)
                         figure.tm-media-box-wrap
-                          img(src="images/ajax-loader.gif" data-echo= product.image.large alt= product.name)
+                          img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.large alt= product.name)
                     else
                       figure.tm-media-box-wrap
                         +icon("image", "5")(class="uk-text-muted")
@@ -43,7 +42,7 @@ block pages
                       li
                         a.uk-card-body.tm-media-box.tm-media-box-zoom(href= additionalImage.large)
                           figure.tm-media-box-wrap
-                            img(src="images/ajax-loader.gif" data-echo= additionalImage.large alt= product.name)
+                            img.b-lazy(src="images/ajax-loader.gif" data-src= additionalImage.large alt= product.name)
 
               //- Additional images
               if product.additionalImages
@@ -58,14 +57,14 @@ block pages
                                 div.tm-ratio.tm-ratio-1-1
                                   a.tm-media-box.tm-media-box-frame
                                     figure.tm-media-box-wrap
-                                      img(src="images/ajax-loader.gif" data-echo= product.image.small alt= product.name)
+                                      img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.small alt= product.name)
 
                               each additionalImage, index in product.additionalImages
                                 li(uk-slideshow-item= index + 1)
                                   div.tm-ratio.tm-ratio-1-1
                                     a.tm-media-box.tm-media-box-frame(href="#")
                                       figure.tm-media-box-wrap
-                                        img(src="images/ajax-loader.gif" data-echo= additionalImage.small alt= product.name)
+                                        img.b-lazy(src="images/ajax-loader.gif" data-src= additionalImage.small alt= product.name)
 
                             div
                               a.uk-position-center-left-out.uk-position-small(
@@ -86,7 +85,7 @@ block pages
               //- Brand
               div
                 a(href= product.brand.href title= product.brand.name)
-                  img(src="images/ajax-loader.gif" data-echo= product.brand.image alt= product.brand.name style="height: 40px;")
+                  img.b-lazy(src="images/loading36.gif" data-src= product.brand.image alt= product.brand.name style="height: 40px;")
 
               //- Rating & Statuses
               div.uk-margin
@@ -383,3 +382,5 @@ block pages
 
           div.uk-text-center
             button.uk-button.uk-button-primary Send
+
+

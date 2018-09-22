@@ -24,7 +24,7 @@ mixin product(product)
           //- Image
           figure.tm-media-box-wrap
             if product.image
-              img(src= product.image.medium alt= product.name)
+              img(src="images/ajax-loader.gif" data-echo= product.image.medium alt= product.name)
             else
               +icon("image", "3")(class="uk-text-muted")
 

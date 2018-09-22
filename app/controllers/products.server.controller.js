@@ -26,7 +26,6 @@ exports.getProduct = function(req, res) {
 	}
 	Product.findOne(product_id, function(err, product){
 	    if (err) return res.send(500, { message: err , success: 0});
-	    console.log(product.overview)
 	    res.render('pages/product.pug',{product: product});
 	});
 

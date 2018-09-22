@@ -20,7 +20,7 @@ $(function(){
 		      '<div class="tm-ratio tm-ratio-4-3">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
-		            '<figure class="tm-media-box-wrap"><img src="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
+		            '<figure class="tm-media-box-wrap"><img src="images/ajax-loader.gif" data-echo="'+product.image.medium+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
 		      '</div>'+
 		   '</div>'+

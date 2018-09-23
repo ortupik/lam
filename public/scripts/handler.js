@@ -46,6 +46,12 @@ $(function(){
 
     });
 
+    $(".load_div").on("click",function(){
+       setTimeout(function(){ $(".loader").show();  }, 3000);
+    });
+
+
+
 
     function getProductHtml(product){
 

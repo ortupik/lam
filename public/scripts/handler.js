@@ -47,7 +47,17 @@ $(function(){
     });
 
     $(".load_div").on("click",function(){
-       setTimeout(function(){ $(".loader").show();  }, 3000);
+
+       $(".loader").show();
+       $(".load_div").addClass("uk-hidden");
+       $(".pagination_div").addClass("uk-hidden");
+
+       setTimeout(function(){
+            $(".loader").hide(); 
+            $(".load_div").removeClass("uk-hidden");
+            $(".pagination_div").removeClass("uk-hidden");
+         }, 3000);
+
     });
 
 

@@ -32,10 +32,8 @@ block pages
             section.uk-card-small.uk-card-body
               h4.uk-margin-small-bottom Categories
               ul.uk-nav.uk-nav-default
-                each category in catalog
-                  each item in category.items
-                    li: a(href="subcategory")= item
-                  - break
+                each item in category.items
+                  li: a(href="subcategory?c="+category.id+"&s="+item.id)= item.name
 
             //- Prices
             section.uk-card-body.uk-open.js-accordion-section
@@ -45,11 +43,11 @@ block pages
                   div
                     div.uk-inline
                       span.uk-form-icon.uk-text-xsmall from
-                      input.uk-input(type="text" placeholder="$59")
+                      input.uk-input(type="text" placeholder="Ksh 0")
                   div
                     div.uk-inline
                       span.uk-form-icon.uk-text-xsmall to
-                      input.uk-input(type="text" placeholder="$6559")
+                      input.uk-input(type="text" placeholder="Ksh 30000")
 
             //- Properties
             each property in filters

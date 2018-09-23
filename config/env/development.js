@@ -1,7 +1,7 @@
 'use strict';
 
 //db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
-//db: 'mongodb://localhost/happystores',
+//db: 'mongodb://127.0.0.1:27017/happystores',
 module.exports = {
 	db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
 	port: 8080,

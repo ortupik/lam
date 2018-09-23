@@ -37,7 +37,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                         each category in item.items
                           li
                             div.uk-margin-top.uk-margin-bottom
-                              a.uk-link-reset(href= "category?"+category.href)
+                              a.uk-link-reset(href= "category?c="+category.id)
                                 if category.image
                                   img(class="uk-display-block uk-margin-auto uk-margin-bottom"
                                       src= category.image
@@ -49,7 +49,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                                 ul.uk-nav.uk-nav-default
                                   each subcategory in category.items
                                     li
-                                      a(href="subcategory?"+category.href+"&subcategory="+subcategory)= subcategory
+                                      a(href="subcategory?c="+category.id+"&s="+subcategory.id)= subcategory.name
 
                   if item.name === "Brands"
                     div.uk-container.uk-container-small.uk-margin-top.uk-margin-bottom

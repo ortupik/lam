@@ -1,15 +1,46 @@
 $(function(){
 
-    $.get("/products/all",function(res){
+	function getQueryParams(qs) {
+	    qs = qs.split('+').join(' ');
+
+	    var params = {},
+	        tokens,
+	        re = /[?&]?([^=]+)=([^&]*)/g;
+
+	    while (tokens = re.exec(qs)) {
+	        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+	    }
+
+	    return params;
+	}
+
+    var query = getQueryParams(document.location.search);
+
+    $.get("/products/all",query,function(res){
 
         var products = res.data;
 
+    	$(".loader").hide();
+
+    	if(products != undefined && products.length > 1){
+    		$(".settings-header").removeClass("uk-hidden");
+    	}
+
+    	if(products != undefined && products.length > 6){
+           $(".load_div").removeClass("uk-hidden");
+
+           var count = 1;
+           for(var i = 0; i < products.length; i+=6){
+           //   $(".uk-pagination").append('<li><a href="#"><span >'+count+'</span></a></li>');
+              count++;
+           }
+           //$(".uk-pagination").append('<li><a href="#"><span uk-pagination-next="uk-pagination-next"></span></a></li>');
+
+    	   $(".pagination_div").removeClass("uk-hidden");
+    	}
+    	
         for(x in products){
 	    	var product = products[x];
-	    	$(".loader").hide();
-	    	$(".settings-header").removeClass("uk-hidden");
-	    	$(".load_div").removeClass("uk-hidden");
-	    	$(".pagination_div").removeClass("uk-hidden");
 	    	$("#product_div").append(getProductHtml(product));
 	    }
 
@@ -34,7 +65,7 @@ $(function(){
 		   '</div>'+
 		   '<div class="tm-product-card-body">'+
 		      '<div class="tm-product-card-info">'+
-		         '<div class="uk-text-meta uk-margin-xsmall-bottom">Laptop</div>'+
+		         '<div class="uk-text-meta uk-margin-xsmall-bottom">'+product.brand.name+'</div>'+
 		         '<h3 class="tm-product-card-title"><a class="uk-link-heading" href="product?id='+product.id+'">'+product.name+'</a></h3>'+
 		         '<ul class="uk-list uk-text-small tm-product-card-properties">'+
 		            '<li><span class="uk-text-muted">Diagonal display: </span><span>15.4"</span></li>'+

@@ -9,72 +9,53 @@
     longitude: 36.8111
   }
 
-  var catalog = [{
-    name: 'Laptops & Desktops',
-    id: 'laptops-desktops',
-    href: 'category=Laptops%20and%20Desktops',
-    image: 'images/catalog/computers.svg',
-    quantity: 367,
-    items: [
-      'Laptops',
-      'Desktops',
-      'Peripherals',
-      'Keyboards',
-      'Accessories'
-    ]
-  }, {
+  var catalog = [
+  {
     name: 'Phones & Gadgets',
-    id: 'phones-gadgets',
-    href: 'category=Phones%20and%20Gadgets',
+    id: 'Cat916602',
     image: 'images/catalog/phones.svg',
     quantity: 144,
     items: [
-      'Smartphones',
-      'Mobile Phones',
-      'Tablets',
-      'Smart watches',
-      'Charging and batteries',
-      'Accessories'
+      {id:"Su663453",name:'Smartphones'},
+      {id:"Su219007",name:'Mobile Phones'},
+      {id:"Su736118",name:'Tablets'},
+      {id:"Su856647",name:'Accessories'}
     ]
-  }, {
+  },
+  {
+    name: 'Laptops & Desktops',
+    id: 'Cat271057',
+    image: 'images/catalog/computers.svg',
+    quantity: 367,
+    items: [
+      {id:"Su703415",name:'Laptops'},
+      {id:"Su883603",name:'Desktops'},
+      {id:"Su844843",name:'Monitors'},
+      {id:"Su611355",name:'Servers'},
+      {id:"Su883603",name:'Peripherals'},
+      {id:"Su464341",name:'Keyboards'},
+      {id:"Su652037",name:'Accessories'}
+    ]
+  },
+   {
     name: 'TV & Video',
-    id: 'tv-video',
-    href: 'category=Tv%20and%20Radio',
+    id: 'Cat841319',
     image: 'images/catalog/tv.svg',
     quantity: 58,
     items: [
-      'TV',
-      'Home Cinema',
-      'Satellite & Cable TV',
-      'Projectors',
-      'DVD & Blu-ray',
-      'Accessories'
+     {id:"Su871805",name:'Digital TV'},
+     {id:"Su300511",name:'Smart TV'}
     ]
   }, {
     name: 'Games & Entertainment',
-    id: 'games-entertainment',
-    href: 'category=Games%20and%20Entertainment',
+    id: 'Cat491719',
     image: 'images/catalog/games.svg',
     quantity: 13,
     items: [
-      'Gaming consoles',
-      'Games',
-      'Software',
-      'Joysticks & gamepads',
-      'Accessories'
+      {id:"Su552361",name:'Gaming consoles'}
     ]
-  }, {
-    name: 'Photo',
-    id: 'photo',
-    href: 'category=Photo',
-    image: 'images/catalog/photo.svg',
-    quantity: 59,
-    items: [
-      'Cameras',
-      'Lenses',
-      'Accessories'
-    ]
-  }]
+  }
+  ]
 
   var brands = [{
     name: 'Apple',
@@ -133,7 +114,8 @@
     name: 'Brands',
     href: 'brands',
     items: brands
-  }, {
+  },
+  /* {
     name: 'Pages',
     href: '#',
     items: [{
@@ -200,16 +182,20 @@
       name: '404',
       href: '404'
     }]
-  }, {
+  },
+  {
     name: 'Blog',
     href: 'blog'
-  }, {
+  }
+   {
     name: 'About',
     href: 'about'
-  }, {
+  },*/ 
+  {
     name: 'Contacts',
     href: 'contacts'
-  }]
+  }
+  ]
 
   var footerMenuLeft = [{
     name: 'Catalog',
@@ -259,9 +245,9 @@
   var products = [{ 
     id: 1,
     name: 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)',
-    category: "laptop-dektops",
-    subcategory:"laptop",
-    type: 'macbook',
+    category: "Cat271057",
+    subcategory:"Su703415",
+    type: 'Laptop',
     href: 'product',
     image: {
       small: 'images/products/1/1-small.jpg',
@@ -433,8 +419,8 @@
     id: 2,
     name: 'Apple MacBook 12" MNYN2LL/A 512GB (Rose Gold)',
     type: 'Laptop',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     href: 'product',
     image: {
       small: 'images/products/2/2-small.jpg',
@@ -444,7 +430,11 @@
     additionalImages: [],
     price: 'Ksh 154,900',
     oldPrice: '',
-    brand: {},
+    brand: {
+      name: 'Apple',
+      image: 'images/brands/apple.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -465,8 +455,8 @@
     id: 3,
     name: 'Lenovo IdeaPad YOGA 920-13IKB 80Y7001RRK (Copper)',
     type: 'Laptop',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     href: 'product',
     image: {
       small: 'images/products/3/3-small.jpg',
@@ -476,7 +466,11 @@
     additionalImages: [],
     price: 'Ksh 119,900',
     oldPrice: '',
-    brand: {},
+    brand: {
+      name: 'Lenovo',
+      image: 'images/brands/lenovo.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -497,8 +491,8 @@
     id: 4,
     name: 'ASUS Zenbook UX330UA-FC020T (Rose Gold)',
     type: 'Laptop',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     href: 'product',
     image: {
       small: 'images/products/4/4-small.jpg',
@@ -508,7 +502,11 @@
     additionalImages: [],
     price: 'Ksh 74,900',
     oldPrice: '',
-    brand: {},
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -528,8 +526,8 @@
   }, {
     id: 5,
     name: 'Dell XPS 15 9560-8968 (Silver)',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     type: 'Laptop',
     href: 'product',
     image: {
@@ -540,7 +538,11 @@
     additionalImages: [],
     price: 'Ksh 94,900',
     oldPrice: 'Ksh 99,900',
-    brand: {},
+    brand: {
+      name: 'Dell',
+      image: 'images/brands/dell.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -561,8 +563,8 @@
     id: 6,
     name: 'Apple MacBook Air 13" MQD32LL/A 128GB (Silver)',
     type: 'Laptop',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     href: 'product',
     image: {
       small: 'images/products/6/6-small.jpg',
@@ -572,7 +574,11 @@
     additionalImages: [],
     price: 'Ksh 84,900',
     oldPrice: '',
-    brand: {},
+    brand: {
+      name: 'Apple',
+      image: 'images/brands/apple.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -592,8 +598,8 @@
   }, {
     id: 7,
     name: 'Dell Inspiron 5378-2063 (Gray)',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     type: 'Laptop',
     href: 'product',
     image: {
@@ -604,7 +610,11 @@
     additionalImages: [],
     price: 'Ksh 57,900',
     oldPrice: 'Ksh 59,900',
-    brand: {},
+    brand: {
+      name: 'Dell',
+      image: 'images/brands/dell.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -624,8 +634,8 @@
   }, {
     id: 8,
     name: 'Lenovo Yoga 720-13IKB 80X60059RK (Silver)',
-    category: "laptop-dektops",
-    subcategory:"laptop",
+    category: "Cat271057",
+    subcategory:"Su703415",
     type: 'Laptop',
     href: 'product',
     image: {
@@ -636,7 +646,11 @@
     additionalImages: [],
     price: 'Ksh 109,900',
     oldPrice: '',
-    brand: {},
+    brand: {
+      name: 'Lenovo',
+      image: 'images/brands/lenovo.svg',
+      href: '#',
+    },
     variations: [],
     specifications: [],
     reviews: [],
@@ -652,34 +666,6 @@
       'CPU': 'Intel®&nbsp;Core™ i5-7200U',
       'RAM': '8&nbsp;GB',
       'Video Card': 'Intel® HD Graphics 620'
-    }
-  }, {
-    id: 9,
-    name: 'Lenovo ThinkPad X380 Yoga 20LH000MUS (Black)',
-    type: 'Laptop',
-    category: "laptop-dektops",
-    subcategory:"laptop",
-    href: 'product',
-    image: '',
-    additionalImages: [],
-    price: 'Ksh 223,900',
-    oldPrice: '',
-    brand: {},
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: true,
-    isOnSale: false,
-    isAddedToCart: false,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: '',
-    properties: {
-      'Diagonal display': '13.3"',
-      'CPU': 'Intel®&nbsp;Core™ i7 8550U',
-      'RAM': '4&nbsp;GB',
-      'Video Card': 'Intel® UHD Graphics 620'
     }
   }]
 

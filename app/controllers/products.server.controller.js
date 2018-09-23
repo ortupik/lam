@@ -11,10 +11,25 @@ var _ = require('lodash'),
  * Get Products
  */
 exports.getProducts = function(req, res) {
-	Product.find({}, function(err, products){
+
+	var category = req.param("c");
+	var subcategory = req.param("s");
+
+	var query = {};
+
+	if(category == undefined && subcategory == undefined){
+		 res.json({success:0,message:"Invalid parameters"}); 
+	}else if(category != undefined && subcategory != undefined){
+		 query["subcategory"] = subcategory;
+	}else if(category != undefined && subcategory == undefined){
+          query["category"] = category;
+	}
+
+	Product.find(query, function(err, products){
 	    if (err) return res.send(500, { message: err , success: 0});
-	    res.json({success:0, data:products}); 
+	    res.json({success:1, data:products}); 
 	});
+
 };
 
 /**

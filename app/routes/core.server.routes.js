@@ -34,10 +34,6 @@ module.exports = function(app) {
 	app.get('/cart', function (req, res) {
 	  res.render('pages/cart.pug');
 	});
-	app.get('/catalog', function (req, res) {
-	  res.render('pages/catalog.pug');
-	});
-	
 	app.get('/checkout', function (req, res) {
 	  res.render('pages/checkout.pug');
 	});

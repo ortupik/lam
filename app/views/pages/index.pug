@@ -55,7 +55,7 @@ block default
                 div.tm-ratio.tm-ratio-4-3
                   div.tm-media-box
                     figure.tm-media-box-wrap
-                      img.item-brand(src= category.image alt= category.title)
+                      img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src= category.image alt= category.title)
               div.uk-margin-small-top
                 div.uk-text-truncate= category.title
                 if category.comment

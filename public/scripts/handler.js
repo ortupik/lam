@@ -1,4 +1,7 @@
 $(function(){
+    
+    var start = 0;
+    var displayLimit = 9;
 
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
@@ -15,36 +18,45 @@ $(function(){
 	}
 
     var query = getQueryParams(document.location.search);
+   
 
-    $.get("/products/all",query,function(res){
+    loadItems();
 
-        var products = res.data;
+    function loadItems(){
 
-    	$(".loader").hide();
+    	 query.start = start;
 
-    	if(products != undefined && products.length > 1){
-    		$(".settings-header").removeClass("uk-hidden");
-    	}
+	    $.get("/products/all",query,function(res){
 
-    	if(products != undefined && products.length > 6){
-           $(".load_div").removeClass("uk-hidden");
+	        var products = res.data;
 
-           var count = 1;
-           for(var i = 0; i < products.length; i+=6){
-           //   $(".uk-pagination").append('<li><a href="#"><span >'+count+'</span></a></li>');
-              count++;
-           }
-           //$(".uk-pagination").append('<li><a href="#"><span uk-pagination-next="uk-pagination-next"></span></a></li>');
+	    	$(".loader").hide();
 
-    	   $(".pagination_div").removeClass("uk-hidden");
-    	}
-    	
-        for(x in products){
-	    	var product = products[x];
-	    	$("#product_div").append(getProductHtml(product));
-	    }
+	    	if(products != undefined && products.length > 1){
+	    		$(".settings-header").removeClass("uk-hidden");
+	    	}
 
-    });
+	    	if(products != undefined && products.length >= 6){
+	           $(".load_div").removeClass("uk-hidden");
+
+	           var count = 1;
+	           for(var i = 0; i < products.length; i+=6){
+	           //   $(".uk-pagination").append('<li><a href="#"><span >'+count+'</span></a></li>');
+	              count++;
+	           }
+	           //$(".uk-pagination").append('<li><a href="#"><span uk-pagination-next="uk-pagination-next"></span></a></li>');
+
+	    	   $(".pagination_div").removeClass("uk-hidden");
+	    	}
+	    	
+	        for(x in products){
+		    	var product = products[x];
+		    	$("#product_div").append(getProductHtml(product));
+		    	bLazy.revalidate();
+		    }
+
+	    });
+	}
 
     $(".load_div").on("click",function(){
 
@@ -52,11 +64,9 @@ $(function(){
        $(".load_div").addClass("uk-hidden");
        $(".pagination_div").addClass("uk-hidden");
 
-       setTimeout(function(){
-            $(".loader").hide(); 
-            $(".load_div").removeClass("uk-hidden");
-            $(".pagination_div").removeClass("uk-hidden");
-         }, 3000);
+        start = start + displayLimit;
+
+        loadItems();
 
     });
 
@@ -69,6 +79,8 @@ $(function(){
     	if(image_src == undefined){
     	   image_src = "https://placeholder.pics/svg/450/No%20Image"	
     	}
+
+    	bLazy.revalidate();
 
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+

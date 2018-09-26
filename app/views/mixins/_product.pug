@@ -57,9 +57,9 @@ mixin product(product)
           if product.isNotAvailable
             div.uk-text-muted Product not available
           else
-            if product.oldPrice
-              del.uk-text-meta= product.oldPrice
-            div.tm-product-card-price= product.price
+            if product.oldPrice != -1
+              del.uk-text-meta=  "Ksh "+product.oldPrice.toLocaleString()
+            div.tm-product-card-price=  "Ksh "+product.price.toLocaleString()
 
         //- Actions buttons
         div.tm-product-card-add

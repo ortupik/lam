@@ -98,6 +98,7 @@ $(function(){
         start = 0;
     
         $("#product_div").empty();
+        $(".uk-pagination").empty();
         $(".settings-header").addClass("uk-hidden");
         $(".load_div").addClass("uk-hidden");
         $(".loader").show();

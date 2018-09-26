@@ -94,6 +94,8 @@ $(function(){
         }else{
         	query.from = 0;
         }
+
+        start = 0;
     
         $("#product_div").empty();
         $(".loader").show();

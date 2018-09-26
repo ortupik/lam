@@ -36,11 +36,12 @@ block pages
                   div
                     div.uk-inline
                       span.uk-form-icon.uk-text-xsmall from
-                      input.uk-input(type="text" placeholder="Ksh 0")
+                      input.uk-input.price_filter_from(type="number" min="0" placeholder="Ksh 0")
                   div
                     div.uk-inline
                       span.uk-form-icon.uk-text-xsmall to
-                      input.uk-input(type="text" placeholder="Ksh 30000")
+                      input.uk-input.price_filter_to(type="number" min="0" placeholder="9999999")
+                div.price_filter_button.uk-button.uk-button-secondary.uk-button-small.uk-margin-small.uk-width-1-1 Filter      
 
             //- Properties
             each property in filters

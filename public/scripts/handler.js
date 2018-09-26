@@ -3,6 +3,7 @@ $(function(){
     var start = 0;
     var displayLimit = 9;
 
+
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
 
@@ -18,7 +19,9 @@ $(function(){
 	}
 
     var query = getQueryParams(document.location.search);
-   
+    query.from = 0;
+    query.to = 1000000;
+
 
     loadItems();
 
@@ -38,39 +41,76 @@ $(function(){
 
 	    	if(products != undefined && products.length >= 6){
 	           $(".load_div").removeClass("uk-hidden");
-
-	           var count = 1;
-	           for(var i = 0; i < products.length; i+=6){
-	           //   $(".uk-pagination").append('<li><a href="#"><span >'+count+'</span></a></li>');
-	              count++;
-	           }
-	           //$(".uk-pagination").append('<li><a href="#"><span uk-pagination-next="uk-pagination-next"></span></a></li>');
-
-	    	   $(".pagination_div").removeClass("uk-hidden");
 	    	}
-	    	
+
 	        for(x in products){
 		    	var product = products[x];
 		    	$("#product_div").append(getProductHtml(product));
 		    	bLazy.revalidate();
+		    	bLazy.revalidate();
 		    }
 
+           $(".uk-pagination").empty();
+
+           var count = 1;
+
+           for(var i = 0; i < resultsQu; i+=displayLimit){
+
+           	  if(i == start){
+                $(".uk-pagination").append('<li class="uk-active"><a href="#"><span >'+count+'</span></a></li>');
+           	  }else{
+           	  	$(".uk-pagination").append('<li><a href="#"><span >'+count+'</span></a></li>');
+           	  }
+              count++;
+
+           }
+
+            $(".uk-pagination li").on("click",function(){
+		       var raw_no = $(this).find("span").text();
+		       var no = parseInt(raw_no) -1;
+		       start = no * displayLimit;
+		       $("#product_div").empty();
+		       $(".loader").show();
+		       loadItems();
+		    });
+
 	    });
+
 	}
+    
+    $(".price_filter_button").on("click",function(){
+
+        var to = $(".price_filter_to").val();
+        var from = $(".price_filter_from").val();
+
+        if(to){
+           query.to = parseInt(to);
+        }else{
+           query.to = 1000000;
+        }
+
+        if(from){
+        	query.from = parseInt(from);
+        }else{
+        	query.from = 0;
+        }
+    
+        $("#product_div").empty();
+        $(".loader").show();
+        loadItems();
+
+    });
 
     $(".load_div").on("click",function(){
 
        $(".loader").show();
        $(".load_div").addClass("uk-hidden");
-       $(".pagination_div").addClass("uk-hidden");
 
         start = start + displayLimit;
-
         loadItems();
+        bLazy.revalidate();
 
     });
-
-
 
 
     function getProductHtml(product){
@@ -81,6 +121,17 @@ $(function(){
     	}
 
     	bLazy.revalidate();
+
+    	var oldPrice = product.oldPrice;
+
+    	if(oldPrice == -1){
+    		oldPrice = '';
+    	}else{
+    		oldPrice = "Ksh "+oldPrice.toLocaleString();
+    	}
+
+    	var price = product.price;
+    	price = "Ksh "+price.toLocaleString();
 
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+
@@ -104,8 +155,8 @@ $(function(){
 		      '</div>'+
 		      '<div class="tm-product-card-shop">'+
 		         '<div class="tm-product-card-prices">'+
-		            '<del class="uk-text-meta">'+product.oldPrice+'</del>'+
-		            '<div class="tm-product-card-price">'+product.price+'</div>'+
+		            '<del class="uk-text-meta">'+oldPrice+'</del>'+
+		            '<div class="tm-product-card-price">'+price+'</div>'+
 		         '</div>'+
 		         '<div class="tm-product-card-add">'+
 		            '<div class="uk-text-meta tm-product-card-actions">'+

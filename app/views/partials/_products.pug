@@ -68,16 +68,10 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
         img.loader(src="images/loading51.gif")    
 
   //- Pagination
-  div.pagination_div.uk-hidden
+  div.pagination_div
     ul.uk-pagination.uk-flex-center
-      li.uk-active: span 1
-      li: a(href="#") 2
-      li: a(href="#") 3
-      li: a(href="#") 4
-      li: a(href="#") 5
-      li.uk-disabled: span …
-      li: a(href="#") 20
-      li: a(href="#"): span(uk-pagination-next)
+      
 
-
-script(src="scripts/handler.js")          
+script.
+       var resultsQu = "#{page.quantity}";
+script(src="scripts/handler.js") 

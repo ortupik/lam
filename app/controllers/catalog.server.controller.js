@@ -49,7 +49,6 @@ exports.getCatalog = function(req, res) {
 	var page = {};
     page.breadcrumbs = [];
 
-	
 	Catalog.find({}, function(err, catalog){
 	      if (err) return res.send(500, { message: err , success: 0});
 	      page.title = "Catalog";

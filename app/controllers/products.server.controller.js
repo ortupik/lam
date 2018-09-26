@@ -15,6 +15,8 @@ exports.getProducts = function(req, res) {
 	var category = req.param("c");
 	var subcategory = req.param("s");
 	var start = parseInt(req.param("start"));
+	var from = parseInt(req.param("from"));
+	var to = parseInt(req.param("to"));
 	var displayLimit = 9;
 
 	var query = {};
@@ -30,7 +32,7 @@ exports.getProducts = function(req, res) {
 	Product.find(query, function(err, products){
 	    if (err) return res.send(500, { message: err , success: 0});
 	    res.json({success:1, data:products}); 
-	}).skip(start).limit(displayLimit);
+	}).where('price').gte(from).lte(to).skip(start).limit(displayLimit);
 
 };
 

@@ -47,10 +47,10 @@ var ProductSchema = new Schema({
     ]
   },
   price: {
-    type: 'String'
+    type: 'Number'
   },
   oldPrice: {
-    type: 'String'
+    type: 'Number'
   },
   brand: {
     name: {

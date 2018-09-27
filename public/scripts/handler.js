@@ -94,6 +94,7 @@ $(function(){
 		       	 if(page < pages){
                      page++;
                       $("#product_div").empty();
+                      $(".load_div").addClass("uk-hidden");
 				      $(".loader").show();
 				      loadItems();
                   }
@@ -101,6 +102,7 @@ $(function(){
                    if(page > 1){
                       page--;
                        $("#product_div").empty();
+                       $(".load_div").addClass("uk-hidden");
 				       $(".loader").show();
 				       loadItems();
                    }
@@ -108,6 +110,7 @@ $(function(){
 		         var no = parseInt(raw_no);
 		         page = no;
 		          $("#product_div").empty();
+		          $(".load_div").addClass("uk-hidden");
 			      $(".loader").show();
 			      loadItems();
 		       }

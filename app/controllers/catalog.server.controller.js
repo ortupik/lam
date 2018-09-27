@@ -31,12 +31,7 @@ exports.getCategoryCatalog = function(req, res) {
 	Catalog.findOne(query,{_id:0}, function(err, catalog){
 	      if (err) return res.send(500, { message: err , success: 0});
 	      page.title = catalog.name;
-
-	      Product.count({category:category}, function(err, c) {
-              page.quantity = c;
-              res.render('pages/category.pug',{page:page,category:catalog});  
-          });
-
+          res.render('pages/category.pug',{category:catalog,page:page});  
 	});
 
 };
@@ -59,7 +54,6 @@ exports.getCatalog = function(req, res) {
                  page:page,
                  catalog:catalog
               }
-              console.log(data)
               res.render('pages/catalog.pug',data);  
           });
 
@@ -89,18 +83,12 @@ exports.getSubCategoryCatalog = function(req, res) {
 	}
 
 	Catalog.findOne(query,{"items.$":1,name:1,_id:0,id:1}, function(err, catalog){
-
 	      if (err || catalog == undefined || catalog.length < 0) return res.send(500, { message: err , success: 0});
-
 	      var item = catalog.items[0];
 	      page.title = item.name;
           page.breadcrumbs.push({href: "/category?c="+catalog.id,name:catalog.name});
 	      page.breadcrumbs.push({href: "/subcategory?c="+catalog.id+"&s="+item.id,name:item.name});
-
-          Product.count({subcategory:subcategory}, function(err, c) {
-              page.quantity = c;
-              res.render('pages/subcategory.pug',{page:page});
-          });   
+	      res.render('pages/subcategory.pug',{page:page});
 	         
 	});
 

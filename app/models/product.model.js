@@ -5,11 +5,15 @@
  */
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
-  crypto = require('crypto');
+  crypto = require('crypto'),
+  mongoosePaginate = require('mongoose-paginate');
 
 /**
  * Product Schema
  */
+
+ var schema = new mongoose.Schema({ /* schema definition */ });
+ 
 
 var ProductSchema = new Schema({
   id: {
@@ -113,4 +117,5 @@ var ProductSchema = new Schema({
   }
 }); 
 
+ProductSchema.plugin(mongoosePaginate);
 mongoose.model('Product', ProductSchema);

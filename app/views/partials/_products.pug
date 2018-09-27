@@ -21,13 +21,10 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
 
               ul.uk-subnav.uk-margin-remove
                 li.uk-active.uk-padding-remove
-                  a.uk-text-lowercase(href="#") relevant
-                    +icon("chevron-down", ".5")(class="uk-margin-xsmall-left")
-                li
-                  a.uk-text-lowercase(href="#") price
-                li
-                  a.uk-text-lowercase(href="#") newest
-
+                  a.uk-text-lowercase.price_sort_link(href="#", sort_by="asc") price
+                    +icon("chevron-up", ".5")(class="uk-margin-xsmall-left price_sort_icon_asc")
+                    +icon("chevron-down", ".5")(class="uk-margin-xsmall-left price_sort_icon_desc uk-hidden")
+              
             //- Filters button & change view
             div(class="uk-width-1-1 uk-width-auto@s uk-flex uk-flex-center uk-flex-middle")
 
@@ -68,8 +65,9 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
         img.loader(src="images/loading51.gif")    
 
   //- Pagination
-  div.pagination_div
-    ul.uk-pagination.uk-flex-center
+  div.pagination_div.pagination_style
+    nav.pagination.pagination_type2.pagination_type3
+       ol.pagination__list
       
 
 script.

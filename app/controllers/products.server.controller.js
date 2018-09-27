@@ -14,12 +14,16 @@ exports.getProducts = function(req, res) {
 
 	var category = req.param("c");
 	var subcategory = req.param("s");
-	var start = parseInt(req.param("start"));
+	var page = parseInt(req.param("page"));
 	var from = parseInt(req.param("from"));
 	var to = parseInt(req.param("to"));
+	var price_sort = parseInt(req.param("price_sort"));
+
 	var displayLimit = 9;
 
-	var query = {};
+	var query = {
+        price: { $gte: from, $lte: to}
+	};
 
 	if(category == undefined && subcategory == undefined){
 		 res.json({success:0,message:"Invalid parameters"}); 
@@ -29,10 +33,15 @@ exports.getProducts = function(req, res) {
           query["category"] = category;
 	}
 
-	Product.find(query, function(err, products){
-	    if (err) return res.send(500, { message: err , success: 0});
-	    res.json({success:1, data:products}); 
-	}).where('price').gte(from).lte(to).skip(start).limit(displayLimit);
+	var options = {
+	    sort: { price: price_sort},
+	    page: page,
+	    limit: displayLimit
+	};
+
+	Product.paginate(query,options).then(function(result) {
+		res.json({success:1, total: result.total, pages:result.pages, data:result.docs}); 
+	});
 
 };
 

@@ -34,6 +34,12 @@ $(function(){
 	    $.get("/products/all",query,function(res){
 
 	        var products = res.data;
+	        var total = res.total;
+            pages = res.pages;
+            
+            if(!total){
+           	  total = 0;
+            }
 
 	    	$(".loader").hide();
 
@@ -41,8 +47,8 @@ $(function(){
 	    		$(".settings-header").removeClass("uk-hidden");
 	    	}
 
-	    	if(products != undefined && products.length >= 6 && page <= pages-1){
-	           $(".load_div").removeClass("uk-hidden");
+	    	if(products != undefined && products.length >= 6 && page < pages){
+	            $(".load_div").removeClass("uk-hidden");
 	    	}else{
 	    		 $(".load_div").addClass("uk-hidden");
 	    	}
@@ -56,12 +62,6 @@ $(function(){
 
            $(".pagination__list").empty();
 
-            var total = res.total;
-            pages = res.pages;
-
-           if(!total){
-           	  total = 0;
-           }
            
            if(total == 1){
               $(".page_quantity").text(total+" Product Found" );

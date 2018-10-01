@@ -69,21 +69,11 @@ block pages
                               "uk-box-shadow-xlarge " +
                               "uk-text-small") Filter by Brand
               div.uk-accordion-content
-                ul#list_brand.uk-list.tm-scrollbox
-                  li
-                    input.tm-checkbox(
-                      value= "Spark"
-                      type="checkbox")
-                    label(for= "Spark")
-                      span= "Spark"
-                        |
-                        |
-                        span.uk-text-meta.uk-text-xsmall=20
-                      
+                ul#list_brand.uk-list.tm-scrollbox                      
 
             //- Reset filters
             div.uk-card-body
-              button.uk-button.uk-button-default.uk-width-1-1
+              button#reset_btn.uk-button.uk-button-default.uk-width-1-1
                 +icon("close", ".75")(class="uk-margin-xsmall-right")
                 | Reset all filters
 

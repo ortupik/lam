@@ -224,6 +224,26 @@ $(function(){
 
     });
 
+   $("#reset_btn").on("click",function(){
+	    query.from = 0;
+	    query.to = 9999999;
+	    query.price_sort = 1;
+	    query.brand = [];
+
+	    $(".brand_check_box").removeAttr("checked");
+	    $(".price_filter_to").val("");
+        $(".price_filter_from").val("");
+
+         $(".price_sort_icon_desc").addClass("uk-hidden");
+         $(".price_sort_icon_asc").removeClass("uk-hidden");
+         $(".price_sort_link").attr("sort_by","asc");
+
+	    $("#product_div").empty();
+        $(".load_div").addClass("uk-hidden");
+        $(".loader").show();
+        loadItems();
+});
+
 
     function getProductHtml(product){
 

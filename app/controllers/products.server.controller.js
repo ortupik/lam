@@ -36,7 +36,6 @@ exports.getProducts = function(req, res) {
 
 	if(brand != undefined){
        query["brand.name"] = { $in: brand };
-       console.log(query)
 	}
 
 
@@ -47,7 +46,6 @@ exports.getProducts = function(req, res) {
 	};
 
 	Product.paginate(query,options).then(function(result) {
-		console.log(result.docs);
 		res.json({success:1, total: result.total, pages:result.pages, data:result.docs}); 
 	});
 

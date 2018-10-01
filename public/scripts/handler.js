@@ -139,18 +139,21 @@ $(function(){
            }
 
            $(".brand_check_box").on("click",function(){
+
            	  var brand = $(this).val();
            	  var isChecked = $(this).is(":checked");
+
            	  if(isChecked){
                  query.brand.push(brand);
            	  }else{
-                 query.brand.pop(brand);
+                 query.brand.splice($.inArray(brand, query.brand), 1 );
            	  }
            	  
            	   $("#product_div").empty();
                $(".load_div").addClass("uk-hidden");
 		       $(".loader").show();
            	   loadItems();
+           	   
 	       })
 
 	    });

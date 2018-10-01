@@ -16,5 +16,7 @@ module.exports = function(app) {
 	app.route('/category').get(catalog.getCategoryCatalog);
 
 	app.route('/subcategory').get(catalog.getSubCategoryCatalog);
+
+	app.route('/filter/getBrands').post(products.getBrands);
 	
 };

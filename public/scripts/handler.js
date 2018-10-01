@@ -23,6 +23,7 @@ $(function(){
     query.from = 0;
     query.to = 9999999;
     query.price_sort = 1;
+    query.brand = [];
 
 
     loadItems();
@@ -116,6 +117,41 @@ $(function(){
 		       }
 		       
 		    });
+
+	    });
+        
+	    $.post("/filter/getBrands",query,function(res){
+
+	       $("#list_brand").empty();
+
+           for(var i = 0; i < res.data.length; i++){
+           	    var obj = res.data[i];
+           	    var brandName = obj._id.brand;
+
+           	    var classes = "";
+
+           	    if($.inArray( brandName, query.brand ) > -1){
+                   classes = 'checked="checked"';
+           	    }
+
+           	    $("#list_brand").append('<li><input class="tm-checkbox brand_check_box" '+classes+' id="'+i+'" value="'+brandName+'" type="checkbox" /><label for="'+i+'"><span>  '+brandName+'  <span class="uk-text-meta uk-text-xsmall">'+obj.total+'</span></span></label></li>');
+
+           }
+
+           $(".brand_check_box").on("click",function(){
+           	  var brand = $(this).val();
+           	  var isChecked = $(this).is(":checked");
+           	  if(isChecked){
+                 query.brand.push(brand);
+           	  }else{
+                 query.brand.pop(brand);
+           	  }
+           	  
+           	   $("#product_div").empty();
+               $(".load_div").addClass("uk-hidden");
+		       $(".loader").show();
+           	   loadItems();
+	       })
 
 	    });
 

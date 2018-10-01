@@ -51,41 +51,35 @@ block pages
                 div.price_filter_button.uk-button.uk-button-secondary.uk-button-small.uk-margin-small.uk-width-1-1 Filter       
 
             //- Properties
-            each property in filters
-              if property.id= 1
-                section.uk-card-body.js-accordion-section(
-                  class= { "uk-open": property.isOpen })
-                  h4.uk-accordion-title.uk-margin-remove= property.title
-                    if property.description
-                      +icon("question", ".75")(
-                        class="tm-help-icon"
-                        onclick="event.stopPropagation();")
-                      div.uk-margin-remove(
-                        uk-drop="mode: click;" +
-                                "boundary-align: true; " +
-                                "boundary: !.uk-accordion-title; " +
-                                "pos: bottom-justify;")
-                        div(class="uk-card " +
-                                  "uk-card-body " +
-                                  "uk-card-default " +
-                                  "uk-card-small " +
-                                  "uk-box-shadow-xlarge " +
-                                  "uk-text-small")= property.description
-                  div.uk-accordion-content
-                    ul.uk-list.tm-scrollbox
-                      each item in property.items
-                        li
-                          input.tm-checkbox(
-                            id= property.name + "-" + item.id
-                            name= property.name
-                            value= item.id
-                            type="checkbox")
-                          label(for= property.name + "-" + item.id)
-                            span= item.name
-                              |
-                              |
-                              span.uk-text-meta.uk-text-xsmall= item.quantity
-              - break
+            section.uk-card-body.js-accordion-section(
+              class= { "uk-open": true })
+              h4.uk-accordion-title.uk-margin-remove= "Brands"
+                  +icon("question", ".75")(
+                    class="tm-help-icon"
+                    onclick="event.stopPropagation();")
+                  div.uk-margin-remove(
+                    uk-drop="mode: click;" +
+                            "boundary-align: true; " +
+                            "boundary: !.uk-accordion-title; " +
+                            "pos: bottom-justify;")
+                    div(class="uk-card " +
+                              "uk-card-body " +
+                              "uk-card-default " +
+                              "uk-card-small " +
+                              "uk-box-shadow-xlarge " +
+                              "uk-text-small") Filter by Brand
+              div.uk-accordion-content
+                ul#list_brand.uk-list.tm-scrollbox
+                  li
+                    input.tm-checkbox(
+                      value= "Spark"
+                      type="checkbox")
+                    label(for= "Spark")
+                      span= "Spark"
+                        |
+                        |
+                        span.uk-text-meta.uk-text-xsmall=20
+                      
 
             //- Reset filters
             div.uk-card-body

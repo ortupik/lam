@@ -18,6 +18,7 @@ exports.getProducts = function(req, res) {
 	var from = parseInt(req.param("from"));
 	var to = parseInt(req.param("to"));
 	var price_sort = parseInt(req.param("price_sort"));
+	var brand = req.param("brand");
 
 	var displayLimit = 9;
 
@@ -33,6 +34,12 @@ exports.getProducts = function(req, res) {
           query["category"] = category;
 	}
 
+	if(brand != undefined){
+       query["brand.name"] = { $in: brand };
+       console.log(query)
+	}
+
+
 	var options = {
 	    sort: { price: price_sort},
 	    page: page,
@@ -40,6 +47,7 @@ exports.getProducts = function(req, res) {
 	};
 
 	Product.paginate(query,options).then(function(result) {
+		console.log(result.docs);
 		res.json({success:1, total: result.total, pages:result.pages, data:result.docs}); 
 	});
 
@@ -84,6 +92,33 @@ exports.createProduct = function(req, res) {
 			message: 'User is not signed in'
 		});
 	}
+
+};
+
+exports.getBrands = function(req, res) {
+
+	var category = req.body.c;
+	var subcategory = req.body.s;
+	var from = parseInt(req.body.from);
+	var to = parseInt(req.body.to);
+	var brand = req.body.brand;
+
+	var query = {
+        price: { $gte: from, $lte: to}
+	};
+
+	if(category == undefined && subcategory == undefined){
+		 res.json({success:0,message:"Invalid parameters"}); 
+	}else if(category != undefined && subcategory != undefined){
+		 query["subcategory"] = subcategory;
+	}else if(category != undefined && subcategory == undefined){
+          query["category"] = category;
+	}
+
+	Product.aggregate([{ $match: query},{$group: {_id: {brand:"$brand.name"},total: {$sum: 1}}} ],function(err, result){
+       if (err) return res.send(500, { message: err , success: 0});
+       res.json({success:1, data:result}); 
+	});
 
 };
 

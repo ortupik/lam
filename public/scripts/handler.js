@@ -5,6 +5,7 @@ $(function(){
     var pages = 0;
 
 
+
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
 
@@ -332,11 +333,6 @@ $(function(){
 		                  '</span>'+
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+
-		               '<a class="tm-product-card-action js-add-to js-add-to-compare tm-action-button-active js-added-to" title="Add to compare">'+
-		                  '<span uk-icon="icon: copy; ratio: .75;" class="uk-icon">'+
-		                  '</span>'+
-		                  '<span class="tm-product-card-action-text">Add to compare</span>'+
-		               '</a>'+
 		            '</div>'+
 		            '<button class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart">'+
 		               '<span class="tm-product-card-add-button-icon uk-icon" uk-icon="cart">'+
@@ -349,6 +345,36 @@ $(function(){
 		'</article>';
 
 		  bLazy.revalidate();
+
+		    var addToCartButtons = document.querySelectorAll('.js-add-to-cart');
+			    Array.prototype.forEach.call(addToCartButtons, function(el) {
+			        el.onclick = function() {
+			            UIkit.offcanvas('#cart-offcanvas').show();
+			        };
+			});
+
+		 var addToButtons = document.querySelectorAll('.js-add-to');
+		    Array.prototype.forEach.call(addToButtons, function(el) {
+		        var link;
+		        var message = '<span class="uk-margin-small-right" uk-icon=\'check\'></span>Added to ';
+		        var links = {
+		            favorites: '<a href="/favorites">favorites</a>',
+		        };
+		        if (el.classList.contains('js-add-to-favorites')) {
+		            link = links.favorites;
+		        };
+		      
+		        el.onclick = function() {
+		            if (!this.classList.contains('js-added-to')) {
+		                UIkit.notification({
+		                    message: message + link,
+		                    pos: 'bottom-right'
+		                });
+		            }
+		            this.classList.toggle('tm-action-button-active');
+		            this.classList.toggle('js-added-to');
+		        };
+		    });
 
 		return product_html;
     }  

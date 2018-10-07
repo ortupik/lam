@@ -329,7 +329,7 @@ $(function(){
 		         '<div class="tm-product-card-add">'+
 		            '<div class="uk-text-meta tm-product-card-actions">'+
 		               '<a class="tm-product-card-action js-add-to js-add-to-favorites tm-action-button-active js-added-to" title="Add to favorites">'+
-		                  '<span uk-icon="icon: heart; ratio: .75;" class="uk-icon">'+
+		                  '<span uk-icon="icon: heart; ratio: 1.15;" class="uk-icon" >'+
 		                  '</span>'+
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+
@@ -346,12 +346,12 @@ $(function(){
 
 		  bLazy.revalidate();
 
-		    var addToCartButtons = document.querySelectorAll('.js-add-to-cart');
-			    Array.prototype.forEach.call(addToCartButtons, function(el) {
-			        el.onclick = function() {
-			            UIkit.offcanvas('#cart-offcanvas').show();
-			        };
-			});
+	    var addToCartButtons = document.querySelectorAll('.js-add-to-cart');
+		    Array.prototype.forEach.call(addToCartButtons, function(el) {
+		        el.onclick = function() {
+		            UIkit.offcanvas('#cart-offcanvas').show();
+		        };
+		});
 
 		 var addToButtons = document.querySelectorAll('.js-add-to');
 		    Array.prototype.forEach.call(addToButtons, function(el) {

@@ -83,13 +83,15 @@ exports.getSubCategoryCatalog = function(req, res) {
 	}
 
 	Catalog.findOne(query,{"items.$":1,name:1,_id:0,id:1}, function(err, catalog){
-	      if (err || catalog == undefined || catalog.length < 0) return res.send(500, { message: err , success: 0});
-	      var item = catalog.items[0];
-	      page.title = item.name;
-          page.breadcrumbs.push({href: "/category?c="+catalog.id,name:catalog.name});
-	      page.breadcrumbs.push({href: "/subcategory?c="+catalog.id+"&s="+item.id,name:item.name});
-	      res.render('pages/subcategory.pug',{page:page});
-	         
+	      if (err || catalog == undefined || catalog.length < 0){
+	      	return res.send(500, { message: err , success: 0});
+	      }else{
+	      	 var item = catalog.items[0];
+		      page.title = item.name;
+	          page.breadcrumbs.push({href: "/category?c="+catalog.id,name:catalog.name});
+		      page.breadcrumbs.push({href: "/subcategory?c="+catalog.id+"&s="+item.id,name:item.name});
+		      res.render('pages/subcategory.pug',{page:page});
+	      } 
 	});
 
 };

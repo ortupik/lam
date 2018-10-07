@@ -25,8 +25,9 @@ $(function(){
     query.price_sort = 1;
     query.brand = [];
 
+    var page_title = $("#page_title").text();
 
-    loadItems();
+   loadItems();
 
     function loadItems(){
 
@@ -118,6 +119,7 @@ $(function(){
 		       
 		    });
 
+
 	    });
         
 	    $.post("/filter/getBrands",query,function(res){
@@ -142,18 +144,20 @@ $(function(){
 
            	  var brand = $(this).val();
            	  var isChecked = $(this).is(":checked");
+           	  page = 1;
 
            	  if(isChecked){
                  query.brand.push(brand);
            	  }else{
                  query.brand.splice($.inArray(brand, query.brand), 1 );
            	  }
-           	  
+
            	   $("#product_div").empty();
                $(".load_div").addClass("uk-hidden");
 		       $(".loader").show();
+
            	   loadItems();
-           	   
+
 	       })
 
 	    });
@@ -228,7 +232,35 @@ $(function(){
     });
 
    $("#reset_btn").on("click",function(){
-	    query.from = 0;
+	  resetParams();
+	  query.search = undefined;
+	  $("#page_title").text(page_title);
+	  loadItems();
+   });
+
+   $('#searchField').keypress(function (e) {
+
+	  if (e.which == 13) {
+		  	var searchField = $("#searchField").val();
+		  	$("#page_title").text('Search Results for "'+ searchField+'"');
+		  	$("#searchField").val("");
+		  	resetParams();
+		  	query.search = searchField;
+		  	$("#search_drop_down").slideUp();		  	
+	        loadItems();
+
+		    return false;   
+	   }
+
+	});
+
+   $("#search_link").on("click",function(){
+     $("#search_drop_down").slideDown();	
+     $("#searchField").focus();
+   });
+
+   function resetParams(){
+   	    query.from = 0;
 	    query.to = 9999999;
 	    query.price_sort = 1;
 	    query.brand = [];
@@ -244,8 +276,8 @@ $(function(){
 	    $("#product_div").empty();
         $(".load_div").addClass("uk-hidden");
         $(".loader").show();
-        loadItems();
-});
+
+   }
 
 
     function getProductHtml(product){

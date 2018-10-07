@@ -19,6 +19,7 @@ exports.getProducts = function(req, res) {
 	var to = parseInt(req.param("to"));
 	var price_sort = parseInt(req.param("price_sort"));
 	var brand = req.param("brand");
+	var searchText = req.param("search");
 
 	var displayLimit = 9;
 
@@ -38,6 +39,9 @@ exports.getProducts = function(req, res) {
        query["brand.name"] = { $in: brand };
 	}
 
+	if(searchText){
+		query["name"] = { '$regex' : searchText, '$options' : 'i' };
+	}
 
 	var options = {
 	    sort: { price: price_sort},
@@ -93,6 +97,7 @@ exports.createProduct = function(req, res) {
 
 };
 
+
 exports.getBrands = function(req, res) {
 
 	var category = req.body.c;
@@ -100,6 +105,7 @@ exports.getBrands = function(req, res) {
 	var from = parseInt(req.body.from);
 	var to = parseInt(req.body.to);
 	var brand = req.body.brand;
+	var searchText = req.body.search;
 
 	var query = {
         price: { $gte: from, $lte: to}
@@ -113,10 +119,16 @@ exports.getBrands = function(req, res) {
           query["category"] = category;
 	}
 
+	if(searchText){
+		query["name"] = { '$regex' : searchText, '$options' : 'i' };
+	}
+
 	Product.aggregate([{ $match: query},{$group: {_id: {brand:"$brand.name"},total: {$sum: 1}}} ],function(err, result){
        if (err) return res.send(500, { message: err , success: 0});
        res.json({success:1, data:result}); 
 	});
 
 };
+
+
 

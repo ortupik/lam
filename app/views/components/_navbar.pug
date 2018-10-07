@@ -80,19 +80,19 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
     div.uk-navbar-right
 
       //- Search
-      a.uk-navbar-toggle.tm-navbar-button(href="#" uk-search-icon)
-      div.uk-navbar-dropdown.uk-padding-small.uk-margin-remove(
+      a#search_link.uk-navbar-toggle.tm-navbar-button(href="#" uk-search-icon)
+      div#search_drop_down.uk-navbar-dropdown.uk-padding-small.uk-margin-remove(
         uk-drop="mode: click;" +
                 "cls-drop: uk-navbar-dropdown;" +
                 "boundary: .tm-navbar-container;" +
                 "boundary-align: true;" +
-                "pos: bottom-justify;" +
+                "pos: bottom-justify;" + 
                 "flip: x")
         div.uk-container
           div.uk-grid-small.uk-flex-middle(uk-grid)
             div.uk-width-expand
-              form.uk-search.uk-search-navbar.uk-width-1-1
-                input.uk-search-input(type="search" placeholder="Search…" autofocus)
+              div#searchForm.uk-search.uk-search-navbar.uk-width-1-1(href="#")
+                input#searchField.uk-search-input(type="search" placeholder="Search…" autofocus)
             div.uk-width-auto
               a.uk-navbar-dropdown-close(href="#" uk-close)
 

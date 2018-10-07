@@ -14,7 +14,7 @@ block default
               each x in page.breadcrumbs
                 li: a(href=x.href)= x.name
           if page.title
-            h1.uk-margin-small-top.uk-margin-remove-bottom= page.title
+            h2#page_title.uk-margin-small-top.uk-margin-remove-bottom= page.title
             div.uk-text-meta.uk-margin-xsmall-top.page_quantity
 
         div

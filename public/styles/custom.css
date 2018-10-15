@@ -1,5 +1,63 @@
+.login-with-twitter {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background-color: #00aced;
+  -webkit-transition: background-color 515ms ease, -webkit-transform 582ms ease;
+  transition: background-color 515ms ease, -webkit-transform 582ms ease;
+  transition: transform 582ms ease, background-color 515ms ease;
+  transition: transform 582ms ease, background-color 515ms ease, -webkit-transform 582ms ease;
+  text-align: center;
+}
+
+.login-with-twitter:hover {
+  background-color: #148dbb;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+.login-with-twitter.facebook-signin {
+  background-color: #3b5998;
+  text-transform: uppercase;
+}
+
+.login-with-twitter.facebook-signin:hover {
+  background-color: #203b74;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+.twitter-logo-sigin {
+  margin-right: 6px;
+  padding-right: 3px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.twitter-sigin {
+  position: relative;
+  display: inline-block;
+  font-family: Karla, sans-serif;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 .loader{
 	display: block;margin-left: auto;margin-right: auto;width: 7%; height: 7%;  padding-top:40px; padding-bottom:40px;
+}
+.or {
+   margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: Eina01, sans-serif;
+  color: #a7a7a7;
+  font-size: 14px;
+  text-align: center;
 }
 
 /*

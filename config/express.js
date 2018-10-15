@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-var fs = require('fs'),
+var fs = require('fs'), 
 	http = require('http'),
 	https = require('https'),
 	express = require('express'),
@@ -33,6 +33,7 @@ module.exports = function(db) {
 	});
 
 	// Setting application local variables
+	app.locals.logged_in = false;
 	app.locals.title = config.app.title;
 	app.locals.description = config.app.description;
 	app.locals.keywords = config.app.keywords;

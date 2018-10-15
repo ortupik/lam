@@ -22,6 +22,15 @@ module.exports = function(app) {
 	app.get('/account', function (req, res) {
 	  res.render('pages/account.pug');
 	});
+	app.get('/login', function (req, res) {
+	  res.render('pages/login.pug');
+	});
+	app.get('/register', function (req, res) {
+	  res.render('pages/register.pug');
+	});
+	app.get('/forgot_password', function (req, res) {
+	  res.render('pages/forgot_password.pug');
+	});
 	app.get('/article', function (req, res) {
 	  res.render('pages/article.pug');
 	});

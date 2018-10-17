@@ -48,11 +48,11 @@ $(function(){
           data: data,
           success: function(response) {
             console.log(response)
-		    localStorage.setItem('user', JSON.stringify(response));
-			$(".w-form-done").show(); 
-			$(".w-form-fail").hide();
-			// And redirect to the index page
-			location.href = '/settings';
+    		    localStorage.setItem('user', JSON.stringify(response));
+    		  	$(".w-form-done").show(); 
+    			  $(".w-form-fail").hide();
+      			// And redirect to the index page
+      			location.href = '/settings';
           },
           error: function(response) {
               console.log(response)

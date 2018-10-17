@@ -6,7 +6,7 @@ block vars
       title: 'Settings'
     }
 
-    profileActivePage = 4
+    profileActivePage = 3
 
 block account
   div.uk-card-body
@@ -22,7 +22,7 @@ block account
             div
               label
                 div.uk-form-label Current Email
-                input.uk-input.uk-form-width-large(type="email" value= profile.email disabled)
+                input#email_field.uk-input.uk-form-width-large(type="email"  disabled)
             div
               label
                 div.uk-form-label New Email

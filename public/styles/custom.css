@@ -59,7 +59,21 @@
   font-size: 14px;
   text-align: center;
 }
-
+.w-form-done {
+  display: none;
+  padding: 20px;
+  text-align: center;
+  background-color: #dddddd;
+  margin-bottom: 15px;
+}
+.w-form-fail {
+  display: none;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ffdede;
+  margin-bottom: 10px;
+}
 /*
 =====
 LEVEL 0. RESET BROWSER'S STYLES

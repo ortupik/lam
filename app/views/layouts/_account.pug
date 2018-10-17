@@ -1,7 +1,7 @@
 extends _default
 
 block vars
-
+       
 block default
   section.uk-section.uk-section-small
     div.uk-container
@@ -36,7 +36,7 @@ block default
                         +icon("camera", "1.25")
 
                 div.uk-text-center
-                  div.uk-h4.uk-margin-remove #{profile.firstName} #{profile.lastName}
+                  div#name.uk-h4.uk-margin-remove 
                   div.uk-text-meta Joined #{profile.registrationDate}
 
                 div
@@ -71,3 +71,6 @@ block default
             header.uk-card-header
               h1.uk-h2= page.title
             block account
+
+  script(src="scripts/settings.js")   
+       

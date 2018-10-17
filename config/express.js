@@ -137,12 +137,12 @@ module.exports = function(db) {
 	});
 
 	// Assume 404 since no middleware responded
-	app.use(function(req, res) {
+	/*app.use(function(req, res) {
 		res.status(404).render('pages/404.pug', {
 			url: req.originalUrl,
 			error: 'Not Found'
 		});
-	});
+	});*/
 
 	if (process.env.NODE_ENV === 'secure') {
 		// Log SSL usage

@@ -4,8 +4,6 @@ $(function(){
     var displayLimit = 9;
     var pages = 0;
 
-
-
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
 

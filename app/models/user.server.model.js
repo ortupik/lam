@@ -113,26 +113,6 @@ var UserSchema = new Schema({
 		type: String,
 		default: ''
 	},
-	website_url: {
-		type: String,
-		default: ''
-	},
-	dribble_url: {
-		type: String,
-		default: ''
-	},
-	twitter_url: {
-		type: String,
-		default: ''
-	},
-	linkedin_url: {
-		type: String,
-		default: ''
-	},
-	behance_url: {
-		type: String,
-		default: ''
-	},
 	profile_image_url: {
 		type: String,
 		default: "images/person.png"

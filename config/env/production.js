@@ -1,31 +1,27 @@
 'use strict';
 
+//db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
+//db: 'mongodb://127.0.0.1:27017/happystores',
 module.exports = {
 	db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
+	port: 8080,
+	app: {
+		title: 'E-Commerce'
+	},
 	facebook: {
 		clientID: '210126882934161',
 		clientSecret: 'f974f5846983a242eb41a65aaa0df679',
-		callbackURL: 'https://happystores.herokuapp.com/auth/facebook/callback'
+		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: '0fMRxjGZ89A5DOf1y2cifzMna',
+		clientSecret: 'W4WxO7940WViUgPhQhopqLk3e6n2skP0mvmdXQETtVjixwquLn',
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {
 		clientID: process.env.GOOGLE_ID || 'APP_ID',
 		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
 		callbackURL: '/auth/google/callback'
-	},
-	linkedin: {
-		clientID: process.env.LINKEDIN_ID || 'APP_ID',
-		clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
-		callbackURL: '/auth/linkedin/callback'
-	},
-	github: {
-		clientID: process.env.GITHUB_ID || 'APP_ID',
-		clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-		callbackURL: '/auth/github/callback'
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'MAILER_FROM',

@@ -6,7 +6,7 @@ module.exports = {
 	db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
 	port: 8080,
 	app: {
-		title: 'e-project'
+		title: 'E-Commerce'
 	},
 	facebook: {
 		clientID: '210126882934161',

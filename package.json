@@ -3,7 +3,8 @@
   "repository": "dickeyxxx/simple-mean",
   "license": "ISC",
   "engines": {
-    "node": "6.11.1" // intentionally so big version number
+    "node": "6.11.1",
+    "npm": ">=6.0.0"
   },
   "dependencies": {
     "async": "~0.9.0",

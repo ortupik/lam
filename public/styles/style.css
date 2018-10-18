@@ -2549,11 +2549,11 @@ ul.uk-nav-sub {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: relative
+    position: relative;
 }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
-    background: #f8f8f8
+    background: #f8f8f8;
 }
 
 .uk-navbar-container>::after,
@@ -2632,7 +2632,6 @@ ul.uk-nav-sub {
 .uk-navbar-left,
 .uk-navbar-right {
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap
 }
 
 .uk-navbar-item,
@@ -2649,14 +2648,15 @@ ul.uk-nav-sub {
     align-items: center;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    min-height: 40px;
+    min-height: 30px;
     padding: 0 15px;
-    font-size: .875rem;
+    font-size: .775rem;
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     text-decoration: none
 }
 
 .uk-navbar-nav>li>a {
+
     color: #999;
     text-transform: uppercase;
     -webkit-transition: .1s ease-in-out;
@@ -7063,12 +7063,12 @@ iframe.uk-cover {
 
 .tm-toolbar-container .uk-navbar-nav>li>a {
     text-transform: none;
-    height: 40px
+    height: 20px
 }
 
 .tm-toolbar-container .uk-navbar-item,
 .tm-toolbar-container .uk-navbar-toggle {
-    height: 40px
+    height: 20px
 }
 
 .tm-navbar-container:not(.uk-navbar-transparent) {

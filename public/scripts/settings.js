@@ -53,7 +53,7 @@ if (window.location.hash == '#_=_'){
 		if(User){
 
 		  if(User.name){
-		   $("#name").text(User.name);
+		    $("#name").text(User.name);
 		  }
 		  if(User.email){
 		  	$("#email_field").val(User.email);

@@ -19,7 +19,7 @@ module.exports = function(app) {
 	app.get('/about', function (req, res) {
 	  res.render('pages/about.pug');
 	});
-	app.get('/account', function (req, res) {
+	app.get('/orders', function (req, res) {
 	  res.render('pages/account.pug');
 	});
 	app.get('/login', function (req, res) {

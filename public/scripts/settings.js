@@ -1,13 +1,10 @@
 $(function(){
 
-  var User = {};
-  var email ="sdsd";
-  if(localStorage.getItem("user") != undefined){
+  if(localStorage.getItem("user") == undefined){
   
 	    $.get('/users/me',function(response) {
-	    	console.log(response)
 	    	if(response == null){
-	    		//location.href="/login";
+	    		location.href="/login";
 	    	}else{
 			    if(response.provider == "facebook"){
 			    	var response = {};
@@ -17,6 +14,9 @@ $(function(){
 					response.profile_image_url = response.providerData.picture.data.url;
 					localStorage.setItem('user', JSON.stringify(response));
 					loadUserProfile();
+				 }else{
+				 	localStorage.setItem('user', JSON.stringify(response));
+				 	loadUserProfile();
 				 }
 			}
 	    });
@@ -26,7 +26,9 @@ $(function(){
 
 
 	function loadUserProfile(){
-		User = JSON.parse(localStorage.getItem("user"));
+		
+		var User = JSON.parse(localStorage.getItem("user"));
+
 		if(User){
 
 		  if(User.name){

@@ -93,10 +93,10 @@ module.exports = function(mongoose) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
+		db: mongoose.connection.db,
 		store: new MongoStore({
-			 url: config.db,
+			 url: config.db
 		}),
-		db: mongoose.connection.db
 	}));
 
 

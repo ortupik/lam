@@ -2,20 +2,21 @@ $(function(){
 
   if(localStorage.getItem("user") == undefined){
   
-	    $.get('/users/me',function(response) {
-	    	if(response == null){
+	    $.get('/users/me',function(resp) {
+	    	console.log(resp)
+	    	if(resp == null){
 	    		location.href="/login";
 	    	}else{
-			    if(response.provider == "facebook"){
+			    if(resp.provider == "facebook"){
 			    	var response = {};
-					response.name = response.displayName;
-					response.email = response.providerData.email;
-					response.bio = response.providerData.description;
-					response.profile_image_url = response.providerData.picture.data.url;
+					response.name = resp.displayName;
+					response.email = resp.providerData.email;
+					response.bio = resp.providerData.description;
+					response.profile_image_url = resp.providerData.picture.data.url;
 					localStorage.setItem('user', JSON.stringify(response));
 					loadUserProfile();
 				 }else{
-				 	localStorage.setItem('user', JSON.stringify(response));
+				 	localStorage.setItem('user', JSON.stringify(resp));
 				 	loadUserProfile();
 				 }
 			}

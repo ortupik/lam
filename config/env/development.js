@@ -4,6 +4,7 @@
 //db: 'mongodb://127.0.0.1:27017/happystores',
 module.exports = {
 	db: 'mongodb://127.0.0.1:27017/happystores',
+	db_name: "happystores",
 	port: 8080,
 	app: {
 		title: 'E-Commerce'

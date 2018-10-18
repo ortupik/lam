@@ -15,9 +15,7 @@ var fs = require('fs'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
 	passport = require('passport'),
-	mongoStore = require('connect-mongo')({
-		session: session
-	}),
+	MongoStore = require('connect-mongo')(session),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
@@ -95,10 +93,13 @@ module.exports = function(db) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
-		/*store: new mongoStore({
-			 url: "mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1"
-		})*/
+		store: new MongoStore({
+			 mongooseConnection: db.connection,
+			 db: config.db_name,
+			 collection: 'sessions'
+		})
 	}));
+
 
 	// use passport session
 	app.use(passport.initialize());

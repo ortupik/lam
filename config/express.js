@@ -21,7 +21,7 @@ var fs = require('fs'),
 	consolidate = require('consolidate'),
 	path = require('path');
 
-module.exports = function(db) {
+module.exports = function(mongoose) {
 	// Initialize express app
 	var app = express();
 
@@ -90,13 +90,8 @@ module.exports = function(db) {
 
 	// Express MongoDB session storage
 	app.use(session({
-		saveUninitialized: true,
-		resave: true,
-		secret: config.sessionSecret,
-		store: new MongoStore({
-			 mongooseConnection: db.connection
-		})
-	}));
+    db: new MongoStore({ db: mongoose.connection.db })
+}));
 
 
 	// use passport session

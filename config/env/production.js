@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
+	db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
 	facebook: {
 		clientID: '210126882934161',
 		clientSecret: 'f974f5846983a242eb41a65aaa0df679',
-		callbackURL: '/auth/facebook/callback'
+		callbackURL: 'https://happystores.herokuapp.com/auth/facebook/callback'
 	},
 	twitter: {
 		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',

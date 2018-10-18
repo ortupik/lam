@@ -112,7 +112,6 @@ module.exports = function(mongoose) {
 		}else{
 			res.locals.session = req.session.passport.user;
 		}	    
-	    console.log(req.session.passport.user)
 	    next();
 	});
 

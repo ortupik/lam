@@ -3,8 +3,8 @@
 module.exports = {
 	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: '210126882934161',
+		clientSecret: 'f974f5846983a242eb41a65aaa0df679',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {

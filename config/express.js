@@ -93,7 +93,10 @@ module.exports = function(mongoose) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
-	    db: new MongoStore({ db: mongoose.connection.db })
+		store: new MongoStore({
+			 url: config.db,
+		}),
+		db: mongoose.connection.db
 	}));
 
 
@@ -110,6 +113,7 @@ module.exports = function(mongoose) {
 		}else{
 			res.locals.session = req.session.passport.user;
 		}	    
+	    console.log(req.session.passport.user)
 	    next();
 	});
 

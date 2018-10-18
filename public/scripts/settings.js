@@ -26,8 +26,9 @@ $(function(){
 
 
 	function loadUserProfile(){
-		
+
 		var User = JSON.parse(localStorage.getItem("user"));
+		console.log(User);
 
 		if(User){
 
@@ -39,7 +40,7 @@ $(function(){
 		  }
 
 		  if(User.profile_image_url){
-		  	 $("#profile_img").attr("src",User.profile_img);
+		  	 $("#profile_img").attr("src",User.profile_image_url);
 		  }
 
 		}

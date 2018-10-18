@@ -10,7 +10,7 @@ module.exports = {
 	facebook: {
 		clientID: '210126882934161',
 		clientSecret: 'f974f5846983a242eb41a65aaa0df679',
-		callbackURL: '/auth/facebook/callback'
+		callbackURL: 'https://happystores.herokuapp.com/auth/facebook/callback'
 	},
 	twitter: {
 		clientID: '0fMRxjGZ89A5DOf1y2cifzMna',

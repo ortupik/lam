@@ -49,7 +49,6 @@ if (window.location.hash == '#_=_'){
 	function loadUserProfile(){
 
 		var User = JSON.parse(localStorage.getItem("user"));
-		console.log(User);
 
 		if(User){
 

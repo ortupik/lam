@@ -95,8 +95,7 @@ module.exports = function(db) {
 		secret: config.sessionSecret,
 		store: new MongoStore({
 			 url: config.db,
-			 db: config.db_name,
-			 collection: 'sessions'
+			 db: config.db_name
 		})
 	}));
 

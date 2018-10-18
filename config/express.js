@@ -116,7 +116,6 @@ module.exports = function(mongoose) {
 	    next();
 	});
 
-
 	// Use helmet to secure Express headers
 	app.use(helmet.xframe());
 	app.use(helmet.xssFilter());

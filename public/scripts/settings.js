@@ -24,7 +24,6 @@ if (window.location.hash == '#_=_'){
   if(localStorage.getItem("user") == undefined){
   
 	    $.get('/users/me',function(resp) {
-	    	console.log(resp)
 	    	if(resp == null){
 	    		location.href="/login";
 	    	}else{
@@ -51,7 +50,7 @@ if (window.location.hash == '#_=_'){
 
 		var User = JSON.parse(localStorage.getItem("user"));
 		console.log(User);
-
+		
 		if(User){
 
 		  if(User.name){

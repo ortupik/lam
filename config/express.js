@@ -90,8 +90,11 @@ module.exports = function(mongoose) {
 
 	// Express MongoDB session storage
 	app.use(session({
-    db: new MongoStore({ db: mongoose.connection.db })
-}));
+		saveUninitialized: true,
+		resave: true,
+		secret: config.sessionSecret,
+	    db: new MongoStore({ db: mongoose.connection.db })
+	}));
 
 
 	// use passport session

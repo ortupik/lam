@@ -115,7 +115,7 @@ var UserSchema = new Schema({
 	},
 	profile_image_url: {
 		type: String,
-		default: "images/person.png"
+		default: "images/avatar.png"
 	},
 
 }); 

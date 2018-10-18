@@ -108,7 +108,12 @@ module.exports = function(db) {
 	app.use(flash());
 
 	app.use(function(req,res,next){
-	    res.locals.session = req.session.passport;
+		if(req.session.passport.user == undefined){
+			res.locals.session = "not_logged_in";
+		}else{
+			res.locals.session = req.session.passport.user;
+		}	    
+	    console.log(req.session.passport.user)
 	    next();
 	});
 

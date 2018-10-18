@@ -25,6 +25,9 @@ module.exports = function(app) {
 	app.get('/login', function (req, res) {
 	  res.render('pages/login.pug');
 	});
+	app.get('/logout', function (req, res) {
+	  res.render('pages/logout.pug');
+	});
 	app.get('/register', function (req, res) {
 	  res.render('pages/register.pug');
 	});

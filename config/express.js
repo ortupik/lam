@@ -45,6 +45,7 @@ module.exports = function(db) {
 		next();
 	});
 
+
     app.use(function(req, res, next) { //allow cross origin requests
         res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
         res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -94,10 +95,9 @@ module.exports = function(db) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
-		/*store: new mongoStore({
-			db: 'sessions',
-			collection: config.sessionCollection
-		})*/
+		store: new mongoStore({
+			 url: config.db
+		})
 	}));
 
 	// use passport session
@@ -106,6 +106,12 @@ module.exports = function(db) {
 
 	// connect flash for flash messages
 	app.use(flash());
+
+	app.use(function(req,res,next){
+	    res.locals.session = req.session.passport;
+	    next();
+	});
+
 
 	// Use helmet to secure Express headers
 	app.use(helmet.xframe());

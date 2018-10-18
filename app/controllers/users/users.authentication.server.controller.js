@@ -78,7 +78,7 @@ exports.signin = function(req, res, next) {
  */
 exports.signout = function(req, res) {
 	req.logout();
-	res.redirect('/log_out');
+	res.redirect('/logout');
 };
 
 /**
@@ -103,12 +103,12 @@ exports.oauthCallback = function(strategy) {
 				//	return res.redirect('/');
 				}
 
-				return res.redirect( '/dashboard');
+				return res.redirect( '/settings');
 			});
 		})(req, res, next);
 	}else{
 		console.log(req.user)
-		return res.redirect( '/dashboard');
+		return res.redirect( '/settings');
 	}
 	};
 };
@@ -185,7 +185,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 				return done(err, user);
 			});
 		} else {
-			return done(new Error('User is already connected using this provider'), user, '/dashboard');
+			return done(new Error('User is already connected using this provider'), user, '/settings');
 		}
 	}
 };

@@ -403,14 +403,12 @@ $(function(){
     	var price = product.price;
     	price = "Ksh "+price.toLocaleString();
 
-    	bLazy.revalidate();
-
     	var cart_item = '<li class="uk-visible-toggle">'+
 	    '<div class="uk-grid-small" uk-grid="uk-grid">'+
 	        '<div class="uk-width-1-4">'+
 	            '<div class="tm-ratio tm-ratio-4-3">'+
 	                '<a class="tm-media-box" href="product?id='+product.id+'">'+
-	                    '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"/></figure>'+
+	                    '<figure class="tm-media-box-wrap"><img  src="'+image_src+'" alt="'+product.name+'"/></figure>'+
 	                '</a>'+
 	            '</div>'+
 	        '</div>'+
@@ -426,8 +424,6 @@ $(function(){
 	   '</li>';	
 
 	   $("#cart_side_list").append(cart_item);
-
-	   bLazy.revalidate();
 
 	   
 	}

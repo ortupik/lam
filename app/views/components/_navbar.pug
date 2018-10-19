@@ -117,6 +117,10 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                     +icon("heart")(class="uk-margin-small-right")
                     span.tm-pseudo Favorites
                 li
+                  a(href="/personal") 
+                    +icon("user")(class="uk-margin-small-right")
+                    span.tm-pseudo Profile
+                li
                   a(href="/settings") 
                     +icon("cog")(class="uk-margin-small-right")
                     span.tm-pseudo Settings
@@ -136,4 +140,4 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
         uk-toggle="target: #cart-offcanvas"
         onclick="return false")
         span(uk-icon="cart")
-        span.uk-badge 2
+        span#badge_cart.uk-badge 

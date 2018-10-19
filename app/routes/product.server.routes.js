@@ -11,6 +11,8 @@ module.exports = function(app) {
 
 	app.route('/product').get(products.getProduct);
 
+	app.route("/product").post(products.getOneProduct);
+
 	app.route('/catalog').get(catalog.getCatalog);
 
 	app.route('/category').get(catalog.getCategoryCatalog);

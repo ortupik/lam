@@ -73,6 +73,9 @@ module.exports = function(app) {
 	app.get('/settings', function (req, res) {
 	  res.render('pages/settings.pug');
 	});
+	app.get('/test', function (req, res) {
+	  res.render('pages/test.pug');
+	});
 	
  
 };

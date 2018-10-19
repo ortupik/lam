@@ -69,6 +69,17 @@ exports.getProduct = function(req, res) {
 
 };
 
+exports.getOneProduct = function(req, res) {
+	var product_id = {
+		id: req.body.id
+	}
+	Product.findOne(product_id, function(err, product){
+	    if (err) return res.send(500, { message: err , success: 0});
+	    res.json({success:1,product: product});
+	});
+
+};
+
 /**
  * Create Product
  */

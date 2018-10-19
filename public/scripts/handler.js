@@ -61,6 +61,50 @@ $(function(){
 		    	bLazy.revalidate();
 		    }
 
+		    var addToCartButtons = document.querySelectorAll('.js-add-to-cart');
+			    Array.prototype.forEach.call(addToCartButtons, function(el) {
+			        el.onclick = function() {
+			        	var product_id = $(this).attr("product_id");
+			        	$.post("/product",{id:product_id},function(res){
+			        		if(res.success = 1){
+			        			 var product = res.product;
+			        			 addCartItem(product,function(resp){
+			        			 	 displayCartItem(product); 
+			        			 	 var currentT = $("#badge_cart").text();
+						          	 if(currentT != undefined && currentT != ""){
+					                     current = parseInt(currentT) +1;
+						          	 }
+						          	  $("#badge_cart").text(current);
+                                      UIkit.offcanvas('#cart-offcanvas').show();
+			        			 });
+			        		}
+			        	})
+			        };
+			});
+
+			 var addToButtons = document.querySelectorAll('.js-add-to');
+			    Array.prototype.forEach.call(addToButtons, function(el) {
+			        var link;
+			        var message = '<span class="uk-margin-small-right" uk-icon=\'check\'></span>Added to ';
+			        var links = {
+			            favorites: '<a href="/favorites">favorites</a>',
+			        };
+			        if (el.classList.contains('js-add-to-favorites')) {
+			            link = links.favorites;
+			        };
+			      
+			        el.onclick = function() {
+			            if (!this.classList.contains('js-added-to')) {
+			                UIkit.notification({
+			                    message: message + link,
+			                    pos: 'bottom-right'
+			                });
+			            }
+			            this.classList.toggle('tm-action-button-active');
+			            this.classList.toggle('js-added-to');
+			        };
+			 });
+
            $(".pagination__list").empty();
 
            
@@ -160,6 +204,8 @@ $(function(){
 	       })
 
 	    });
+
+
 
 	}
 
@@ -298,7 +344,7 @@ $(function(){
 
     	var price = product.price;
     	price = "Ksh "+price.toLocaleString();
-
+        
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+
 		      '<div class="tm-ratio tm-ratio-4-3">'+
@@ -332,7 +378,7 @@ $(function(){
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+
 		            '</div>'+
-		            '<button class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart">'+
+		            '<button class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart" product_id='+product.id+'>'+
 		               '<span class="tm-product-card-add-button-icon uk-icon" uk-icon="cart">'+
 		               '</span>'+
 		               '<span class="tm-product-card-add-button-text">add to cart</span>'+
@@ -344,39 +390,79 @@ $(function(){
 
 		  bLazy.revalidate();
 
-	    var addToCartButtons = document.querySelectorAll('.js-add-to-cart');
-		    Array.prototype.forEach.call(addToCartButtons, function(el) {
-		        el.onclick = function() {
-		            UIkit.offcanvas('#cart-offcanvas').show();
-		        };
-		});
-
-		 var addToButtons = document.querySelectorAll('.js-add-to');
-		    Array.prototype.forEach.call(addToButtons, function(el) {
-		        var link;
-		        var message = '<span class="uk-margin-small-right" uk-icon=\'check\'></span>Added to ';
-		        var links = {
-		            favorites: '<a href="/favorites">favorites</a>',
-		        };
-		        if (el.classList.contains('js-add-to-favorites')) {
-		            link = links.favorites;
-		        };
-		      
-		        el.onclick = function() {
-		            if (!this.classList.contains('js-added-to')) {
-		                UIkit.notification({
-		                    message: message + link,
-		                    pos: 'bottom-right'
-		                });
-		            }
-		            this.classList.toggle('tm-action-button-active');
-		            this.classList.toggle('js-added-to');
-		        };
-		    });
-
 		return product_html;
     }  
+   
+   	function displayCartItem(product){
 
+		var image_src = product.image.medium;
+    	if(image_src == undefined){
+    	   image_src = "https://placeholder.pics/svg/450/No%20Image"	
+    	}
 
+    	var price = product.price;
+    	price = "Ksh "+price.toLocaleString();
+
+    	bLazy.revalidate();
+
+    	var cart_item = '<li class="uk-visible-toggle">'+
+	    '<div class="uk-grid-small" uk-grid="uk-grid">'+
+	        '<div class="uk-width-1-4">'+
+	            '<div class="tm-ratio tm-ratio-4-3">'+
+	                '<a class="tm-media-box" href="product?id='+product.id+'">'+
+	                    '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"/></figure>'+
+	                '</a>'+
+	            '</div>'+
+	        '</div>'+
+	        '<div class="uk-width-expand">'+
+	            '<div class="uk-text-meta uk-text-xsmall">'+product.brand.name+'</div><a class="uk-link-heading uk-text-small" href="product.href">'+product.name+'</a>'+
+	            '<div class="uk-margin-xsmall uk-grid-small uk-flex-middle" uk-grid="uk-grid">'+
+	                '<div class="uk-text-bolder uk-text-small">'+price+'</div>'+
+	                '<div class="uk-text-meta uk-text-xsmall">1 × '+price+'</div>'+
+	            '</div>'+
+	        '</div>'+
+	        '<div><a class="uk-icon-link uk-text-danger uk-invisible-hover remove_cart_item" href="#" uk-icon="icon: close; ratio: .75" uk-tooltip="Remove" item_id='+product.id+'></a></div>'+
+	    '</div>'+
+	   '</li>';	
+
+	   $("#cart_side_list").append(cart_item);
+
+	   bLazy.revalidate();
+
+	   
+	}
+	    
+	  getCartItems(function(result){
+
+	      $("#cart_side_list").empty();
+
+	      var count = result.length;
+
+	      $("#badge_cart").text(count);
+
+	      for(var i = 0; i < count; i++){
+	          displayCartItem(result[i]);
+	      }
+
+	      $(".remove_cart_item").on("click",function(e){
+	        e.preventDefault();
+
+	        var item_id = parseInt($(this).attr("item_id"));
+	        $this = $(this);
+	        
+	        removeCartItem(item_id,function(res){
+	          if(res.success == 1){
+	          	 var currentT = $("#badge_cart").text();
+	          	 if(currentT != undefined && currentT != ""){
+                    var current = parseInt(currentT) -1;
+                    $("#badge_cart").text(current);
+	          	 }
+	             $this.parent().parent().parent().remove();
+	          }
+	        });
+
+	      });
+
+	    });
 
 });

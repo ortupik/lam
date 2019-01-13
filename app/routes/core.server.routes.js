@@ -76,6 +76,15 @@ module.exports = function(app) {
 	app.get('/test', function (req, res) {
 	  res.render('pages/test.pug');
 	});
+	app.get('/payment', function (req, res) {
+	  res.render('pages/payment.pug');
+	});
+	app.get('/mobile', function (req, res) {
+	  res.render('pages/mobile.pug');
+	});
+	app.get('/card', function (req, res) {
+	  res.render('pages/card.pug');
+	});
 	
  
 };

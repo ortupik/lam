@@ -28,6 +28,7 @@
     "method-override": "~2.3.0",
     "mocha": "^5.2.0",
     "mongoose": "^4.1.11",
+    "mongoose-paginate": "^5.0.3",
     "morgan": "~1.4.1",
     "multer": "^1.3.1",
     "nodemailer": "~1.3.0",
@@ -39,8 +40,8 @@
     "passport-linkedin": "~0.1.3",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.2",
+    "pesapaljs": "^1.0.0",
     "pug": "^2.0.3",
-    "swig": "~1.4.1",
-    "mongoose-paginate": "*"
+    "swig": "~1.4.1"
   }
 }

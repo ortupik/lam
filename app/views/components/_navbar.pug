@@ -1,5 +1,5 @@
 div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-container-fixed")
-  div.uk-container(uk-navbar)(style="height:50px;")
+  div.uk-container(uk-navbar)(style="height:55px;")
 
     div.uk-navbar-left
 
@@ -10,7 +10,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
 
       //- Logo
       a.uk-navbar-item.uk-logo(href="/")
-        img(src="images/logo.svg" width="90" height="32" alt="Logo")
+        img(src="images/logo.png" width="auto" height="40" alt="Logo")
 
       //- Navigation
       nav(class="uk-visible@m")
@@ -77,37 +77,23 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                           li
                             a(href= page.href)= page.name
 
-    div.uk-navbar-right
-
-      //- Search
-      a#search_link.uk-navbar-toggle.tm-navbar-button(href="#" uk-search-icon)
-      div#search_drop_down.uk-navbar-dropdown.uk-padding-small.uk-margin-remove(
-        uk-drop="mode: click;" +
-                "cls-drop: uk-navbar-dropdown;" +
-                "boundary: .tm-navbar-container;" +
-                "boundary-align: true;" +
-                "pos: bottom-justify;" + 
-                "flip: x")
-        div.uk-container
-          div.uk-grid-small.uk-flex-middle(uk-grid)
-            div.uk-width-expand
-              div#searchForm.uk-search.uk-search-navbar.uk-width-1-1(href="#")
-                input#searchField.uk-search-input(type="search" placeholder="Search…" autofocus)
-            div.uk-width-auto
-              a.uk-navbar-dropdown-close(href="#" uk-close)
+    div.uk-navbar-center
+      div#searchForm.uk-search.uk-search-default.uk-search-icon-flip(style="width:500px;background-color:wheat;")
+        a#search_link.uk-search-icon-flip(href='', uk-search-icon='')
+        input#searchField.uk-search-input(type='search', placeholder=' Search a Product')
 
      
-
+    div.uk-navbar-right
       //- User
       if(session != "not_logged_in")  
-          a.uk-navbar-item.uk-link-muted.tm-navbar-button
+          a.uk-navbar-item.tm-navbar-button
             +icon("user")(class="uk-margin-small-right")
             span.tm-pseudo  ACCOUNT
           div(class="uk-padding-small uk-margin-remove"
               uk-dropdown="pos: bottom-right; offset: -10; delay-hide: 200;"
               style="min-width: 150px;") 
             
-              ul.uk-nav.uk-dropdown-nav
+              ul.uk-nav.uk-nav-default.uk-dropdown-nav
                 li
                   a(href="/orders")
                    +icon("cart")(class="uk-margin-small-right")
@@ -129,13 +115,13 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
                   a(href="/auth/signout") Log out
 
       else
-        a.uk-navbar-item.uk-link-muted.tm-navbar-button(href="/login")
+        a.uk-navbar-item.tm-navbar-button(href="/login")
             +icon("lock")(class="uk-margin-small-right")
             span.tm-pseudo LOG IN
 
 
       //- Cart
-      a.uk-navbar-item.uk-link-muted.tm-navbar-button(
+      a.uk-navbar-item.tm-navbar-button(
         href="cart"
         uk-toggle="target: #cart-offcanvas"
         onclick="return false")

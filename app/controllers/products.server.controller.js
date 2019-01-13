@@ -28,7 +28,7 @@ exports.getProducts = function(req, res) {
 	};
 
 	if(category == undefined && subcategory == undefined){
-		 res.json({success:0,message:"Invalid parameters"}); 
+		// res.json({success:0,message:"Invalid parameters"}); 
 	}else if(category != undefined && subcategory != undefined){
 		 query["subcategory"] = subcategory;
 	}else if(category != undefined && subcategory == undefined){
@@ -123,7 +123,7 @@ exports.getBrands = function(req, res) {
 	};
 
 	if(category == undefined && subcategory == undefined){
-		 res.json({success:0,message:"Invalid parameters"}); 
+		// res.json({success:0,message:"Invalid parameters"}); 
 	}else if(category != undefined && subcategory != undefined){
 		 query["subcategory"] = subcategory;
 	}else if(category != undefined && subcategory == undefined){
@@ -134,9 +134,15 @@ exports.getBrands = function(req, res) {
 		query["name"] = { '$regex' : searchText, '$options' : 'i' };
 	}
 
+
+
 	Product.aggregate([{ $match: query},{$group: {_id: {brand:"$brand.name"},total: {$sum: 1}}} ],function(err, result){
-       if (err) return res.send(500, { message: err , success: 0});
-       res.json({success:1, data:result}); 
+       if (err){
+       	return res.send(500, { message: err , success: 0});
+       }else{
+       		return res.send(200, {  data:result , success: 1});
+       }
+       
 	});
 
 };

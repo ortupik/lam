@@ -3,6 +3,8 @@ $(function(){
     var page = 1;
     var displayLimit = 9;
     var pages = 0;
+    var cart_subtotal = 0;
+
 
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
@@ -66,17 +68,23 @@ $(function(){
 			        el.onclick = function() {
 			        	var product_id = $(this).attr("product_id");
 			        	$.post("/product",{id:product_id},function(res){
-			        		if(res.success = 1){
-			        			 var product = res.product;
-			        			 addCartItem(product,function(resp){
-			        			 	 displayCartItem(product); 
-			        			 	 var currentT = $("#badge_cart").text();
-						          	 if(currentT != undefined && currentT != ""){
-					                     current = parseInt(currentT) +1;
-						          	 }
-						          	  $("#badge_cart").text(current);
-                                      UIkit.offcanvas('#cart-offcanvas').show();
-			        			 });
+			        		    if(res.success == 1){ 
+			        			     var product = res.product;
+				        			  addCartItem(product,function(resp){
+				        			 	 if(resp.success == 1){
+				        			 	 	cart_subtotal+= product.price;
+				        			 	 	$("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+				        			 	 	 $("#cart_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+                                             $("#cart_total").text("Ksh "+cart_subtotal.toLocaleString());
+				        			 	    displayCartItem(product); 
+				        			 	 var currentT = $("#badge_cart").text();
+							          	 if(currentT != undefined && currentT != ""){
+						                     current = parseInt(currentT) +1;
+							          	 }
+							          	  $("#badge_cart").text(current);
+	                                      UIkit.offcanvas('#cart-offcanvas').show();
+				        			 }
+			        			});
 			        		}
 			        	})
 			        };
@@ -373,12 +381,12 @@ $(function(){
 		         '<div class="tm-product-card-add">'+
 		            '<div class="uk-text-meta tm-product-card-actions">'+
 		               '<a class="tm-product-card-action js-add-to js-add-to-favorites tm-action-button-active js-added-to" title="Add to favorites">'+
-		                  '<span uk-icon="icon: heart; ratio: 1.15;" class="uk-icon" >'+
+		                  '<span uk-icon="icon: heart; ratio: 1.2;" class="uk-icon" >'+
 		                  '</span>'+
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+
 		            '</div>'+
-		            '<button class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart" product_id='+product.id+'>'+
+		            '<button class="uk-button uk-button-secondary tm-product-card-add-button tm-shine js-add-to-cart" product_id='+product.id+'>'+
 		               '<span class="tm-product-card-add-button-icon uk-icon" uk-icon="cart">'+
 		               '</span>'+
 		               '<span class="tm-product-card-add-button-text">add to cart</span>'+
@@ -425,10 +433,12 @@ $(function(){
 
 	   $("#cart_side_list").append(cart_item);
 
+
 	   
 	}
 	    
 	  getCartItems(function(result){
+
 
 	      $("#cart_side_list").empty();
 
@@ -437,8 +447,14 @@ $(function(){
 	      $("#badge_cart").text(count);
 
 	      for(var i = 0; i < count; i++){
+	      	  var price = result[i].price;
+	      	  cart_subtotal+=price;
 	          displayCartItem(result[i]);
 	      }
+
+          $("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+          $("#cart_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+          $("#cart_total").text("Ksh "+cart_subtotal.toLocaleString());
 
 	      $(".remove_cart_item").on("click",function(e){
 	        e.preventDefault();
@@ -448,6 +464,7 @@ $(function(){
 	        
 	        removeCartItem(item_id,function(res){
 	          if(res.success == 1){
+
 	          	 var currentT = $("#badge_cart").text();
 	          	 if(currentT != undefined && currentT != ""){
                     var current = parseInt(currentT) -1;

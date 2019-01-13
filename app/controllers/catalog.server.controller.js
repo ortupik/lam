@@ -90,7 +90,7 @@ exports.getSubCategoryCatalog = function(req, res) {
 		      page.title = item.name;
 	          page.breadcrumbs.push({href: "/category?c="+catalog.id,name:catalog.name});
 		      page.breadcrumbs.push({href: "/subcategory?c="+catalog.id+"&s="+item.id,name:item.name});
-		      res.render('pages/subcategory.pug',{page:page});
+		      res.render('pages/subcategory.pug',{category:catalog,page:page});
 	      } 
 	});
 

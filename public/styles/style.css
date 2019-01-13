@@ -1354,15 +1354,15 @@ select.uk-form-width-xsmall {
 }
 
 .uk-button-primary {
-    background-color: #1e87f0;
+    background-color: #ffa384;
     color: #fff;
     border: 1px solid transparent
 }
 
 .uk-button-primary:focus,
 .uk-button-primary:hover {
-    background-color: #0f7ae5;
-    color: #fff
+    background-color: wheat;
+    color: #000
 }
 
 .uk-button-primary.uk-active,
@@ -2496,14 +2496,14 @@ ul.uk-nav-sub {
 .uk-nav-default .uk-nav-sub a,
 .uk-nav-default>li>a,
 .uk-nav-primary .uk-nav-sub a {
-    color: #999
+    color: #6E3562
 }
 
 .uk-nav-default .uk-nav-sub a:focus,
 .uk-nav-default .uk-nav-sub a:hover,
 .uk-nav-default>li>a:focus,
 .uk-nav-default>li>a:hover {
-    color: #666
+    color: orange
 }
 
 .uk-nav-default .uk-nav-header,
@@ -4552,21 +4552,21 @@ ul.uk-nav-sub {
 .uk-text-lead {
     font-size: 1.5rem;
     line-height: 1.5;
-    color: #333
+    color: #6E3562
 }
 
 .uk-text-meta {
     font-size: .875rem;
     line-height: 1.4;
-    color: #999
+    color: #666
 }
 
 .uk-text-meta a {
-    color: #999
+    color: #944d84
 }
 
 .uk-text-meta a:hover {
-    color: #666;
+    color: #6E3562;
     text-decoration: none
 }
 
@@ -4597,11 +4597,11 @@ ul.uk-nav-sub {
 }
 
 .uk-text-muted {
-    color: #999!important
+    color: #6E3562;
 }
 
 .uk-text-primary {
-    color: #1e87f0!important
+    color: #f1ad58;
 }
 
 .uk-text-success {
@@ -6888,7 +6888,7 @@ iframe.uk-cover {
 }
 
 .uk-light .uk-text-muted {
-    color: rgba(255, 255, 255, .5)!important
+    color:#6E3562;
 }
 
 .uk-light .uk-text-primary {
@@ -7173,9 +7173,10 @@ iframe.uk-cover {
     border-bottom: 1px solid #e5e5e5;
     border-top: 1px solid #e5e5e5;
     margin-right: 1px;
+    margin-left: 1px;
     margin-bottom: 0.1%;
     margin-top: 1px;
-    width: 24.8%;
+    width: 24.75%;
 }
 
 .tm-product-card.uk-first-column {

@@ -1,4 +1,4 @@
-section.uk-section.uk-section-secondary.uk-section-small.uk-light
+section.uk-section.uk-section-secondary.uk-section-small(style='background-color:whitesmoke; color:#6E3562;')
   div.uk-container
     div(class="uk-grid-medium " +
               "uk-child-width-1-1 " +
@@ -7,8 +7,8 @@ section.uk-section.uk-section-secondary.uk-section-small.uk-light
 
       div
         a.uk-logo(href="/")
-          img(src="images/logo-inverse.svg" width="90" height="32" alt="Logo")
-        p.uk-text-small Happy Stores Kenya is an online shop for electronic devices offering unbeatable prices in the market.
+          img(src="images/logo.png" width="200" height="32" alt="Logo" style="width:200px;")
+        p.uk-text-small Gift Stores Kenya is an online shop for electronic devices offering unbeatable prices in the market.
         ul.uk-iconnav
           each social in socials
             li: a(href="#" title= social.name uk-icon= social.icon)
@@ -27,11 +27,11 @@ section.uk-section.uk-section-secondary.uk-section-small.uk-light
       div
         ul.uk-list.uk-text-small
           li
-            a.uk-link-muted(href="#")
+            a.uk-text-muted(href="#")
               +icon("receiver")(class="uk-margin-small-right")
               span.tm-pseudo= shopInfo.phone
           li
-            a.uk-link-muted(href="#")
+            a.uk-text-muted(href="#")
               +icon("mail")(class="uk-margin-small-right")
               span.tm-pseudo= shopInfo.email
           li

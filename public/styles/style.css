@@ -437,7 +437,7 @@ a.uk-link-text:hover {
 
 .uk-link-heading a:not(:hover),
 a.uk-link-heading:not(:hover) {
-    color: inherit
+    color: #944d84
 }
 
 .uk-link-heading a:hover,
@@ -450,7 +450,7 @@ a.uk-link-heading:hover {
 .uk-link-reset a:hover,
 a.uk-link-reset,
 a.uk-link-reset:hover {
-    color: inherit!important;
+    color: #944d84;
     text-decoration: none!important
 }
 

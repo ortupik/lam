@@ -1,14 +1,15 @@
-extends /layouts/_pages
+extends /layouts/_custom
 
 block vars
   -
     page = {
-      title: 'Cart',
+      title: 'View Cart Items',
+      page_id: 'cart',
       breadcrumbs: []
     }
 
-block pages
-  div.uk-grid-medium(uk-grid)
+block custom
+  div.uk-grid-medium(uk-grid) 
 
     //- Items
     div.uk-width-1-1(class="uk-width-expand@m")
@@ -33,6 +34,7 @@ block pages
                 div Total
                 div.uk-width-auto
                   div(style="width: 20px;")
+          hr  
         
         div#cart_body
           
@@ -64,8 +66,17 @@ block pages
           div.uk-grid-small.uk-flex-middle(uk-grid)
             div.uk-width-expand.uk-text-muted Total
             div#cart_total.uk-text-lead.uk-text-bolder 
+          
+          div(style="margin-top:20px;")
+            a.uk-button.uk-button-secondary.uk-margin-small.uk-width-1-1( 
+              href="save-shipping-address") checkout 
 
-          a.uk-button.uk-button-secondary.uk-margin-small.uk-width-1-1( 
-            href="checkout") checkout 
+            button.paypal-button.uk-button.uk-margin-small.uk-width-1-1
+              span.paypal-button-title
+                | Checkout with 
+              span.paypal-logo
+                i Pay
+                i Pal
 
+  script(src="scripts/handler.js")
   script(src="scripts/cart.js")

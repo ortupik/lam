@@ -51,6 +51,7 @@ function initMap() {
 })();
 
 function increment(incrementor, target) {
+
     var value = parseInt(document.getElementById(target).value, 10);
     value = isNaN(value) ? 0 : value;
     if (incrementor < 0) {
@@ -60,6 +61,23 @@ function increment(incrementor, target) {
     } else {
         value += incrementor;
     }
+     
+     var id = "#total_col"+target;
+     var val = $(id).attr("total_quant");
+     $(id).text("Ksh "+(parseInt(val) * value).toLocaleString());
+    
+       updateCartItem(target, value,function(res){
+         if(res.success == 1){
+             calculateTotal(function(result){
+                  $("#cart_subtotal").text("Ksh "+result.toLocaleString());
+                  $("#cart_total").text("Ksh "+result.toLocaleString());
+                  $("#cart_off_subtotal").text("Ksh "+result.toLocaleString());
+               })
+         }
+       });
+
+      
+
     document.getElementById(target).value = value;
 }
 (function() {

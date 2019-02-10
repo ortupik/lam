@@ -66,6 +66,48 @@ html {
     text-rendering: optimizeLegibility
 }
 
+/*
+
+Paypal CSS
+
+*/
+.paypal-logo {
+  font-family: Verdana, Tahoma;
+  font-weight: bold;
+  font-size: 18px;
+}
+.paypal-logo i:first-child {
+  color: #253b80;
+}
+.paypal-logo i:last-child {
+  color: #179bd7;
+}
+.paypal-button {
+  padding: 10px 20px;
+  border: 1px solid #FF9933;
+  border-radius: 5px;
+  background-image: linear-gradient(#FFF0A8, #F9B421);
+  margin: 0 auto;
+  display: block;
+  min-width: 168px;
+  position: relative;
+}
+.paypal-button-title {
+  font-size: 14px;
+  color: #505050;
+  vertical-align: baseline;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+.paypal-button .paypal-logo {
+  display: inline-block;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+}
+
+/*
+END PAYPAL
+*/
+
 body,
 ol>li>ol,
 ol>li>ul,
@@ -8090,3 +8132,4 @@ iframe.uk-cover {
     -webkit-filter: none;
     filter: none
 }
+

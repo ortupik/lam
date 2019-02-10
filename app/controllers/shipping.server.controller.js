@@ -41,17 +41,39 @@ exports.saveShippingAddress = function(req, res) {
 /**
  * Get USER Shipping address
  */
-exports.getShippingAddress = function(callback) {
-
-	Shipping.findOne({}, function(err, shipping){
+exports.getShippingAddress = function(user,callback) {
+	Shipping.find({}, function(err, shipping){
 	    if (err){
           callback({ message: err , success: 0});
 	    }else{
+	    	console.log(shipping)
 	     callback({ data: shipping , success: 1});
 	    }
 	});
 
+}; 
+
+/*
+  Update Shipping Address
+*/
+exports.updateShippingAddress = function(req,res){
+
+   var shipping = new Shipping(req.body);
+
+	Shipping.findOneAndUpdate({_id:shipping._id},shipping, {upsert:true}, function(err, shipping){
+	  if (err) {
+	  	console.log(err)
+		return res.status(400).send({
+			success:0,
+			message:err
+		});
+	  } else {
+		res.json({success:1,data:shipping});
+	  }
+	});
+
 };
+
 
 
 

@@ -37,6 +37,9 @@ var ShippingSchema = new Schema({
   city: {
     type: 'String'
   },
+  address: {
+     type: 'String'
+  },
   street: {
     type: 'String'
   },
@@ -53,6 +56,9 @@ var ShippingSchema = new Schema({
     type: 'String'
   },
   comment: {
+    type: 'String'
+  },
+  postcode: {
     type: 'String'
   },
   pref_date: {

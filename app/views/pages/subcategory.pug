@@ -75,8 +75,11 @@ block pages
             div.uk-card-body
               button#reset_btn.uk-button.uk-button-default.uk-width-1-1
                 +icon("close", ".75")(class="uk-margin-xsmall-right") 
-                | Reset all filters
+                | Reset filters
 
     //- Content
     div.uk-width-expand
       include /partials/_products
+      
+  script(src="scripts/handler.js")
+

@@ -56,7 +56,7 @@ module.exports = function(mongoose) {
     app.use(bodyParser.json());  
 
 	// Showing stack errors
-	app.set('showStackError', true);
+	app.set('showStackError', true); 
 
 
 	 // Initialize the ejs template engine
@@ -89,31 +89,31 @@ module.exports = function(mongoose) {
 	app.use(cookieParser());
 
 	// Express MongoDB session storage
-	/*app.use(session({
+	app.use(session({
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
 		store: new MongoStore({
 			 url: config.db
 		}),
-	}));*/
+	}));
 
 
 	// use passport session
 	app.use(passport.initialize());
-	//app.use(passport.session());
+	app.use(passport.session());
 
 	// connect flash for flash messages
 	app.use(flash());
 
-	/*app.use(function(req,res,next){
+	app.use(function(req,res,next){
 		if(req.session.passport.user == undefined){
 			res.locals.session = "not_logged_in";
 		}else{
 			res.locals.session = req.session.passport.user;
 		}	    
 	    next();
-	});*/
+	});
 
 	// Use helmet to secure Express headers
 	app.use(helmet.xframe());

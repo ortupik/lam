@@ -39,6 +39,7 @@ $(function(){
 	        var products = res.data;
 	        var total = res.total;
             pages = res.pages;
+
             
             if(!total){
            	  total = 0;
@@ -72,8 +73,8 @@ $(function(){
 			        			     var product = res.product;
 				        			  addCartItem(product,function(resp){
 				        			 	 if(resp.success == 1){
-				        			 	 	cart_subtotal+= product.price;
-				        			 	 	$("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+				        			 	 	cart_subtotal+= (product.price * product.quantity);
+				        			 	 	 $("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
 				        			 	 	 $("#cart_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
                                              $("#cart_total").text("Ksh "+cart_subtotal.toLocaleString());
 				        			 	    displayCartItem(product); 
@@ -409,6 +410,8 @@ $(function(){
     	}
 
     	var price = product.price;
+    	var quantity = product.quantity;
+    	var total = "Ksh "+(price * quantity).toLocaleString();
     	price = "Ksh "+price.toLocaleString();
 
     	var cart_item = '<li class="uk-visible-toggle">'+
@@ -423,8 +426,8 @@ $(function(){
 	        '<div class="uk-width-expand">'+
 	            '<div class="uk-text-meta uk-text-xsmall">'+product.brand.name+'</div><a class="uk-link-heading uk-text-small" href="product.href">'+product.name+'</a>'+
 	            '<div class="uk-margin-xsmall uk-grid-small uk-flex-middle" uk-grid="uk-grid">'+
-	                '<div class="uk-text-bolder uk-text-small">'+price+'</div>'+
-	                '<div class="uk-text-meta uk-text-xsmall">1 × '+price+'</div>'+
+	                '<div class="uk-text-bolder uk-text-small">'+total+'</div>'+
+	                '<div class="uk-text-meta uk-text-xsmall">'+quantity+' × '+price+'</div>'+
 	            '</div>'+
 	        '</div>'+
 	        '<div><a class="uk-icon-link uk-text-danger uk-invisible-hover remove_cart_item" href="#" uk-icon="icon: close; ratio: .75" uk-tooltip="Remove" item_id='+product.id+'></a></div>'+
@@ -444,11 +447,15 @@ $(function(){
 
 	      var count = result.length;
 
+	      $("#other_text").text(count+" Cart Items");
+
+
 	      $("#badge_cart").text(count);
 
 	      for(var i = 0; i < count; i++){
 	      	  var price = result[i].price;
-	      	  cart_subtotal+=price;
+	      	  var quantity = result[i].quantity;
+	      	  cart_subtotal+=(price * quantity);
 	          displayCartItem(result[i]);
 	      }
 
@@ -469,6 +476,7 @@ $(function(){
 	          	 if(currentT != undefined && currentT != ""){
                     var current = parseInt(currentT) -1;
                     $("#badge_cart").text(current);
+                    $("#other_text").text(current+" Cart Items");
 	          	 }
 	             $this.parent().parent().parent().remove();
 	          }

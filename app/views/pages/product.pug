@@ -5,11 +5,12 @@ block vars
   
     page = {
       title: product.name,
-      breadcrumbs: {
-        'Catalog': 'catalog',
-        'Laptops & Tablets': 'category',
-        'Laptops': 'subcategory'
-      }
+      page_id: 'product',
+      breadcrumbs: [
+        {name: 'Catalog', href: '/catalog'},
+        {name: 'Laptops & Tablets', href: '/category'},
+        {name: 'Laptops', href: '/subcategory'}
+      ]
     }
 
 
@@ -17,23 +18,23 @@ block pages
   div.uk-grid-medium.uk-child-width-1-1(uk-grid)
     //- Product
     div
-      div.uk-card.uk-card-default.uk-card-small.tm-ignore-container
+      div.uk-card.uk-card-default.tm-ignore-container
         div.uk-grid-small.uk-grid-collapse.uk-grid-match(uk-grid)
 
           //- Media
           div(class="uk-width-1-1 uk-width-expand@m")
             div.uk-grid-collapse.uk-child-width-1-1(
-              uk-slideshow="finite: true; ratio: 4:3;"
+              uk-slideshow="finite: true;"
               uk-list)
                
               //- Primary image
               div
-                ul.uk-slideshow-items(uk-lightbox)
+                ul.uk-slideshow-items(uk-lightbox)(style="max-height:400px;")
                   li
                     if product.image
-                      a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large)
+                      a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large )
                         figure.tm-media-box-wrap
-                          img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.large alt= product.name)
+                          img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.large alt= product.name )
                     else
                       figure.tm-media-box-wrap
                         +icon("image", "5")(class="uk-text-muted")
@@ -145,8 +146,8 @@ block pages
                         div.uk-text-muted Product not available
                       else
                         if product.oldPrice
-                          del.uk-text-meta= product.oldPrice
-                          div.tm-product-price= product.price
+                          del.uk-text-meta=  'Ksh '+(product.oldPrice).toLocaleString()
+                          div.tm-product-price= 'Ksh '+(product.price).toLocaleString()
 
                     //- Add to cart
                     if !product.isNotAvailable
@@ -176,35 +177,16 @@ block pages
                               uk-tooltip="Add to compare")
                               +icon("copy")
 
-              //- Delivery info
-              div.uk-margin
-                div.uk-padding-small.uk-background-muted.uk-border-rounded
-                  div.uk-grid-small.uk-child-width-1-1.uk-text-small(uk-grid)
-
-                    //- Delivery
-                    div
-                      div.uk-grid-collapse(uk-grid)
-                        +icon("cart")(class="uk-margin-xsmall-right")
-                        div
-                          div.uk-text-bolder Delivery
-                          div.uk-text-xsmall.uk-text-muted In stock, free, tomorrow
-
-                    //- Pick up
-                    div
-                      div.uk-grid-collapse(uk-grid)
-                        +icon("location")(class="uk-margin-xsmall-right")
-                        div
-                          div.uk-text-bolder Pick up from store
-                          div.uk-text-xsmall.uk-text-muted In stock, free, tomorrow
 
               //- Properties
               div.uk-margin
                 if product.properties
                   ul.uk-list.uk-text-small.uk-margin-remove
-                    for value, property in product.properties
+                    each value, index in product.properties[0]
                       li
-                        span.uk-text-muted= property + ": "
-                        span!= value
+                        span.uk-text-muted= index + ": "
+                        span=value
+
                   div.uk-margin-small-top
                     a.uk-link-heading.js-scroll-to-description(
                       href="#description"

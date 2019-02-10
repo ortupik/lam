@@ -85,6 +85,7 @@ module.exports = function(app) {
 	app.get('/card', function (req, res) {
 	  res.render('pages/card.pug');
 	});
+
 	
  
 };

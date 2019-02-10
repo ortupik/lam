@@ -5,7 +5,7 @@ html
         title=message
         link(rel='stylesheet', href='/static/style.css')
     body
+        h1 #{response.message}
         .demo-container(style='width: 50%; text-align:center')
-            h1=message
-            pre(style='width: 100%; text-align:left; display:block')=details
-            pre(style='width: 100%; text-align:left; display:block')=error
+            pre(style='width: 100%; text-align:left; display:block')=response.details
+            pre(style='width: 100%; text-align:left; display:block')=response.error

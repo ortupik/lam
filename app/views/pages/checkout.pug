@@ -3,112 +3,120 @@ extends /layouts/_checkout
 block vars
   -
     page = {
-      title: 'Save Shipping Address'
+      title: 'Checkout'
     }
-
+  
 block checkout
-  div.uk-grid-medium.uk-flex-center(uk-grid)
+   
+
+  div.uk-grid-medium(uk-grid).uk-flex-middle.uk-flex-center
 
     //- Form
-    form#checkout_form.uk-form-stacked.uk-width-1-1.tm-checkout(class="uk-width-expand@m")
-      div.uk-grid-medium.uk-child-width-1-2.uk-flex-center(uk-grid)
+    form#checkout_form.uk-form-stacked.uk-width-1-1.tm-checkout(style="width:70%;")
+      div.uk-grid-medium.uk-flex-middle.uk-flex-center.uk-child-width-1-1(uk-grid)
 
-        //- Contact Information
+        //- Payment
         section
-          h4.tm-checkout-title.uk-text-muted Shipping Information
-          div.uk-card.uk-card-default.uk-card-small.uk-card-body.tm-ignore-container
-            div(class="uk-grid-small " +
-                      "uk-child-width-1-2 " +
-                      "uk-child-width-1-2@s"
-                uk-grid)
+          div.uk-card.uk-card-default.uk-card-small.tm-ignore-container
+            div.uk-card-body
+              div#payment_mode(class="uk-grid-small " +
+                        "uk-grid-match " +
+                        "uk-child-width-1-1 " +
+                        "uk-child-width-1-4@s " +
+                        "uk-flex-center"
+                  uk-switcher="toggle: > * > .tm-choose"
+                  uk-grid)
+
+                div.mode(mode="mobile")
+                  a.tm-choose(href="#")
+                    div.tm-choose-title Mobile Payment
+                    div.tm-choose-description Pesapal (Mpesa, Equitel , Airtel etc )
+
+                div.mode( mode="credit_card")
+                  a.tm-choose(href="#")
+                    div.tm-choose-title Credit Card
+                    div.tm-choose-description Visa, MasterCard
+
+                div.mode( mode="paypal")
+                  a.tm-choose(href="#")
+                    div.tm-choose-title Paypal
+                    div.tm-choose-description Pay with Paypal 
+
+                div.mode( mode="POD")
+                 a.tm-choose(href="#")
+                   div.tm-choose-title Payment upon Receipt
+                   div.tm-choose-description Cash on Delivery   
+
+
+            
+
+    //- Checkout
+    div(class="uk-width-1-1 uk-width-1-1@m tm-aside-column",style="width:70%;")
+      div.uk-card.uk-card-default.uk-card-small.tm-ignore-container(
+        uk-sticky="offset: 30; bottom: true; media: @m;")
+
+        section.uk-card-body
+          h4 Items in order
+          div#checkout_summary_cart
+            
+
+        section.uk-card-body
+
+         
+          div.uk-grid-small(uk-grid)
+            div.uk-width-expand
+              div.uk-text-muted Payment Mode
+            div.uk-text-right
+              div#payment_dec Mobile Payment 
+
+        section.uk-card-body
+
+          div.uk-grid-small(uk-grid)
+            div.uk-width-expand
+              div.uk-text-muted Subtotal
+            div.uk-text-right
+              div#cart_subtotal
+
+
+          div.uk-grid-small(uk-grid)
+            div.uk-width-expand
+              div.uk-text-muted Shipping fee
+            div.uk-text-right
+              div.uk-text-primary Ksh 250.00    
+
+          div.uk-grid-small(uk-grid)
+            div.uk-width-expand
+              div.uk-text-muted Discount
+            div.uk-text-right
+              div.uk-text-danger  - Ksh 0.00
+
+
+        section.uk-card-body
+
+          div.uk-grid-small.uk-flex-middle(uk-grid)
+            div.uk-width-expand
+              div.uk-text-muted Total
+            div.uk-text-right
+              div#cart_total.uk-text-lead.uk-text-bolder 
+
+          div#checkout_submit.uk-grid-medium(uk-grid).uk-flex-middle.uk-flex-center
+
+
+        div.uk-card-footer
+            div.uk-grid-small.uk-flex-middle.uk-flex-center.uk-text-center(uk-grid)
+
+              div.uk-text-meta
+                +icon("lock", ".75")(class="uk-margin-xsmall-right")
+                | Security of payments is is provided by secure protocols
 
               div
-                label
-                  div.uk-form-label.uk-form-label-required First Name
-                  input#fname.uk-input(type="text" required)
+                img(src="images/verified-by-visa.svg"
+                    title="Verified by Visa"
+                    style="height: 25px;")
 
               div
-                label
-                  div.uk-form-label.uk-form-label-required Last Name
-                  input#lname.uk-input(type="text" required)
+                img(src="images/mastercard-securecode.svg"
+                    title="MasterCard SecureCode"
+                    style="height: 25px;")
 
-              div
-                label
-                  div.uk-form-label.uk-form-label-required Phone Number
-                  input#phone.uk-input(type="tel" required)
-
-              div
-                label
-                  div.uk-form-label.uk-form-label-required Email
-                  input#email.uk-input(type="email" required)
-
-
-              //- Regional shipping
-              div.uk-grid-small(uk-grid)
-
-                div.uk-width-1-1
-                  label
-                    div.uk-form-label.uk-form-label-required County
-                    select#county.uk-select
-                      option(value="Nairobi") Nairobi
-
-              div.uk-grid-small(uk-grid)
-
-                div.uk-width-expand
-                  label
-                    div.uk-form-label.uk-form-label-required City
-                    input#city.uk-input(type="text")
-
-                div(class="uk-width-1-3 uk-width-1-6@s")
-                  label
-                    div.uk-form-label Post Code
-                    input#postcode.uk-input(type="text")
-
-              div.uk-grid-small(uk-grid)
-
-                div.uk-width-expand
-                  label
-                    div.uk-form-label Street
-                    input#street.uk-input(type="text")
-
-                div(class="uk-width-1-3 uk-width-1-6@s")
-                  label
-                    div.uk-form-label House
-                    input#house.uk-input(type="text")
-
-              div.uk-grid-small(class="uk-child-width-1-3 uk-child-width-1-3@s" uk-grid)
-
-                div
-                  label
-                    div.uk-form-label Building
-                    input#building.uk-input(type="text")
-
-                div
-                  label
-                    div.uk-form-label Entrance
-                    input#entrance.uk-input(type="text")
-
-                div
-                  label
-                    div.uk-form-label Floor
-                    input#floor.uk-input(type="text")
-
-              div
-                label
-                  div.uk-form-label Apartment
-                  input#apartment.uk-input(type="text")
-
-              div.uk-width-1-1
-                label
-                  div.uk-form-label Comment
-                  textarea#comment.uk-textarea(
-                    rows="5"
-                    placeholder="Additional information: phone numbers or doorphone code")
-
-
-              button.uk-button.uk-button-secondary.uk-button.uk-width-1-5(type='submit' style="margin:15px;") Save
-
-
-           
-
-  script(src="scripts/checkout.js") 
+  script(src="scripts/payment.js") 

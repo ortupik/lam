@@ -1,5 +1,7 @@
 'use strict';
 
+var request = require('request'); // npm install request
+
 module.exports = function(app) {
 
 var orderCont = require('../../app/controllers/order.server.controller'); 
@@ -51,77 +53,47 @@ app.get('/payment_callback', function (req, res) {
 
 });
 
-app.get('/testpay', function (req, res, next) {
-    // TODO: Render checkout UI
-    console.log("check me out")
-    res.render("pages/checkout2", {
-        reference: new Date().getTime(),
-        description: "This is a funny description",
-        amount: Math.floor((Math.random() * 20000) + 1)
-    });
-});
 
-app.post('/checkout', function (req, res, next) {
-    // TODO: Make order from request;
+app.get('/pesapal-pay', function (req, res, next) {
 
-    shippingCont.getShippingAddress(function(resp){
+    var sessionInfo = {
+            user_id:"5c34f47ca11b441970d08b81"
+    }
+
+    shippingCont.getShippingAddress(sessionInfo,function(resp){
 
        if(resp.success == 1){
 
-         var shippingData = resp.data;
+         var shippingData = JSON.parse(JSON.stringify(resp.data))[0];
 
-         var customer = new PesaPal.Customer(shippingData.email, shippingData.phone);
-            customer.firstName = shippingData.fname;
-            customer.lastName = shippingData.lname;
+         var reference = new Date().getTime();
+         var amount = Math.floor((Math.random() * 20000) + 1);
 
-            var reference = new Date().getTime();
-            var amount = Math.floor((Math.random() * 20000) + 1);
+         shippingData.type = req.query.type;
+         shippingData.currency = req.query.currency;
+         shippingData.description = req.query.description;
+         shippingData.mobile = req.query.mobile;
+         shippingData.amount = amount;
+         shippingData.reference = reference;
 
-            var order = new PesaPal.Order(
-                reference,
-                customer,
-                req.body.description,
-                amount,
-                req.body.currency,
-                req.body.type);
-             
-                var mobilePayment = req.body.mobile == "mobile";
-                var method = mobilePayment ? PesaPal.PaymentMethod.MPesa : PesaPal.PaymentMethod.Visa;
-
-                PesaPal.makeOrder(order, method)
-                    .then(function (order) {
-
-                        // TODO: Save order in DB
-                      orderCont.saveOrder(order,function(resp){
-                         if(resp.success == 1){
-                                // TODO: Render UI to get mpesa transaction code or card details from user
-                                if (mobilePayment) {
-                                    res.render("pages/mobile", {
-                                        reference: order.reference,
-                                        instructions: "Send " + order.amount + " " + order.currency + " to " + method.account + " via " + method.name
-                                    });
-                                } else {
-                                    res.render("pages/card", {reference: order.reference});
-                                }
-                         }else{
-                             res.send(resp.message);
-                         }
-                      });
-
-                    })
-                    .catch(function(error) {
-                        console.log(error)
-                        res.send(error.message);
-                    });
-
+          //'https://payment-gateway-techflay.herokuapp.com/pesapalpay.php',
+          //'http://localhost/payment/pesapalpay.php'
+          
+         request.post({
+            url: 'https://payment-gateway-techflay.herokuapp.com/pesapalpay.php',
+            json: true,
+            form: shippingData
+         },
+         function(err,httpResponse,body){
+           res.writeHead(200, {'Content-Type': 'text/html'});
+           res.end(body);
+         });
        }else{
          res.json(resp);
        }
+
     });
 
-    /*
-            */
-    
 });
 
 app.post('/pay', function (req, res, next) {
@@ -132,6 +104,8 @@ app.post('/pay', function (req, res, next) {
       if(resp.success == 1){
 
         var order = resp.data;
+
+        console.log(order)
        
         var processResponse = function (paymentResponse) {
             // TODO: Render Success / Error UI
@@ -203,5 +177,5 @@ app.post('/pay', function (req, res, next) {
 
 
 });
-	
+    
 };

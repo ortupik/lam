@@ -2,11 +2,48 @@ $(function(){
 
    var mode = "mobile";
 
+
+   $("#checkout_submit").empty();
+   $("#checkout_submit").append(returnPesapalUi());
+
    $("#payment_mode .mode").on("click",function(){
    	    mode = $(this).attr("mode");
    	    var paymentDesc = $(this).find(".tm-choose-title").text();
-   	    $("#payment_dec").text(paymentDesc)
+   	    $("#payment_dec").text(paymentDesc);
+         
+        $("#checkout_submit").empty();
+
+   	    if(mode == "paypal"){
+   	    	$("#checkout_submit").append('<form method="POST" action="/paypal-checkout">'+
+										  '<div class="box">'+
+										  '<button id="checkoutbtn" class="paypal-button uk-button uk-flex-center uk-flex-middle" type="submit">'+
+										    '<span class="paypal-button-title">'+
+										      'Pay with '+
+										    '</span>'+
+										    '<span class="paypal-logo">'+
+										      '<i>Pay</i><i>Pal</i>'+
+										    '</span>'+
+										  '</button>'+
+										'</div>'+
+										'</form>');
+   	    }else if(mode == "mobile"){
+   	    	$("#checkout_submit").append(returnPesapalUi());
+   	    }
    });
+
+   function returnPesapalUi(){
+   	 return '<form method="GET" action="/pesapal-pay">'+
+										  '<input type="mobile" name="mobile" value="mobile" hidden="hidden" />'+
+										  '<input type="currency" name="currency" value="KES" hidden="hidden" />'+
+										  '<input type="text" name="type" value="MERCHANT" hidden="hidden" />'+
+										  '<input type="description" name="description" value="Buy an item" hidden="hidden" />'+
+										  '<div class="box">'+
+										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary " type="submit">'+
+										      'Pay with Pesapal'+
+										  '</button>'+
+										'</div>'+
+										'</form>';
+   }
 
    getCartItems(function(result){
 
@@ -66,15 +103,4 @@ $(function(){
 	   
 	}
 
-	$("#checkoutbtn").on("click",function(e){
-         var data = {
-         	mobile:mode,
-         	currency:"KES",
-         	type:"MERCHANT",
-         	description:"Yes I made it"
-         } 
-         $.post("/checkout",data,function(resp){
-            $('body').replaceWith(resp);
-         });
-	});
 });

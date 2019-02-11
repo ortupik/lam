@@ -1,4 +1,4 @@
-extends /layouts/_pages
+extends /layouts/_default
 
 block vars
   -
@@ -14,42 +14,24 @@ block vars
     }
 
 
-block pages
+block default
   div.uk-grid-medium.uk-child-width-1-1(uk-grid)
     //- Product
     div
       div.uk-card.uk-card-default.tm-ignore-container
-        div.uk-grid-small.uk-grid-collapse.uk-grid-match(uk-grid)
+        div.uk-grid-collapse.uk-grid-match(uk-grid)
 
           //- Media
           div(class="uk-width-1-1 uk-width-expand@m")
             div.uk-grid-collapse.uk-child-width-1-1(
               uk-slideshow="finite: true;"
               uk-list)
-               
-              //- Primary image
-              div
-                ul.uk-slideshow-items(uk-lightbox)(style="max-height:400px;")
-                  li
-                    if product.image
-                      a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large )
-                        figure.tm-media-box-wrap
-                          img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.large alt= product.name )
-                    else
-                      figure.tm-media-box-wrap
-                        +icon("image", "5")(class="uk-text-muted")
-                  if product.additionalImages
-                    each additionalImage in product.additionalImages
-                      li
-                        a.uk-card-body.tm-media-box.tm-media-box-zoom(href= additionalImage.large)
-                          figure.tm-media-box-wrap
-                            img.b-lazy(src="images/ajax-loader.gif" data-src= additionalImage.large alt= product.name)
 
               //- Additional images
               if product.additionalImages
                 div
                   div.uk-card-body.uk-flex.uk-flex-center
-                    div(class="uk-width-1-2 uk-visible@s")
+                    div(class="uk-width-1-3 uk-visible@s")
                       div(uk-slider="finite: true")
                         div.uk-position-relative
                           div.uk-slider-container
@@ -78,15 +60,37 @@ block pages
                                 uk-slidenav-next)
 
                     ul(class="uk-slideshow-nav uk-dotnav uk-hidden@s")
+               
+              //- Primary image
+              div.uk-width-auto.uk-width-expand
+                ul.uk-slideshow-items(uk-lightbox style="max-height:450px;")
+                  li
+                    if product.image
+                      a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large )
+                        figure.tm-media-box-wrap
+                          img.b-lazy(src="images/ajax-loader.gif" data-src= product.image.large alt= product.name )
+                    else
+                      figure.tm-media-box-wrap
+                        +icon("image", "5")(class="uk-text-muted")
+                  if product.additionalImages
+                    each additionalImage in product.additionalImages
+                      li
+                        a.uk-card-body.tm-media-box.tm-media-box-zoom(href= additionalImage.large)
+                          figure.tm-media-box-wrap
+                            img.b-lazy(src="images/ajax-loader.gif" data-src= additionalImage.large alt= product.name)
+
+              
 
           //- Info
           div(class="uk-width-1-1 uk-width-1-3@m tm-product-info")
             div.uk-card-body
 
               //- Brand
-              div
-                a(href= product.brand.href title= product.brand.name)
+              div.uk-grid.uk-child-width-1-1(uk-grid)
+                a.uk-width-1-5(href= product.brand.href title= product.brand.name)
                   img.b-lazy(src="images/ajax-loader.gif" data-src= product.brand.image alt= product.brand.name style="height: 40px;")
+                span.uk-width-auto.uk-width-expand(style="padding-left:20px;")
+                  h4 #{product.name}
 
               //- Rating & Statuses
               div.uk-margin
@@ -104,6 +108,7 @@ block pages
                       a.uk-text-meta.js-scroll-to-description(
                         href="#description"
                         onclick="UIkit.switcher('.js-product-switcher').show(3);") (2) 
+                      a(href="#description"  onclick="UIkit.switcher('.js-product-switcher').show(3);" style="padding-left:10px;") write a review
 
                   //- Statuses
                   if product.statuses

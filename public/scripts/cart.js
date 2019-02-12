@@ -22,7 +22,6 @@ $(function(){
 			var item_id = parseInt($(this).attr("item_id"));
 			$this = $(this);
 			
-			alert(item_id)
 			removeCartItem(item_id,function(res){
 				if(res.success == 1){
 					$("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
@@ -62,7 +61,7 @@ $(function(){
 						'        <div class="uk-width-expand">'+
 						'          <div class="uk-text-meta">'+product.type+'</div><a class="uk-link-heading" href="'+product.href+'">'+product.name+'</a>'+
 						'        </div>'+
-						'        <div class="uk-width-auto remove_cart_item" item_id='+product.id+'><a class="uk-text-danger"  uk-tooltip="Remove"><span style="" uk-icon="close"></span></a></div>'+
+						'        <div class="uk-width-auto remove_cart_item " item_id='+product.id+'><a class="uk-text-danger"  uk-tooltip="Remove"><span style="margin-top:20px;" uk-icon="close"></span></a></div>'+
 
 						'      </div>'+
 						'    </div>'+

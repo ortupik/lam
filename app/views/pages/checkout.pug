@@ -11,14 +11,24 @@ block checkout
 
   div.uk-grid-medium(uk-grid).uk-flex-middle.uk-flex-center
 
+
+ 
+
     //- Form
     form#checkout_form.uk-form-stacked.uk-width-1-1.tm-checkout(style="width:70%;")
+
       div.uk-grid-medium.uk-flex-middle.uk-flex-center.uk-child-width-1-1(uk-grid)
 
         //- Payment
         section
           div.uk-card.uk-card-default.uk-card-small.tm-ignore-container
             div.uk-card-body
+              section.uk-text-center
+                h2.uk-margin-small-top.uk-margin-remove-bottom.uk-text-bolder Checkout
+                a.uk-text-small(href="/cart")
+                  +icon("arrow-left", ".75")(class="uk-margin-xsmall-right")
+                  | Return to cart
+              h4.uk-text-muted.uk-text-bolder Select Payment Mode
               div#payment_mode(class="uk-grid-small " +
                         "uk-grid-match " +
                         "uk-child-width-1-1 " +
@@ -30,7 +40,7 @@ block checkout
                 div.mode(mode="mobile")
                   a.tm-choose(href="#")
                     div.tm-choose-title Mobile Payment
-                    div.tm-choose-description Pesapal (Mpesa, Equitel , Airtel etc )
+                    div.tm-choose-description Pesapal(Mpesa,Airtel etc)
 
                 div.mode( mode="credit_card")
                   a.tm-choose(href="#")
@@ -40,116 +50,113 @@ block checkout
                 div.mode( mode="paypal")
                   a.tm-choose(href="#")
                     div.tm-choose-title Paypal
-                    div.tm-choose-description  Paypal 
+                    div.tm-choose-description Pay with Paypal 
 
                 div.mode( mode="POD")
                  a.tm-choose(href="#")
                    div.tm-choose-title Pay on Delivery
                    div.tm-choose-description Cash on Delivery   
 
+            section.uk-card-body
+              h4.uk-text-muted.uk-text-bolder Cart Items
+              div#checkout_summary_cart(style="width:65%;")
+              hr 
+           
+              div.uk-child-width-1-2(uk-grid)            
 
-            
-
-    //- Checkout
-    div(class="uk-width-1-1 uk-width-1-1@m tm-aside-column",style="width:70%;")
-      div.uk-card.uk-card-default.uk-card-small.tm-ignore-container(
-        uk-sticky=" bottom: true; media: @m;")
-
-        section.uk-card-body
-          h4 Items in order
-          div#checkout_summary_cart
-            
-        hr
-        div.uk-child-width-1-2.uk-card-body.uk-flex-center(uk-grid)            
-
-          div.uk-flex-center
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted.uk-text-bolder Shipping Information
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Your Names:
-              div
-                div Chris Kipruto
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Phone:
-              div
-                div +254728318609   
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Email:
-              div
-                div chrisadriane.ca@gmail.com    
-            div.uk-grid-small(uk-grid)
-             div
-              div.uk-text-muted City:
-             div
-              div Nairobi   
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Address:
-              div
-                div P.O BOX 3, Nairobi  
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-button.uk-button-primary.uk-button-small.uk-margin-small.uk-width-1-1 Edit details      
+                div.uk-width-expand
+                  div.uk-grid-small(uk-grid)
+                    div
+                      h4.uk-text-muted.uk-text-bolder Shipping Information
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Your Names:
+                    div
+                      div Chris Kipruto
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Phone:
+                    div
+                      div +254728318609   
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Email:
+                    div
+                      div chrisadriane.ca@gmail.com    
+                  div.uk-grid-small(uk-grid)
+                   div
+                    div.uk-text-muted City:
+                   div
+                    div Nairobi   
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Address:
+                    div
+                      div P.O BOX 3, Nairobi  
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-button.uk-button-primary.uk-button-small.uk-margin-small.uk-width-1-1 Edit details 
+                      br     
 
 
-          div.uk-flex-center
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted.uk-text-bolder Order Information
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Payment Mode:
-              div.uk-text-right
-                div#payment_dec Mobile Payment 
+                div
+                  div.uk-grid-small(uk-grid)
+                    div
+                      h4.uk-text-muted.uk-text-bolder Order Information
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Payment Mode:
+                    div.uk-text-right
+                      div#payment_dec Mobile Payment 
 
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Subtotal:
-              div.uk-text-right
-                div#cart_subtotal
-
-
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted.uk-text-left Shipping fee:
-              div.uk-text-right
-                div.uk-text-primary Ksh 250.00    
-
-            div.uk-grid-small(uk-grid)
-              div
-                div.uk-text-muted Discount:
-              div.uk-text-right
-                div.uk-text-danger  - Ksh 0.00
-
-            div.uk-grid-small.uk-flex-middle(uk-grid)
-              div
-                div.uk-text-muted.uk-text-lead Total:
-              div.uk-text-right
-                div#cart_total.uk-text-lead.uk-text-bolder 
-
-            div#checkout_submit.uk-grid-medium(uk-grid).uk-flex-middle
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Subtotal:
+                    div.uk-text-right
+                      div#cart_subtotal
 
 
-        div.uk-card-footer
-            div.uk-grid-small.uk-flex-middle.uk-flex-center.uk-text-center(uk-grid)
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted.uk-text-left Shipping fee:
+                    div.uk-text-right
+                      div.uk-text-primary Ksh 250.00    
 
-              div.uk-text-meta
-                +icon("lock", ".75")(class="uk-margin-xsmall-right")
-                | Security of payments is is provided by secure protocols
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div.uk-text-muted Discount:
+                    div.uk-text-right
+                      div.uk-text-danger  - Ksh 0.00
 
-              div
-                img(src="images/verified-by-visa.svg"
-                    title="Verified by Visa"
-                    style="height: 25px;")
+                  div.uk-grid-small.uk-flex-middle(uk-grid)
+                    div
+                      div.uk-text-muted Total:
+                    div.uk-text-right
+                      h4#cart_total.uk-text-bolder 
+                  div.uk-grid-small(uk-grid)
+                    div
+                      div#checkout_submit.uk-grid-medium(uk-grid)  
+                      br 
 
-              div
-                img(src="images/mastercard-securecode.svg"
-                    title="MasterCard SecureCode"
-                    style="height: 25px;")
+                  
+
+
+              div.uk-card-footer
+                  div.uk-grid-small.uk-flex-middle.uk-flex-center.uk-text-center(uk-grid)
+
+                    div.uk-text-meta
+                      +icon("lock", ".75")(class="uk-margin-xsmall-right")
+                      | Security of payments is is provided by secure protocols
+
+                    div
+                      img(src="images/verified-by-visa.svg"
+                          title="Verified by Visa"
+                          style="height: 25px;")
+
+                    div
+                      img(src="images/mastercard-securecode.svg"
+                          title="MasterCard SecureCode"
+                          style="height: 25px;")
 
   script(src="scripts/handler.js") 
   script(src="scripts/payment.js") 

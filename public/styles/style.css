@@ -7824,14 +7824,16 @@ iframe.uk-cover {
 .tm-choose {
     position: relative;
     width: 100%;
-    padding: 40px 20px 10px;
+    padding: 15px 20px 15px;
     cursor: pointer;
     border: 1px solid #e5e5e5;
     border-radius: 4px
 }
 
 .tm-choose.uk-active {
-    border-color: #1e87f0
+    border-color: white;
+    background: black;
+    color: white;
 }
 
 .tm-choose:not(.uk-active):focus,
@@ -7846,8 +7848,7 @@ iframe.uk-cover {
 .tm-choose::after,
 .tm-choose::before {
     content: "";
-    top: 12px;
-    left: 50%;
+    top: 30%; 
     display: block;
     width: 16px;
     height: 16px;
@@ -7892,7 +7893,7 @@ iframe.uk-cover {
 }
 
 .tm-choose.uk-active .tm-choose-title {
-    color: #666
+    color: #fff
 }
 
 .tm-choose .tm-choose-description {

@@ -94,7 +94,7 @@ $(function(){
 						'    <div class="uk-text-small">'+product.name+'</div>'+
 						'    <div class="uk-text-meta">1 × '+price+'</div>'+
 						'  </div>'+
-						'  <div class="uk-text-right">'+
+						'  <div class="">'+
 						'    <div>'+price+'</div>'+
 						'  </div>'+
 						'</div>';

@@ -1416,6 +1416,7 @@ select.uk-form-width-xsmall {
 .uk-button-secondary {
     background-color: #944d84;
     color: #fff;
+    border-radius: 8px;
     border: 1px solid transparent
 }
 

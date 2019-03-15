@@ -45,17 +45,17 @@ $(function(){
    });
 
    function returnPesapalUi(){
-   	 return '<form method="GET" action="/pesapal-pay">'+
+   	 return '<div style="padding-bottom:20px;"><form method="GET" action="/pesapal-pay">'+
 										  '<input type="mobile" name="mobile" value="mobile" hidden="hidden" />'+
 										  '<input type="currency" name="currency" value="KES" hidden="hidden" />'+
 										  '<input type="text" name="type" value="MERCHANT" hidden="hidden" />'+
 										  '<input type="description" name="description" value="Buy an item" hidden="hidden" />'+
 										  '<div class="box">'+
-										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary uk-button-small " type="submit">'+
+										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary  " type="submit">'+
 										      'Pay with Pesapal'+
 										  '</button>'+
 										'</div>'+
-										'</form>';
+										'</form></div>';
    }
 
   

@@ -89,15 +89,15 @@ $(function(){
 
     	bLazy.revalidate();
 
-    	var cart_item = '<div class="uk-grid-small" uk-grid="uk-grid">'+
-						'  <div class="uk-width-expand">'+
-						'    <div class="uk-text-small">'+product.name+'</div>'+
-						'    <div class="uk-text-meta">1 × '+price+'</div>'+
-						'  </div>'+
-						'  <div class="">'+
-						'    <div>'+price+'</div>'+
-						'  </div>'+
-						'</div>';
+    	var total = parseFloat(product.price) * parseInt(product.quantity);
+
+	     var cart_item = '<tr>'+
+	                      '<td class="uk-text-small">'+product.name+'</td>'+
+	                      '<td class="uk-text-meta">Ksh '+product.price.toLocaleString()+'</td>'+
+	                      '<td lzass="uk-text-small">'+product.quantity+'</td>'+
+	                      '<td class="uk-text-small">Ksh '+total.toLocaleString()+'</td>'+
+	                     '</tr>';				
+
 
 	   $("#checkout_summary_cart").append(cart_item);
 

@@ -59,7 +59,14 @@ block checkout
 
             section.uk-card-body
               h4.uk-text-muted.uk-text-bolder Cart Items
-              div#checkout_summary_cart(style="width:65%;")
+              table.uk-table.uk-table-divider.uk-table-small.uk-table-hover.uk-table-striped
+                thead
+                  tr
+                    th.uk-text-small Item
+                    th.uk-text-small Price
+                    th.uk-text-small Quantity
+                    th.uk-text-small Total
+                tbody#checkout_summary_cart(style="width:65%;")
               hr 
            
               div.uk-child-width-1-2(uk-grid)            
@@ -70,29 +77,29 @@ block checkout
                       h4.uk-text-muted.uk-text-bolder Shipping Information
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Your Names:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Names:
                     div
-                      div Chris Kipruto
+                      div.uk-text-small Chris Kipruto
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Phone:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Phone:
                     div
-                      div +254728318609   
+                      div.uk-text-small +254728318609   
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Email:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Email:
                     div
-                      div chrisadriane.ca@gmail.com    
+                      div.uk-text-small chrisadriane.ca@gmail.com    
                   div.uk-grid-small(uk-grid)
                    div
-                    div.uk-text-muted City:
+                    div.uk-text-muted.uk-text-small.uk-text-bolder City:
                    div
-                    div Nairobi   
+                    div.uk-text-small Nairobi   
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Address:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Address:
                     div
-                      div P.O BOX 3, Nairobi  
+                      div.uk-text-small P.O BOX 3, Nairobi  
                   div.uk-grid-small(uk-grid)
                     div
                       div.uk-button.uk-button-primary.uk-button-small.uk-margin-small.uk-width-1-1 Edit details 
@@ -105,34 +112,34 @@ block checkout
                       h4.uk-text-muted.uk-text-bolder Order Information
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Payment Mode:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Payment Mode:
                     div.uk-text-right
-                      div#payment_dec Mobile Payment 
+                      div.uk-text-small#payment_dec Mobile Payment 
 
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Subtotal:
+                      div.uk-text-small.uk-text-muted.uk-text-bolder Subtotal:
                     div.uk-text-right
-                      div#cart_subtotal
+                      div.uk-text-small#cart_subtotal
 
 
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted.uk-text-left Shipping fee:
+                      div.uk-text-muted.uk-text-small.uk-text-left.uk-text-bolder Shipping fee:
                     div.uk-text-right
-                      div.uk-text-primary Ksh 250.00    
+                      div.uk-text-small.uk-text-primary Ksh 250.00    
 
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-text-muted Discount:
+                      div.uk-text-muted.uk-text-small.uk-text-bolder Discount:
                     div.uk-text-right
-                      div.uk-text-danger  - Ksh 0.00
+                      div.uk-text-small.uk-text-danger  - Ksh 0.00
 
                   div.uk-grid-small.uk-flex-middle(uk-grid)
                     div
-                      div.uk-text-muted Total:
+                      div.uk-text-small.uk-text-muted.uk-text-bolder Total:
                     div.uk-text-right
-                      h4#cart_total.uk-text-bolder 
+                      h5#cart_total.uk-text-bolder 
 
               div.uk-grid-small.uk-flex-center(uk-grid)
                 div#checkout_submit

@@ -66,7 +66,7 @@ function increment(incrementor, target) {
      var val = $(id).attr("total_quant");
      $(id).text("Ksh "+(parseInt(val) * value).toLocaleString());
     
-       updateCartItem(target, value,function(res){
+       updateCartItem(target, value,"passIn",function(res){
          if(res.success == 1){
              calculateTotal(function(result){
                   $("#cart_subtotal").text("Ksh "+result.toLocaleString());

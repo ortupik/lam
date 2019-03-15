@@ -3,9 +3,11 @@ $(function(){
     var cart_subtotal = 0;
 
 
+
 	getCartItems(function(result){
      
 		$("#cart_side_list").empty();
+
 		for(var i = 0; i < result.length; i++){
            displayCartItem(result[i]);
            var price = result[i].price;
@@ -21,14 +23,24 @@ $(function(){
 
 			var item_id = parseInt($(this).attr("item_id"));
 			$this = $(this);
+
+               removeCartItem(item_id,function(resp){
+
+                 	if(resp.success == 1){
+                 		calculateTotal(function(total){
+					        cart_subtotal = total;
+		                    $("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+							$("#cart_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
+							$("#cart_total").text("Ksh "+cart_subtotal.toLocaleString());
+			                $("#cart_"+item_id).remove();
+
+			            });
+
+                 	}
+                 	
+                 })
 			
-			removeCartItem(item_id,function(res){
-				if(res.success == 1){
-					$("#cart_off_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
-					$("#cart_subtotal").text("Ksh "+cart_subtotal.toLocaleString());
-	               $this.parent().parent().parent().remove();
-				}
-			});
+
 	    });
 	}); 
 
@@ -49,7 +61,7 @@ $(function(){
 
     	bLazy.revalidate();
 
-    	var cart_item = '<div class="uk-card-body">'+
+    	var cart_item = '<div class="uk-card-body" id="cart_'+product.id+'">'+
 						'  <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m uk-flex-middle uk-flex-center" uk-grid="uk-grid"> '+
 						'    <!-- Product cell-->'+
 						'    <div>'+

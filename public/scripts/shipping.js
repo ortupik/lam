@@ -34,14 +34,14 @@ $(function(){
                 $("#fname").val(address.fname);
                 $("#lname").val(address.lname);
                 $("#postcode").val(address.postcode);
-                $("#house").val(address.house);
-                $("#building").val(address.buidling);
+                $("#building").val(address.building);
                 $("#street").val(address.street);
                 $("#address").val(address.address);
                 $("#floor").val(address.floor);
                 $("#county").val(address.county);
                 $("#comment").val(address.comment);
                 $("#entrance").val(address.entrance);
+                $("#apartment").val(address.apartment);
                 
                 $("#save-shipping").text("Update Address");
 
@@ -60,15 +60,15 @@ $(function(){
     	var email = $("#email").val();
     	var fname = $("#fname").val();
     	var lname = $("#lname").val();
-        var postcode = $("#postcode").val();
-        var house = $("#house").val();
-        var building = $("#building").val();
-        var street = $("#street").val();
-        var address = $("#address").val();
-        var floor = $("#floor").val();
-        var county = $("#county").val();
-        var comment = $("#comment").val();
-        var entrance = $("#entrance").val();
+      var postcode = $("#postcode").val();
+      var apartment = $("#apartment").val();
+      var building = $("#building").val();
+      var street = $("#street").val();
+      var address = $("#address").val();
+      var floor = $("#floor").val();
+      var county = $("#county").val();
+      var comment = $("#comment").val();
+      var entrance = $("#entrance").val();
 
         var action = $("#save-shipping").text();
         
@@ -77,15 +77,15 @@ $(function(){
     		lname:lname,
     		phone:phone,
     		email:email,
-            postcode:postcode,
-            house:house,
-            building:building,
-            street:street,
-            comment:comment,
-            floor:floor,
-            address:address,
-            county:county,
-            entrance:entrance
+        postcode:postcode,
+        apartment:apartment,
+        building:building,
+        street:street,
+        comment:comment,
+        floor:floor,
+        address:address,
+        county:county,
+        entrance:entrance
     	}
 
         if(action == "Save Address"){

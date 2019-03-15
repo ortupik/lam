@@ -6,6 +6,19 @@ $(function(){
    $("#checkout_submit").empty();
    $("#checkout_submit").append(returnPesapalUi());
 
+    getCartItems(function(result){
+
+    	console.log(result)
+
+	    $("#cart_side_list").empty();
+
+		for(var i = 0; i < result.length; i++){
+           displayCartItem(result[i]);
+		}
+
+	}); 
+
+
    $("#payment_mode .mode").on("click",function(){
    	    mode = $(this).attr("mode");
    	    var paymentDesc = $(this).find(".tm-choose-title").text();
@@ -16,7 +29,7 @@ $(function(){
    	    if(mode == "paypal"){
    	    	$("#checkout_submit").append('<form method="POST" action="/paypal-checkout">'+
 										  '<div class="box">'+
-										  '<button id="checkoutbtn" class="paypal-button uk-button uk-flex-center uk-flex-middle" type="submit">'+
+										  '<button id="checkoutbtn" class="paypal-button uk-button uk-flex-center uk-button-small uk-flex-middle" type="submit">'+
 										    '<span class="paypal-button-title">'+
 										      'Pay with '+
 										    '</span>'+
@@ -38,23 +51,14 @@ $(function(){
 										  '<input type="text" name="type" value="MERCHANT" hidden="hidden" />'+
 										  '<input type="description" name="description" value="Buy an item" hidden="hidden" />'+
 										  '<div class="box">'+
-										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary " type="submit">'+
+										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary uk-button-small " type="submit">'+
 										      'Pay with Pesapal'+
 										  '</button>'+
 										'</div>'+
 										'</form>';
    }
 
-   getCartItems(function(result){
-
-	    $("#cart_side_list").empty();
-
-		for(var i = 0; i < result.length; i++){
-           displayCartItem(result[i]);
-		}
-
-	}); 
-
+  
    
 	$(".remove_cart_item").on("click",function(e){
 		e.preventDefault();

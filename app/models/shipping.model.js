@@ -63,6 +63,9 @@ var ShippingSchema = new Schema({
   },
   pref_date: {
     type: 'String'
+  },
+  selected: {
+    type: 'String'
   }
 }); 
 

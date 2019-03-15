@@ -9,12 +9,21 @@ module.exports = function(app) {
 
 	app.get('/save-shipping-address', function (req, res) {
 		var user = req.user;
-		console.log(user)
-		shipping.getShippingAddress(user,function(resp){
-			var data = resp.data;
-			console.log(data)
-           res.render('pages/save-shipping-address.pug',{addresses:data});
-		});
+		if(user){
+          shipping.getShippingAddress(user,function(resp){
+				var data = resp.data;
+				if(data.success == 0){
+					addresses = [];
+				}
+	           res.render('pages/save-shipping-address.pug',{addresses:data});
+		   });
+		}else {
+			res.status(400).send({
+				message: 'User is not signed in'
+			});
+		}
+		
+		
 	});
 	
 };

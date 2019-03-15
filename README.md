@@ -17,7 +17,6 @@
 #SHIPPING 
 1. get user shipping address
 2. Delete shipping address
-3. House,building,apartment not displaying shipping
 
 #ADMIN
 1.View Payments
@@ -25,7 +24,8 @@
 2.Add Products
 
 #Single Product View
-1. Improve on Single product view
+1. Update Cart
+
 
 #Settings
 1. Update settings

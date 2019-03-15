@@ -6,7 +6,6 @@ request.onerror = function(event) {
 
 request.onsuccess = function(event) {
 db = request.result;
-   console.log("success: "+ db);
 };
 
 request.onupgradeneeded = function(event) {
@@ -61,7 +60,7 @@ function calculateTotal(callback) {
     };
 }
  
- function addCartItem(product,callback) {
+ function addCartItem(product,callback) { 
 
     var cart_item = {
       id: product.id,
@@ -73,8 +72,6 @@ function calculateTotal(callback) {
       quantity:1
     }
 
-    console.log(cart_item);
-
     var request = db.transaction(["cart"], "readwrite")
     .objectStore("cart")
     .add(cart_item);
@@ -84,7 +81,13 @@ function calculateTotal(callback) {
     };
     
     request.onerror = function(event) {
-      displayNoti("Could Not add item","danger");
+      //displayNoti("Could Not add item","danger");
+      updateCartItem(cart_item.id, 1, "calculate", function(resp){
+        if(resp.success == 1){
+           displayNoti("Cart Item updated !","success");
+            callback({success: 2});
+        }
+      });
       callback({success: 0});
     }
  }
@@ -94,6 +97,7 @@ function calculateTotal(callback) {
     .objectStore("cart")
     .delete(item_id);
     request.onsuccess = function(event) {
+      console.log(event)
     	 displayNoti("Item Succefully Removed", "success");
     	 callback({success: 1});
     };
@@ -103,7 +107,26 @@ function calculateTotal(callback) {
     }
  }
 
-function updateCartItem(item_id, quantity, callback){
+ function getCartItem(item_id,callback) {
+  
+  // Open up a transaction as usual
+    var objectStore = db.transaction(['cart'], "readwrite").objectStore('cart');
+
+    // Get the to-do list object that 
+    var findRequest = objectStore.get(item_id);
+
+    console.log("id "+item_id)
+
+    findRequest.onsuccess = function() {
+      // Grab the data object returned as the result
+      var data = findRequest.result;
+      console.log(data)
+      callback({success: 1, data: data});
+    };
+
+ }
+
+function updateCartItem(item_id, quantity, mode, callback){
 
     // Open up a transaction as usual
     var objectStore = db.transaction(['cart'], "readwrite").objectStore('cart');
@@ -115,9 +138,13 @@ function updateCartItem(item_id, quantity, callback){
       // Grab the data object returned as the result
       var data = findRequest.result;
 
-      // Update the notified value in the object to "yes"
-      data.quantity = parseInt(quantity);
-
+      var currentQuant = data.quantity;
+  
+      if (mode == "passIn"){
+        data.quantity = parseInt(quantity);
+      }else{
+        data.quantity = parseInt(quantity) + currentQuant;
+      }
       // Create another request that inserts the item back into the database
       var updateRequest = objectStore.put(data);
 

@@ -12,9 +12,10 @@ var _ = require('lodash'),
  * Save Shipping Address
  */
 exports.saveShippingAddress = function(req, res) {
-	//if(req.user){
+	if(req.user){
        // Init Variables
 		var shipping = new Shipping(req.body);
+		shipping.user_id = req.user._id;
 
 		var message = null;
 
@@ -26,14 +27,14 @@ exports.saveShippingAddress = function(req, res) {
 					message:err
 				});
 			} else {
-				res.json({success:1,data:shipping});
+				res.json({success:1,data:shipping}); 
 			}
 		});
-	/*} else {
+	} else {
 		res.status(400).send({
 			message: 'User is not signed in'
 		});
-	}*/
+	}
 
 };
 
@@ -42,14 +43,15 @@ exports.saveShippingAddress = function(req, res) {
  * Get USER Shipping address
  */
 exports.getShippingAddress = function(user,callback) {
-	Shipping.find({}, function(err, shipping){
+
+	Shipping.find({user_id : user._id}, function(err, shipping){
 	    if (err){
           callback({ message: err , success: 0});
 	    }else{
 	    	console.log(shipping)
 	     callback({ data: shipping , success: 1});
 	    }
-	});
+	});	
 
 }; 
 
@@ -57,6 +59,8 @@ exports.getShippingAddress = function(user,callback) {
   Update Shipping Address
 */
 exports.updateShippingAddress = function(req,res){
+
+	if(req.user){
 
    var shipping = new Shipping(req.body);
 
@@ -71,6 +75,11 @@ exports.updateShippingAddress = function(req,res){
 		res.json({success:1,data:shipping});
 	  }
 	});
+} else {
+		res.status(400).send({
+			message: 'User is not signed in'
+		});
+	}
 
 };
 

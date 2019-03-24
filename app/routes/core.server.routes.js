@@ -3,6 +3,9 @@
 
 module.exports = function(app) {
 
+	var shipping = require('../../app/controllers/shipping.server.controller'); 
+
+
 	// Root routing	
 	app.get('/', function (req, res) {
 	  res.render('pages/index.pug');
@@ -18,9 +21,6 @@ module.exports = function(app) {
 	});
 	app.get('/about', function (req, res) {
 	  res.render('pages/about.pug');
-	});
-	app.get('/orders', function (req, res) {
-	  res.render('pages/account.pug');
 	});
 	app.get('/login', function (req, res) {
 	  res.render('pages/login.pug');
@@ -45,10 +45,7 @@ module.exports = function(app) {
 	});
 	app.get('/cart', function (req, res) {
 	  res.render('pages/cart.pug');
-	});
-	app.get('/checkout', function (req, res) {
-	  res.render('pages/checkout.pug');
-	});
+	});	
 	app.get('/compare', function (req, res) {
 	  res.render('pages/compare.pug');
 	});

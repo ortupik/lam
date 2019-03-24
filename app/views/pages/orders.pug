@@ -12,10 +12,10 @@ block account
   each order in orders
     section.uk-card-body
       h3
-        a.uk-link-heading(href="#") ##{order.id}
+        a.uk-link-heading(href="#") ##{order.order_id}
           |
           |
-          span.uk-text-muted.uk-text-small from #{order.date}
+          span.uk-text-muted.uk-text-small at #{order.date}
 
       table(class="uk-table " +
                   "uk-table-small " +
@@ -27,16 +27,16 @@ block account
         tbody
           tr
             th.uk-width-medium Items
-            td= order.items
+            td= (order.items.length)
           tr
             th.uk-width-medium Shipping
-            td= order.shipping
+            td= order.shippingAddress.address
           tr
             th.uk-width-medium Payment
-            td= order.payment
+            td= (order._paymentMethod == "POD" ? "Pay on Delivery" : _paymentMethod)
           tr
             th.uk-width-medium Total
-            td= order.total
+            td= "Ksh " + parseFloat(order.amount).toLocaleString()
           tr
             th.uk-width-medium Status
             td: span.uk-label(class= {"uk-label-danger": order.status == "Canceled"})= order.status

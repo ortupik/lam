@@ -30,9 +30,10 @@ block save-shipping
 
               each address,index in addresses
                 div.mode(mode=index, id=index, shipping_id=address._id)
-                  a.tm-choose(href="#")
+                  a.tm-choose(href="#",class= {"uk-active": address.selected == "true" || addresses.length == 1})
                     div.tm-choose-title #{address.address}
                     div.tm-choose-description #{address.email}
+                 
 
               div.mode(mode="add")
                 a.tm-choose(href="#")
@@ -43,6 +44,7 @@ block save-shipping
 
         //- Contact Information
         section
+          span#shipping_id
           h4.uk-text-muted Shipping Information
           div.uk-card.uk-card-default.uk-card-small.uk-card-body.tm-ignore-container
             div(class="uk-grid-small " +
@@ -139,4 +141,4 @@ block save-shipping
   script.
     var addresses = !{JSON.stringify(addresses)} ;
 
-  script(src="scripts/shipping.js") 
+  script(src="scripts/shipping.js")  

@@ -1,6 +1,7 @@
 $(function(){
 
    var mode = "mobile";
+   var cart_items = [];
 
 
    $("#checkout_submit").empty();
@@ -8,7 +9,7 @@ $(function(){
 
     getCartItems(function(result){
 
-    	console.log(result)
+    	cart_items =result;
 
 	    $("#cart_side_list").empty();
 
@@ -18,6 +19,7 @@ $(function(){
 
 	}); 
 
+	
 
    $("#payment_mode .mode").on("click",function(){
    	    mode = $(this).attr("mode");
@@ -27,20 +29,42 @@ $(function(){
         $("#checkout_submit").empty();
 
    	    if(mode == "paypal"){
-   	    	$("#checkout_submit").append('<form method="POST" action="/paypal-checkout">'+
-										  '<div class="box">'+
+   	    	$("#checkout_submit").append('<div ><form method="POST" action="/paypal-checkout">'+
+										  '<div class="box" >'+
 										  '<button id="checkoutbtn" class="paypal-button uk-button uk-flex-center uk-button-small uk-flex-middle" type="submit">'+
 										    '<span class="paypal-button-title">'+
-										      'Pay with '+
+										      'Order, Pay with '+
 										    '</span>'+
 										    '<span class="paypal-logo">'+
 										      '<i>Pay</i><i>Pal</i>'+
 										    '</span>'+
 										  '</button>'+
 										'</div>'+
-										'</form>');
+										'</form></div>');
    	    }else if(mode == "mobile"){
    	    	$("#checkout_submit").append(returnPesapalUi());
+   	    }else if(mode == "POD"){
+
+   	    	$("#checkout_submit").append(returnPayOnDeliveryUi());
+
+   	    	$("#payOnDeliverBtn").on("click",function(e){
+		        e.preventDefault();
+		        var data = {
+		        	items: cart_items
+		        }
+		        $.post("/order/payOnDelivery",data,function(resp){
+                   if(resp.success == 1){
+                   	
+                   	 clearCart(function(resp){
+                   	 	 location.href = "/orders";
+                   	 });
+
+                   }else{
+                   	 alert("An error occured when making order");
+                   }
+		        });
+			});
+
    	    }
    });
 
@@ -52,10 +76,20 @@ $(function(){
 										  '<input type="description" name="description" value="Buy an item" hidden="hidden" />'+
 										  '<div class="box">'+
 										  '<button id="checkoutbtn" class=" uk-button  uk-button-secondary  " type="submit">'+
-										      'Pay with Pesapal'+
+										      'Order, Pay with Pesapal'+
 										  '</button>'+
 										'</div>'+
 										'</form></div>';
+   }
+
+    function returnPayOnDeliveryUi(){
+   	 return '<div style="padding-bottom:20px;">'+
+										  '<div class="box">'+
+										  '<button id="payOnDeliverBtn" class=" uk-button uk-button-secondary ">'+
+										      'Order, Pay on delivery'+
+										  '</button>'+
+										'</div>'+
+										'</div>';
    }
 
   

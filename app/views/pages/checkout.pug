@@ -11,11 +11,8 @@ block checkout
 
   div.uk-grid-medium(uk-grid).uk-flex-middle.uk-flex-center
 
-
- 
-
     //- Form
-    form#checkout_form.uk-form-stacked.uk-width-1-1.tm-checkout(style="width:70%;")
+    form#checkout_form.uk-form-stacked.uk-width-1-1.tm-checkout(style="width:70%;") 
 
       div.uk-grid-medium.uk-flex-middle.uk-flex-center.uk-child-width-1-1(uk-grid)
 
@@ -79,32 +76,31 @@ block checkout
                     div
                       div.uk-text-muted.uk-text-small.uk-text-bolder Names:
                     div
-                      div.uk-text-small Chris Kipruto
+                      div.uk-text-small= address.fname + " "+address.lname
                   div.uk-grid-small(uk-grid)
                     div
                       div.uk-text-muted.uk-text-small.uk-text-bolder Phone:
                     div
-                      div.uk-text-small +254728318609   
+                      div.uk-text-small= address.phone   
                   div.uk-grid-small(uk-grid)
                     div
                       div.uk-text-muted.uk-text-small.uk-text-bolder Email:
                     div
-                      div.uk-text-small chrisadriane.ca@gmail.com    
+                      div.uk-text-small= address.email    
                   div.uk-grid-small(uk-grid)
                    div
-                    div.uk-text-muted.uk-text-small.uk-text-bolder City:
+                    div.uk-text-muted.uk-text-small.uk-text-bolder County:
                    div
-                    div.uk-text-small Nairobi   
+                    div.uk-text-small= address.county   
                   div.uk-grid-small(uk-grid)
                     div
                       div.uk-text-muted.uk-text-small.uk-text-bolder Address:
                     div
-                      div.uk-text-small P.O BOX 3, Nairobi  
+                      div.uk-text-small= address.address  
                   div.uk-grid-small(uk-grid)
                     div
-                      div.uk-button.uk-button-primary.uk-button-small.uk-margin-small.uk-width-1-1 Edit details 
+                      a.uk-button.uk-button-primary.uk-button-small.uk-margin-small.uk-width-1-1(href="/save-shipping-address") Edit details 
                       br     
-
 
                 div
                   div.uk-grid-small(uk-grid)
@@ -141,7 +137,7 @@ block checkout
                     div.uk-text-right
                       h5#cart_total.uk-text-bolder 
 
-              div.uk-grid-small.uk-flex-center(uk-grid)
+              div.uk-grid-small.uk-flex-center(uk-grid, style="margin-bottom:20px;")
                 div#checkout_submit
 
                   

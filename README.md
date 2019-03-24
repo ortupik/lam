@@ -15,8 +15,7 @@
 3. Add search page if neeed be
 
 #SHIPPING 
-1. get user shipping address
-2. Delete shipping address
+1. Delete shipping address
 
 #ADMIN
 1.View Payments
@@ -32,18 +31,4 @@
 2. Update Profile
 
 
-#################
-11th
-1. Finish on cart
-2. Finish on shipping
-3. Modify single product
-
-12th
-1. Finish on Pesapal & Paypal & Credit card & Pay on delivery
-2. View Orders
-
-13th
-1. Finish on Settings
-2. Finish on Profile
-3. Finish on Authentication
 

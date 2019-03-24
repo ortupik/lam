@@ -9,7 +9,22 @@ $(function(){
 
    $("#next-btn").on("click",function(e){
 
+       e.preventDefault();
+
        clickedNextBtn = true;
+       var shipping_id = $("#shipping_id").attr("val");
+
+       var data = {
+         _id:shipping_id
+       }
+
+       $.post("/shipping/selectShippingAddress",data,function(resp){
+         if(resp.success == 1){
+            location.href = "/checkout";
+         }else{
+           alert("Something went wrong !!");
+         }
+      });
 
      });
 
@@ -29,6 +44,7 @@ $(function(){
         for(x in addresses){
             if(x == mode){
                 var address = addresses[x];
+                $("#shipping_id").attr("val",address._id);
                 $("#phone").val(address.phone);
                 $("#email").val(address.email);
                 $("#fname").val(address.fname);

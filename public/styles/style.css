@@ -1052,7 +1052,7 @@ button.uk-icon:not(:disabled) {
 }
 
 .uk-input::placeholder {
-    color: #999
+    color: #000
 }
 
 .uk-textarea::-ms-input-placeholder {
@@ -2337,7 +2337,7 @@ select.uk-form-width-xsmall {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    border-radius: 0;
+    border-radius: 6;
     font: inherit;
     overflow: visible;
     -webkit-appearance: none;
@@ -2352,19 +2352,19 @@ select.uk-form-width-xsmall {
 }
 
 .uk-search-input:-ms-input-placeholder {
-    color: #944d84
+    color: gray;
 }
 
 .uk-search-input::-webkit-input-placeholder {
-    color: #944d84
+    color: gray;
 }
 
 .uk-search-input::-ms-input-placeholder {
-    color: #944d84
+    color: gray;
 }
 
 .uk-search-input::placeholder {
-    color: #944d84
+    color: gray;
 }
 
 .uk-nav li>a:focus,
@@ -2387,6 +2387,7 @@ select.uk-form-width-xsmall {
     -ms-flex-align: center;
     align-items: center;
     color: #000;
+
 }
 
 .uk-search .uk-search-icon:hover {
@@ -2395,7 +2396,9 @@ select.uk-form-width-xsmall {
 
 .uk-search .uk-search-icon-flip {
     right: 0;
-    left: auto
+    left: auto;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .uk-search-default {
@@ -2407,6 +2410,7 @@ select.uk-form-width-xsmall {
     padding-left: 6px;
     padding-right: 6px;
     background: 0 0;
+    font-style: italic;
     /**border: 1px solid #e5e5e5 **/
 }
 
@@ -2705,7 +2709,7 @@ ul.uk-nav-sub {
 
 .uk-navbar-nav>li>a {
 
-    color: #fff;
+    color: wheat;
     text-transform: uppercase;
     -webkit-transition: .1s ease-in-out;
     transition: .1s ease-in-out;
@@ -2722,7 +2726,7 @@ ul.uk-nav-sub {
 
 .uk-navbar-nav>li.uk-active>a,
 .uk-navbar-nav>li>a:active {
-    color: wheat
+    color: black
 }
 
 .uk-navbar-item {
@@ -4640,7 +4644,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-muted {
-    color: #6E3562;
+    color: #666;
 }
 
 .uk-text-primary {
@@ -6685,7 +6689,7 @@ iframe.uk-cover {
 }
 
 .uk-light .uk-search-input {
-    color: rgba(255, 255, 255, .7)
+    color: #666
 }
 
 .uk-light .uk-search-input:-ms-input-placeholder {
@@ -7128,11 +7132,11 @@ iframe.uk-cover {
 }
 
 .tm-navbar-container:not(.uk-navbar-transparent) {
-    background: #944d84;
+    background: teal;
 }
 
 .tm-navbar-container {
-    border-bottom: 1px solid #944d84
+    border-bottom: 1px solid teal;
 }
 
 .tm-navbar-container-fixed {
@@ -7148,7 +7152,7 @@ iframe.uk-cover {
 .tm-navbar-button {
     position: relative;
     padding: 0 10px;
-    background-color: #944d84;
+    background-color: teal;
     color: wheat;
 }
 

@@ -16,11 +16,26 @@ var schema = new mongoose.Schema({ /* schema definition */ });
  
 
 var OrderSchema = new Schema({
+  user_id: {
+    type: String,
+    required: 'user_id missing'
+  },
+  order_id: {
+   type: String,
+   required: 'order_id missing'
+  },
   items: {
-    type: 'Array'
+    type: 'Array',
+    require: 'order items missing' 
   },
   amount: {
     type: 'String'
+  },
+  shippingFee: {
+    type: 'String'
+  },
+  discount: {
+     type: 'String'
   },
   currency: {
     type: 'String'
@@ -42,6 +57,17 @@ var OrderSchema = new Schema({
   },
   _scraper: {
      type: 'Mixed'
+  },
+  shippingAddress: {
+     type: 'Mixed'
+  },
+  status: {
+    type: 'String',
+    default: 'processing'
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 
 }); 

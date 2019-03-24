@@ -32,7 +32,18 @@ function getCartItems(callback) {
     };
 
  }
-
+ function clearCart(callback) {
+    var request = db.transaction(["cart"], "readwrite")
+    .objectStore("cart")
+    .clear();
+    request.onsuccess = function(event) {
+       displayNoti("Order has been made !","success");
+       callback({success: 1});
+    };
+    request.onerror = function(event) {
+      callback({success: 0});
+    }
+ }
 function calculateTotal(callback) {
     var total = 0;
 

@@ -65,7 +65,8 @@ var ShippingSchema = new Schema({
     type: 'String'
   },
   selected: {
-    type: 'String'
+    type: 'String',
+    default:'false'
   }
 }); 
 

@@ -56,11 +56,11 @@ app.get('/payment_callback', function (req, res) {
 
 app.get('/pesapal-pay', function (req, res, next) {
 
-    var sessionInfo = {
-            user_id:"5c34f47ca11b441970d08b81"
-    }
+    if(req.user){
 
-    shippingCont.getShippingAddress(sessionInfo,function(resp){
+    var user = req.user;
+
+    shippingCont.getSelectedShippingAddress(user,function(resp){
 
        if(resp.success == 1){
 
@@ -93,6 +93,9 @@ app.get('/pesapal-pay', function (req, res, next) {
        }
 
     });
+}else{
+    res.render("pages/login.pug");
+}
 
 });
 

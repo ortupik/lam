@@ -3091,7 +3091,7 @@ ul.uk-nav-sub {
 .uk-tab>*>a {
     display: block;
     text-align: center;
-    padding: 5px 10px;
+    padding: 10px 15px;
     color: #999;
     border-bottom: 2px solid transparent;
     font-size: .895rem;

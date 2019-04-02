@@ -1,7 +1,7 @@
 #searchForm{
   border-radius: 5px;
 }
-#top_bar{
+.top_bar{
   width: 90%;
   height: auto;
   z-index: 5;
@@ -19,11 +19,25 @@
 #bottom_cat{
   margin-top: 10px;
 }
-#top_bar_cat{
+.top_bar_cat{
   padding: 10px;
   background-color:#000;
   color: #fff;
-  margin-bottom: 10px;
+  height: 40px;
+}
+
+.bar_cat{
+  padding: 10px;
+  background-color:teal;
+  color: #fff;
+  height: 40px;
+}
+.category_header{
+   padding: 10px;
+  background-color: black;
+  color: #fff;
+  height: 40px;
+   margin-top: 30px;
 }
 .bottom_cat{
   margin-left: 50px;

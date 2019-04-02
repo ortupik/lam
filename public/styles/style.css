@@ -7215,8 +7215,11 @@ iframe.uk-cover {
     transition: box-shadow .1s ease-in-out;
     transition: box-shadow .1s ease-in-out, -webkit-box-shadow .1s ease-in-out;
     background-color: #fff;
+    -webkit-box-shadow: 0 30px 30px rgba(0, 0, 0, .1);
+    box-shadow: 0 30px 30px rgba(0, 0, 0, .1);
+    margin-right: 2px;
 
-    border-top: 0.1px solid #e5e5e5;
+    border-bottom: 0.1px solid #e5e5e5;
     margin-bottom: 0.1px;
     width: 24.75%;
 }

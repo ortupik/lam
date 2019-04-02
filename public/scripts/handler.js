@@ -34,6 +34,7 @@ $(function(){
 
     	 query.page = page;
 
+
 	    $.get("/products/all",query,function(res){
 
 	        var products = res.data;
@@ -302,23 +303,40 @@ $(function(){
 
    $('#searchField').keypress(function (e) {
 
-	  if (e.which == 13) {
-		  	var searchField = $("#searchField").val();
+	var searchField = $("#searchField").val();
+
+	  if (e.which == 13 &&  searchField) {
 		  	$("#page_title").text('Search Results for "'+ searchField+'"');
-		  	$("#searchField").val("");
+		  	$("#searchField").val(searchField);
 		  	resetParams();
 		  	query.search = searchField;
 		  	$("#search_drop_down").slideUp();		  	
 	        loadItems();
 
-		    return false;   
+		    return true;   
 	   }
 
 	});
 
-   $("#search_link").on("click",function(){
-     $("#search_drop_down").slideDown();	
-     $("#searchField").focus();
+   $("#search_link").on("click",function(e){
+
+   	e.preventDefault();
+
+	   	var searchField = $("#searchField").val();
+
+	   	 if ( searchField) {
+
+		     $("#search_drop_down").slideDown();	
+		     $("#searchField").focus();
+
+		       	$("#page_title").text('Search Results for "'+ searchField+'"');
+			  	$("#searchField").val(searchField);
+			  	resetParams();
+			  	query.search = searchField;
+			  	$("#search_drop_down").slideUp();		  	
+		        loadItems();
+	    }
+
    });
 
    function resetParams(){

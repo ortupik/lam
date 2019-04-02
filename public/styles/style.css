@@ -59,7 +59,7 @@ html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
    /* background: #f8f8f8; */
-   background:snow;
+   background: "#FEFEFA";
     color: #666;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -479,12 +479,13 @@ a.uk-link-text:hover {
 
 .uk-link-heading a:not(:hover),
 a.uk-link-heading:not(:hover) {
-    color: #944d84
+    color: teal;
 }
 
 .uk-link-heading a:hover,
 a.uk-link-heading:hover {
-    color: #1e87f0;
+     color: #944d84;
+    
     text-decoration: none
 }
 
@@ -492,7 +493,7 @@ a.uk-link-heading:hover {
 .uk-link-reset a:hover,
 a.uk-link-reset,
 a.uk-link-reset:hover {
-    color: #944d84;
+    color: #1e87f0;
     text-decoration: none!important
 }
 
@@ -1052,7 +1053,7 @@ button.uk-icon:not(:disabled) {
 }
 
 .uk-input::placeholder {
-    color: #000
+    color: #999
 }
 
 .uk-textarea::-ms-input-placeholder {
@@ -1414,7 +1415,7 @@ select.uk-form-width-xsmall {
 }
 
 .uk-button-secondary {
-    background-color: #944d84;
+    background-color: #ffa384;
     color: #fff;
     border-radius: 8px;
     border: 1px solid transparent
@@ -2337,13 +2338,14 @@ select.uk-form-width-xsmall {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    border-radius: 6;
+    border-radius: 3px;
     font: inherit;
     overflow: visible;
     -webkit-appearance: none;
     vertical-align: middle;
     width: 100%;
     border: 0;
+    background-color: white;
     color: #666
 }
 
@@ -2352,19 +2354,19 @@ select.uk-form-width-xsmall {
 }
 
 .uk-search-input:-ms-input-placeholder {
-    color: gray;
+    color: grey;
 }
 
 .uk-search-input::-webkit-input-placeholder {
-    color: gray;
+    color: grey;
 }
 
 .uk-search-input::-ms-input-placeholder {
-    color: gray;
+    color: grey;
 }
 
 .uk-search-input::placeholder {
-    color: gray;
+    color: grey;
 }
 
 .uk-nav li>a:focus,
@@ -2387,7 +2389,8 @@ select.uk-form-width-xsmall {
     -ms-flex-align: center;
     align-items: center;
     color: #000;
-
+    border-bottom-right-radius: 3px;
+     border-top-right-radius: 3px;
 }
 
 .uk-search .uk-search-icon:hover {
@@ -2396,21 +2399,16 @@ select.uk-form-width-xsmall {
 
 .uk-search .uk-search-icon-flip {
     right: 0;
-    left: auto;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    left: auto
 }
 
-.uk-search-default {
-    width: 180px
-}
+
 
 .uk-search-default .uk-search-input {
-    height: 40px;
+    height: 45px;
     padding-left: 6px;
     padding-right: 6px;
     background: 0 0;
-    font-style: italic;
     /**border: 1px solid #e5e5e5 **/
 }
 
@@ -2419,7 +2417,7 @@ select.uk-form-width-xsmall {
 }
 
 .uk-search-default .uk-search-icon {
-    width: 40px;
+    width: 60px;
     background-color: #ffa384;
     color: white;
 }
@@ -2435,13 +2433,13 @@ select.uk-form-width-xsmall {
 }
 
 .uk-search-navbar {
-    width: 400px
+    width: 500px
 }
 
 .uk-search-navbar .uk-search-input {
     height: 40px;
     background: 0 0;
-    font-size: 1.5rem
+    font-size: 1.2rem
 }
 
 .uk-search-navbar .uk-search-icon {
@@ -2455,7 +2453,7 @@ select.uk-form-width-xsmall {
 .uk-search-large .uk-search-input {
     height: 80px;
     background: 0 0;
-    font-size: 2.625rem
+    font-size: 1.625rem
 }
 
 .uk-search-large .uk-search-icon {
@@ -2543,7 +2541,7 @@ ul.uk-nav-sub {
 .uk-nav-default .uk-nav-sub a,
 .uk-nav-default>li>a,
 .uk-nav-primary .uk-nav-sub a {
-    color: #6E3562
+    color: teal;
 }
 
 .uk-nav-default .uk-nav-sub a:focus,
@@ -2605,7 +2603,7 @@ ul.uk-nav-sub {
 }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
-    background: #f8f8f8;
+    background: black;
 }
 
 .uk-navbar-container>::after,
@@ -3080,7 +3078,6 @@ ul.uk-nav-sub {
     bottom: 0;
     left: 20px;
     right: 0;
-    border-bottom: 1px solid #e5e5e5
 }
 
 .uk-tab>* {
@@ -3096,9 +3093,9 @@ ul.uk-nav-sub {
     text-align: center;
     padding: 5px 10px;
     color: #999;
-    border-bottom: 1px solid transparent;
-    font-size: .875rem;
-    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    font-size: .895rem;
+    font-style: bold;
     -webkit-transition: color .1s ease-in-out;
     transition: color .1s ease-in-out
 }
@@ -4644,7 +4641,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-muted {
-    color: #666;
+    color: #6E3562;
 }
 
 .uk-text-primary {
@@ -6689,7 +6686,7 @@ iframe.uk-cover {
 }
 
 .uk-light .uk-search-input {
-    color: #666
+    color: rgba(255, 255, 255, .7)
 }
 
 .uk-light .uk-search-input:-ms-input-placeholder {
@@ -7114,7 +7111,8 @@ iframe.uk-cover {
 }
 
 .tm-toolbar-container:not(.uk-navbar-transparent) {
-    background: #6E3562;
+    background: black;
+    margin-bottom: 10px;
 }
 
 .tm-toolbar-container .uk-navbar-item {
@@ -7132,15 +7130,17 @@ iframe.uk-cover {
 }
 
 .tm-navbar-container:not(.uk-navbar-transparent) {
-    background: teal;
+    background: white;
+        z-index: 2005;
+
 }
 
 .tm-navbar-container {
-    border-bottom: 1px solid teal;
+    border-bottom: 1px solid #FEFEFA;
 }
 
 .tm-navbar-container-fixed {
-    z-index: 1005
+    z-index: 2005
 }
 
 .tm-navbar-container .uk-navbar-item,
@@ -7152,8 +7152,8 @@ iframe.uk-cover {
 .tm-navbar-button {
     position: relative;
     padding: 0 10px;
-    background-color: teal;
-    color: wheat;
+    background-color: white;
+    color: teal;
 }
 
 @media (min-width:640px) {
@@ -7215,14 +7215,9 @@ iframe.uk-cover {
     transition: box-shadow .1s ease-in-out;
     transition: box-shadow .1s ease-in-out, -webkit-box-shadow .1s ease-in-out;
     background-color: #fff;
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    border-top: 1px solid #e5e5e5;
-    margin-right: 1px;
-    margin-left: 1px;
-    margin-bottom: 0.1%;
-    margin-top: 1px;
+
+    border-top: 0.1px solid #e5e5e5;
+    margin-bottom: 0.1px;
     width: 24.75%;
 }
 
@@ -7484,7 +7479,6 @@ iframe.uk-cover {
         min-width: 170px;
         margin: 0;
         padding-left: 20px;
-        border-left: 1px solid #e5e5e5;
         -ms-flex-negative: 0;
         flex-shrink: 0
     }

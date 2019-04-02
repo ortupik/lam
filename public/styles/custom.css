@@ -1,4 +1,34 @@
-
+#searchForm{
+  border-radius: 5px;
+}
+#top_bar{
+  width: 90%;
+  height: auto;
+  z-index: 5;
+  margin-top:10px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+#top_tab {
+  padding-top: 10px;
+}
+#top_categories{
+  margin-right: 10px;
+  height: 100px;
+}
+#bottom_cat{
+  margin-top: 10px;
+}
+#top_bar_cat{
+  padding: 10px;
+  background-color:#000;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.bottom_cat{
+  margin-left: 50px;
+  margin-right: 80px;
+}
 .login-with-twitter {
   width: 100%;
   height: 48px;
@@ -50,7 +80,7 @@
 }
 
 .loader{
-	display: block;margin-left: auto;margin-right: auto;width: 7%; height: 7%;  padding-top:40px; padding-bottom:40px;
+  display: block;margin-left: auto;margin-right: auto;width: 7%; height: 7%;  padding-top:40px; padding-bottom:40px;
 }
 .or {
    margin-top: 10px;

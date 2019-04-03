@@ -57,8 +57,13 @@ block default
               span.uk-margin-small-right(uk-icon='icon: nut')
               |  Machinery  
 
+        
         div.bar_cat.uk-text-center
-          span.uk-text-center(style="font-size:14px;") Deals 
+         span.uk-text-center(style="font-size:14px;") Deals 
+
+        div
+         div(class="uk-card-media-left uk-cover-container")
+          img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/deals_off.jpg" alt= "") 
 
         div.uk-card.uk-card-small.uk-card-default.uk-card-body
              
@@ -82,8 +87,9 @@ block default
                   if category.comment
                     div.uk-text-meta.uk-text-xsmall.uk-text-truncate= category.comment 
     
+      
       //- Media
-      div.uk-width-2-3.uk-width-expand(style="  background-color: white;")
+      div.uk-width-3-4(style="  background-color: white;")
       
         //- Slider
         section.uk-position-relative.uk-visible-toggle.uk-light(uk-slideshow="max-height: 350; ratio: 7:3 ; autoplay: true;")
@@ -149,7 +155,7 @@ block default
 
           - var count = 0
           each product in products
-            if count < 7
+            if count < 5
               +product(product) 
             - count++;  
 
@@ -162,16 +168,13 @@ block default
                   "tm-products-grid"
             uk-grid, style="")
 
-          
-
-
           - var count = 0
           each product in products
             if count < 7
               +product(product) 
-            - count++;                      
-    
-  
+            - count++; 
+
+     
   
   //- Brands
   section.uk-section.uk-section-default.uk-section-small

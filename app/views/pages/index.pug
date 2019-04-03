@@ -139,9 +139,17 @@ block default
 
           - var count = 0
           each product in products
-            if count < 7
+            if count < 8
               +product(product) 
             - count++; 
+
+        div.uk-margin-small-top(class="uk-grid-collapse " +
+                  "uk-child-width-1-1 " +
+                  "uk-child-width-1-1@m " +
+                  " "
+            uk-grid, style="margin-top:20px;" ) 
+          div(class="")
+           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/samsung4.jpg" alt= "" )
 
         div.category_header.uk-text-center
           span.uk-text-center(style="font-size:14px;") New Arrivals    
@@ -155,9 +163,17 @@ block default
 
           - var count = 0
           each product in products
-            if count < 5
+            if count < 6
               +product(product) 
             - count++;  
+
+        div.uk-margin-small-top(class="uk-grid-collapse " +
+                  "uk-child-width-1-1 " +
+                  "uk-child-width-1-1@m " +
+                  " "
+            uk-grid, style="margin-top:20px;" ) 
+          div(class="")
+           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/sanyo.jpg" alt= "" )    
 
         div.category_header.uk-text-center
           span.uk-text-center(style="font-size:14px;") Top Trending   
@@ -170,9 +186,11 @@ block default
 
           - var count = 0
           each product in products
-            if count < 7
+            if count < 8
               +product(product) 
             - count++; 
+
+        
 
      
   

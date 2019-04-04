@@ -190,7 +190,13 @@ block default
               +product(product) 
             - count++; 
 
-        
+        div.uk-margin-small-top(class="uk-grid-collapse " +
+                  "uk-child-width-1-1 " +
+                  "uk-child-width-1-1@m " +
+                  " "
+            uk-grid, style="margin-top:20px;" ) 
+          div(class="")
+           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/electro.jpg" alt= "" )
 
      
   
@@ -237,8 +243,6 @@ block default
 
       div.uk-margin.uk-text-center
         +link-to-all("see all brands", "brands")
-
-
 
 
   //- Subscribe

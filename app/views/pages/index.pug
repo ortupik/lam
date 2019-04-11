@@ -48,9 +48,9 @@ block default
               |  Accessories   
 
             li
-             a(href='category?c=Cat271057')
+             a(href='category?c=Cat10000')
               span.uk-margin-small-right(uk-icon='icon: database')
-              |  Clothes
+              |  Shoes
 
             li
              a(href='category?c=Cat271057')
@@ -139,7 +139,7 @@ block default
 
           - var count = 0
           each product in products
-            if count < 8
+            if count > 15 && count < 26
               +product(product) 
             - count++; 
 
@@ -163,7 +163,7 @@ block default
 
           - var count = 0
           each product in products
-            if count < 6
+            if count > 15 && count < 26
               +product(product) 
             - count++;  
 
@@ -186,7 +186,7 @@ block default
 
           - var count = 0
           each product in products
-            if count < 8
+            if count > 15 && count < 26
               +product(product) 
             - count++; 
 

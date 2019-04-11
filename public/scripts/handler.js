@@ -1,7 +1,7 @@
 $(function(){
     
     var page = 1;
-    var displayLimit = 9;
+    var displayLimit = 12;
     var pages = 0;
     var cart_subtotal = 0;
 
@@ -30,6 +30,7 @@ $(function(){
 
    loadItems();
 
+
     function loadItems(){
 
     	 query.page = page;
@@ -38,6 +39,7 @@ $(function(){
 	    $.get("/products/all",query,function(res){
 
 	        var products = res.data;
+	        console.log(products)
 	        var total = res.total;
             pages = res.pages;
 
@@ -385,7 +387,7 @@ $(function(){
 		      '<div class="tm-ratio tm-ratio-4-3">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
-		            '<figure class="tm-media-box-wrap"><img class="b-lazy" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"></figure>'+
+		            '<figure class="tm-media-box-wrap"><img class="b-lazy product_image" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
 		      '</div>'+
 		   '</div>'+
@@ -413,10 +415,8 @@ $(function(){
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+
 		            '</div>'+
-		            '<button class="uk-button uk-button-secondary tm-product-card-add-button tm-shine js-add-to-cart" product_id='+product.id+'>'+
-		               '<span class="tm-product-card-add-button-icon uk-icon" uk-icon="cart">'+
-		               '</span>'+
-		               '<span class="tm-product-card-add-button-text">add to cart</span>'+
+		            '<button class="uk-button uk-button-primary uk-button-xsmall  tm-shine js-add-to-cart" product_id='+product.id+'>'+
+		               'Buy Now'+
 		            '</button>'+
 		         '</div>'+
 		      '</div>'+

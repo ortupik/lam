@@ -4,7 +4,7 @@ mixin product(product)
 
     //- Media
     div.tm-product-card-media
-      div.tm-ratio.tm-ratio-4-3
+      div
         a.tm-media-box(href="product?id="+product.id)
 
           //- Labels
@@ -24,7 +24,7 @@ mixin product(product)
           //- Image
           figure.tm-media-box-wrap
             if product.image
-              img.b-lazy(src="images/ajax-loader.gif" data-src=product.image.medium alt= product.name)
+              img.product_image.b-lazy(src="images/ajax-loader.gif" data-src=product.image.medium alt= product.name )
             else
               +icon("image", "3")(class="uk-text-muted")
 

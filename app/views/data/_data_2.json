@@ -1,0 +1,612 @@
+[{
+    id: 100,
+    name: 'Shoe 1',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_1.jpg',
+      medium: 'images/products/shoes/shoe_1.jpg',
+      large: 'images/products/shoes/shoe_1.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 102,
+    name: 'Boots',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_2.jpg',
+      medium: 'images/products/shoes/shoe_2.jpg',
+      large: 'images/products/shoes/shoe_2.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 100,
+    name: 'Shoe 3',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_3.jpg',
+      medium: 'images/products/shoes/shoe_3.jpg',
+      large: 'images/products/shoes/shoe_3.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 100,
+    name: 'Shoe 4',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_4.jpg',
+      medium: 'images/products/shoes/shoe_4.jpg',
+      large: 'images/products/shoes/shoe_4.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 105,
+    name: 'Shoe 5',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_5.jpg',
+      medium: 'images/products/shoes/shoe_5.jpg',
+      large: 'images/products/shoes/shoe_5.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 106,
+    name: 'Shoe 6',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_6.jpg',
+      medium: 'images/products/shoes/shoe_6.jpg',
+      large: 'images/products/shoes/shoe_6.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 107,
+    name: 'Shoe 1',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_7.jpg',
+      medium: 'images/products/shoes/shoe_7.jpg',
+      large: 'images/products/shoes/shoe_7.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 108,
+    name: 'Shoe 8',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_8.jpg',
+      medium: 'images/products/shoes/shoe_8.jpg',
+      large: 'images/products/shoes/shoe_8.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 109,
+    name: 'Shoe 09',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_9.jpg',
+      medium: 'images/products/shoes/shoe_9.jpg',
+      large: 'images/products/shoes/shoe_9.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 110,
+    name: 'Shoe 10',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_10.jpg',
+      medium: 'images/products/shoes/shoe_10.jpg',
+      large: 'images/products/shoes/shoe_10.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 111,
+    name: 'Shoe 11',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_11.jpg',
+      medium: 'images/products/shoes/shoe_11.jpg',
+      large: 'images/products/shoes/shoe_11.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 112,
+    name: 'Shoe 12',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_12.jpg',
+      medium: 'images/products/shoes/shoe_12.jpg',
+      large: 'images/products/shoes/shoe_12.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 113,
+    name: 'Shoe 1',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_13.jpg',
+      medium: 'images/products/shoes/shoe_13.jpg',
+      large: 'images/products/shoes/shoe_13.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 114,
+    name: 'Shoe 14',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_14.jpg',
+      medium: 'images/products/shoes/shoe_14.jpg',
+      large: 'images/products/shoes/shoe_14.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 115,
+    name: 'Shoe 15',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_15.jpg',
+      medium: 'images/products/shoes/shoe_15.jpg',
+      large: 'images/products/shoes/shoe_15.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 116,
+    name: 'Shoe 16',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_16.jpg',
+      medium: 'images/products/shoes/shoe_16.jpg',
+      large: 'images/products/shoes/shoe_16.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 117,
+    name: 'Shoe 17',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_17.jpg',
+      medium: 'images/products/shoes/shoe_17.jpg',
+      large: 'images/products/shoes/shoe_17.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  },
+  {
+    id: 118,
+    name: 'Shoe 18',
+    type: 'boot',
+    category: "Cat10000",
+    subcategory:"Su20000",
+    href: 'product',
+    image: {
+      small: 'images/products/shoes/shoe_18.jpg',
+      medium: 'images/products/shoes/shoe_18.jpg',
+      large: 'images/products/shoes/shoe_1.jpg'
+    },
+    additionalImages: [],
+    price: 5000,
+    oldPrice: -1,
+    brand: {
+      name: 'Asus',
+      image: 'images/brands/asus.svg',
+      href: '#',
+    },
+    variations: [],
+    specifications: [],
+    reviews: [],
+    questions: [],
+    isNotAvailable: false,
+    isOnSale: false,
+    isAddedToCart: true,
+    isAddedToFavorites: false,
+    isAddedToCompare: false,
+    statuses: ['new'],
+    properties: {
+     
+    }
+  }]

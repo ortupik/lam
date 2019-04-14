@@ -64,6 +64,33 @@ block checkout
                     th.uk-text-small Quantity
                     th.uk-text-small Total
                 tbody#checkout_summary_cart(style="width:65%;")
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    th.uk-text-small 
+                    th.uk-text-small 
+                    td.uk-text-small Subtotal:
+                    td.uk-text-small#cart_subtotal
+                  tr
+                    th.uk-text-small 
+                    th.uk-text-small 
+                    td.uk-text-small Shipping Fee:
+                    td.uk-text-small.uk-text-danger Ksh 200
+                  tr
+                    th.uk-text-small 
+                    th.uk-text-small 
+                    td.uk-text-small Discount:
+                    td.uk-text-small.uk-text-success Ksh -100
+                  tr
+                    th.uk-text-small 
+                    th.uk-text-small 
+                    td.uk-text-small Total:
+                    td.uk-text-small.uk-text-bolder.uk-text-primary#cart_total
+
               hr 
            
               div.uk-child-width-1-2(uk-grid)            

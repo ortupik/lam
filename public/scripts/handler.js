@@ -384,14 +384,14 @@ $(function(){
         
     	var product_html = '<article class="tm-product-card uk-first-column">'+
 		   '<div class="tm-product-card-media">'+
-		      '<div class="tm-ratio tm-ratio-4-3">'+
+		      '<div class="">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
 		            '<figure class="tm-media-box-wrap"><img class="b-lazy product_image" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"></figure>'+
 		         '</a>'+
 		      '</div>'+
 		   '</div>'+
-		   '<div class="tm-product-card-body">'+
+		   '<div class="tm-product-card-body ">'+
 		      '<div class="tm-product-card-info">'+
 		         '<div class="uk-text-meta uk-margin-xsmall-bottom">'+product.brand.name+'</div>'+
 		         '<h3 class="tm-product-card-title"><a class="uk-link-heading" href="product?id='+product.id+'">'+product.name+'</a></h3>'+

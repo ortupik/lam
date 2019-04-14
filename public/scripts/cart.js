@@ -68,7 +68,7 @@ $(function(){
 						'      <div class="uk-grid-small" uk-grid="uk-grid">'+
 						'        <div class="uk-width-1-4">'+
 						'          <div class="tm-ratio tm-ratio-4-3" style="width:70%;"><a class="tm-media-box" href="'+product.href+'">'+
-						'              <figure class="tm-media-box-wrap" ><img src="'+product.image.small+'" alt="'+product.name+'"/></figure></a></div>'+
+						'              <figure class="" ><img src="'+product.image.small+'" alt="'+product.name+'"/></figure></a></div>'+
 						'        </div>'+
 						'        <div class="uk-width-expand">'+
 						'          <div class="uk-text-meta">'+product.type+'</div><a class="uk-link-heading" href="'+product.href+'">'+product.name+'</a>'+

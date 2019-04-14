@@ -1,6 +1,6 @@
 mixin product(product)
 
-  article.tm-product-card
+  article.tm-product-card.products_width
 
     //- Media
     div.tm-product-card-media
@@ -35,7 +35,16 @@ mixin product(product)
       div.tm-product-card-info
 
         //- Brand
-        div.uk-text-meta.uk-margin-xsmall-bottom= product.brand.name
+        div.uk-grid.uk-flex-middle
+         div.brand_prod.uk-flex.uk-flex-left= product.brand.name
+         div.uk-flex.uk-flex-right(style="width: 55%; margin-bottom:10px;")
+          ul.uk-iconnav.uk-margin-xsmall-bottom.tm-rating
+            li: +icon("star","0.8")(class="uk-text-warning")
+            li: +icon("star","0.8")(class="uk-text-warning")
+            li: +icon("star","0.8")(class="uk-text-warning")
+            li: +icon("star","0.8")(class="uk-text-secondary")
+            li: +icon("star","0.8")(class="uk-text-secondary")
+            li: span.uk-text-secondary.uk-text-xsmall (102)
 
         //- Title
         h3.tm-product-card-title

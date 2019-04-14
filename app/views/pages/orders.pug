@@ -30,7 +30,7 @@ block account
             td= (order.items.length)
           tr
             th.uk-width-medium Shipping
-            td= order.shippingAddress.address
+            //td= order.shippingAddress.address
           tr
             th.uk-width-medium Payment
             td= (order._paymentMethod == "POD" ? "Pay on Delivery" : _paymentMethod)

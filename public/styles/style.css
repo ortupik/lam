@@ -3260,6 +3260,10 @@ ul.uk-nav-sub {
     margin-top: -12px
 }
 
+.brand_prod{
+    font-size: 15px;
+}
+
 .uk-dotnav-vertical>* {
     padding-left: 0;
     padding-top: 12px
@@ -7226,7 +7230,21 @@ iframe.uk-cover {
 
     border-bottom: 0.1px solid #e5e5e5;
     margin-bottom: 1px;
-    width: 24.75%;
+   
+}
+
+.products_width {
+     width: 24.75%;
+}
+
+.default_products_width {
+     width: 24.75%;
+}
+
+@media (min-width:1400px) {
+.products_width {
+    width: 20%;
+}
 }
 
 .tm-product-card.uk-first-column {
@@ -7371,8 +7389,9 @@ iframe.uk-cover {
 }
 
 .tm-product-card-price {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 900;
+    color: grey;
     line-height: 1
 }
 
@@ -8094,6 +8113,12 @@ iframe.uk-cover {
     margin: 0
 }
 
+.tm-media-box-wrap_prod {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
 .tm-media-box-wrap>* {
     position: absolute;
     top: 50%;

@@ -382,7 +382,7 @@ $(function(){
     	var price = product.price;
     	price = "Ksh "+price.toLocaleString();
         
-    	var product_html = '<article class="tm-product-card uk-first-column">'+
+    	var product_html = '<article class="tm-product-card uk-first-column default_products_width">'+
 		   '<div class="tm-product-card-media">'+
 		      '<div class="">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
@@ -393,7 +393,24 @@ $(function(){
 		   '</div>'+
 		   '<div class="tm-product-card-body ">'+
 		      '<div class="tm-product-card-info">'+
-		         '<div class="uk-text-meta uk-margin-xsmall-bottom">'+product.brand.name+'</div>'+
+		      '<div class="uk-grid uk-flex-middle">'+
+				  '<div class="brand_prod uk-flex uk-flex-left">'+product.brand.name+' </div>'+
+				  '<div class="uk-flex uk-flex-right" style="width: 50%; margin-bottom:10px;">'+
+				    '<ul class="uk-iconnav uk-margin-xsmall-bottom tm-rating">'+
+				      '<li><span class="uk-text-warning" uk-icon="icon: star; ratio: 0.8;"></span>'+
+				      '</li>'+
+				      '<li><span class="uk-text-warning" uk-icon="icon: star; ratio: 0.8;"></span>'+
+				      '</li>'+
+				      '<li><span class="uk-text-warning" uk-icon="icon: star; ratio: 0.8;"></span>'+
+				      '</li>'+
+				      '<li><span class="uk-text-secondary" uk-icon="icon: star; ratio: 0.8;"></span>'+
+				      '</li>'+
+				      '<li><span class="uk-text-secondary" uk-icon="icon: star; ratio: 0.8;"></span>'+
+				      '<li><span class="uk-text-secondary uk-text-xsmall" >(102)</span>'+
+				      '</li>'+
+				    '</ul>'+
+				  '</div>'+
+				'</div>'+
 		         '<h3 class="tm-product-card-title"><a class="uk-link-heading" href="product?id='+product.id+'">'+product.name+'</a></h3>'+
 		         '<ul class="uk-list uk-text-small tm-product-card-properties">'+
 		            '<li><span class="uk-text-muted">Diagonal display: </span><span>15.4"</span></li>'+
@@ -450,7 +467,7 @@ $(function(){
 	        '<div class="uk-width-1-4">'+
 	            '<div class="tm-ratio tm-ratio-4-3">'+
 	                '<a class="tm-media-box" href="product?id='+product.id+'">'+
-	                    '<figure class="tm-media-box-wrap"><img  src="'+image_src+'" alt="'+product.name+'"/></figure>'+
+	                    '<figure class=""><img  src="'+image_src+'" alt="'+product.name+'"/></figure>'+
 	                '</a>'+
 	            '</div>'+
 	        '</div>'+

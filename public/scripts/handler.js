@@ -1,7 +1,7 @@
 $(function(){
     
     var page = 1;
-    var displayLimit = 4;
+    var displayLimit = 12;
     var pages = 0;
     var cart_subtotal = 0;
 

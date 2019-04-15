@@ -21,7 +21,7 @@ exports.getProducts = function(req, res) {
 	var brand = req.param("brand");
 	var searchText = req.param("search");
 
-	var displayLimit = 7;
+	var displayLimit = 12;
 
 	var query = {
         price: { $gte: from, $lte: to}

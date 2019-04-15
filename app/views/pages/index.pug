@@ -80,7 +80,7 @@ block default
                 if category.image
                   div.tm-ratio.tm-ratio-3-2
                     div.tm-media-box
-                      figure.tm-media-box-wrap
+                      figure
                         img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src= category.image alt= category.title)
                 div.uk-margin-small-top
                   div.uk-text-muted= category.title
@@ -139,7 +139,7 @@ block default
 
           - var count = 0
           each product in products
-            if count > 15 && count < 26
+            if count > 15 && count < 24
               +product(product) 
             - count++; 
 
@@ -163,7 +163,7 @@ block default
 
           - var count = 0
           each product in products
-            if count > 15 && count < 26
+            if count > 15 && count < 24
               +product(product) 
             - count++;  
 
@@ -186,7 +186,7 @@ block default
 
           - var count = 0
           each product in products
-            if count > 15 && count < 26
+            if count > 15 && count < 24
               +product(product) 
             - count++; 
 
@@ -227,7 +227,7 @@ block default
                       a.uk-link-muted.tm-media-box.tm-grayscale(
                         href="#"
                         title= brand.name)
-                        figure.tm-media-box-wrap
+                        figure
                           img(src= brand.image alt= brand.name)
 
             div(class="uk-visible@m")

@@ -22,7 +22,19 @@ html(lang="en")
     script(src="scripts/indexDb.js")  
 
     script.
-         var bLazy = new Blazy(); 
+         var bLazy = new Blazy({
+                breakpoints: [
+                {
+                    width: 770, // max-width
+                    mode: 'viewport'
+                },
+                {
+                    width: 99999, // max-width
+                    mode: 'viewport'
+                }],
+                selector: 'img,.b-lazy', // all images
+                offset: 200 // Loads images 200px before they're visible
+            }); 
 
   body
     div.uk-offcanvas-content

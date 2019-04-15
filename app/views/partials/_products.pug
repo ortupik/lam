@@ -57,12 +57,12 @@ div.uk-grid-medium.uk-child-width-1-1(uk-grid)
 
 
         //- Load more
-        div.load_div
-          button.uk-button.uk-button-primary.uk-button-large.uk-width-1-1(
-            style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top:10px;")
-            +icon("plus", ".75")(class="uk-margin-small-right")
+        div.load_div.uk-flex-center.uk-grid.uk-hidden
+          button.uk-button.uk-button-secondary.uk-button-large(
+            style="border-top-left-radius: 5px; border-top-right-radius: 5px; margin-top:10px;margin-bottom:10px;")
+            +icon("plus", ".95")(class="uk-margin-small-right")
             span Load more
-        div.loader(uk-spinner="ratio: 2")
+        div.loader(uk-spinner="ratio: 3")
         //img.loader(src="images/loading51.gif")    
 
   //- Pagination

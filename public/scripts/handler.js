@@ -393,9 +393,9 @@ $(function(){
 		   '</div>'+
 		   '<div class="tm-product-card-body ">'+
 		      '<div class="tm-product-card-info">'+
-		      '<div class="uk-grid uk-flex-middle">'+
+		      '<div class=" uk-flex-middle">'+
 				  '<div class="brand_prod uk-flex uk-flex-left">'+product.brand.name+' </div>'+
-				  '<div class="uk-flex uk-flex-right" style="width: 50%; margin-bottom:10px;">'+
+				  '<div class="" style=" margin-bottom:10px;">'+
 				    '<ul class="uk-iconnav uk-margin-xsmall-bottom tm-rating">'+
 				      '<li><span class="uk-text-warning" uk-icon="icon: star; ratio: 0.8;"></span>'+
 				      '</li>'+
@@ -427,7 +427,7 @@ $(function(){
 		         '<div class="tm-product-card-add">'+
 		            '<div class="uk-text-meta tm-product-card-actions">'+
 		               '<a class="tm-product-card-action js-add-to js-add-to-favorites tm-action-button-active js-added-to" title="Add to favorites">'+
-		                  '<span uk-icon="icon: heart; ratio: 1.2;" class="uk-icon" >'+
+		                  '<span uk-icon="icon: heart; ratio: 1.0;" class="uk-icon" >'+
 		                  '</span>'+
 		                  '<span class="tm-product-card-action-text">Add to favorites</span>'+
 		               '</a>'+

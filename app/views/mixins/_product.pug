@@ -35,9 +35,9 @@ mixin product(product)
       div.tm-product-card-info
 
         //- Brand
-        div.uk-grid.uk-flex-middle
+        div.uk-flex-middle
          div.brand_prod.uk-flex.uk-flex-left= product.brand.name
-         div.uk-flex.uk-flex-right(style="width: 55%; margin-bottom:10px;")
+         div(style="margin-bottom:10px;")
           ul.uk-iconnav.uk-margin-xsmall-bottom.tm-rating
             li: +icon("star","0.8")(class="uk-text-warning")
             li: +icon("star","0.8")(class="uk-text-warning")
@@ -78,7 +78,7 @@ mixin product(product)
             a.tm-product-card-action.js-add-to.js-add-to-favorites(
               class= { "tm-action-button-active js-added-to": product.isAddedToFavorites }
               title="Add to favorites")
-              +icon("heart", "1.15")
+              +icon("heart", "1.0")
               span.tm-product-card-action-text Add to favorites
 
           //- Add to cart

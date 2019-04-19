@@ -26,8 +26,9 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
       //- User
       if(session != "not_logged_in")  
           a.uk-navbar-item.tm-navbar-button
-            +icon("user","1.2")(class="uk-margin-small-right")
-            span(style="font-size:14px;")  ACCOUNT
+            img.uk-margin-small-right(src="https://img.icons8.com/color/30/000000/gender-neutral-user.png")
+            span(style="font-size:14px;")  CHRIS
+            img.uk-margin-small-right(src="https://img.icons8.com/color/27/000000/sort-down.png")
           div(class="uk-padding-small uk-margin-remove"
               uk-dropdown="pos: bottom-right; offset: -10; delay-hide: 200;"
               style="min-width: 150px;") 
@@ -35,19 +36,20 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
               ul.uk-nav.uk-nav-default.uk-dropdown-nav
                 li
                   a(href="/orders")
-                   +icon("cart")(class="uk-margin-small-right")
+                   img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/purchase-order.png")
                    span.tm-pseudo Orders
                 li
                   a(href="/favorites") 
-                    +icon("heart")(class="uk-margin-small-right")
+                    img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/like.png")
                     span.tm-pseudo Favorites
                 li
                   a(href="/personal") 
-                    +icon("user")(class="uk-margin-small-right")
+                    img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/gender-neutral-user.png")
                     span.tm-pseudo Profile
+
                 li
                   a(href="/settings") 
-                    +icon("cog")(class="uk-margin-small-right")
+                    img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/gears.png")
                     span.tm-pseudo Settings
                 li.uk-nav-divider
                 li
@@ -55,8 +57,8 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
 
       else
         a.uk-navbar-item.tm-navbar-button(href="/login")
-            +icon("lock","1.2")(class="uk-margin-small-right")
-            span(style="font-size:14px;") LOG IN
+          img.uk-margin-small-right(src="https://img.icons8.com/color/30/000000/password.png")
+          span(style="font-size:14px;") LOG IN
 
 
       //- Cart
@@ -64,7 +66,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
         href="cart"
         uk-toggle="target: #cart-offcanvas"
         onclick="return false")
-        +icon("cart","1.2")
+        img(src="https://img.icons8.com/color/30/000000/shopping-cart.png")
         span#badge_cart.uk-badge(class="uk-margin-small-left") 0
 
       

@@ -41,12 +41,12 @@ block default
               |  Cameras
 
             li
-             a(href='category?c=Cat271057')
+             a(href='category?c=Cat10000')
               img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/clothes.png")
               |  Clothes  
 
             li
-             a(href='category?c=Cat271057')
+             a(href='category?c=Cat10000')
               img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/trainers.png")
               |  Shoes   
 
@@ -122,15 +122,16 @@ block default
           li.uk-active
             a(href='#') Daily Deals
           li
-            a(href='#') Laptops
+            a(href='#') Top Trending
           li
-            a(href='#') Mobile
+            a(href='#') New Arrivals
           li
-            a(href='#') Computer Accessories
+            a(href='#') Best Selling
           li
-            a(href='#') Networking Tools
+            a(href='#') Fast Moving
           li
-            a(href='#') Clothing 
+            a(href='#') Trading in  
+        
 
 
         div.uk-margin-small-top(class="uk-grid-collapse " +
@@ -141,7 +142,7 @@ block default
 
           - var count = 0
           each product in products
-            if count > 15 && count < 24
+            if count >3 && count < 12
               +product(product) 
             - count++; 
 

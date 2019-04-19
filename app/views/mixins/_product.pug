@@ -24,7 +24,7 @@ mixin product(product)
           //- Image
           figure.tm-media-box-wrap
             if product.image
-              img.product_image2.b-lazy(src="images/ajax-loader.gif" data-src=product.image.medium alt= product.name )
+              img.product_image.b-lazy(src="images/ajax-loader.gif" data-src=product.image.medium alt= product.name )
             else
               +icon("image", "3")(class="uk-text-muted")
 

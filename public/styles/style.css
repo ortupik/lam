@@ -1087,7 +1087,7 @@ button.uk-icon:not(:disabled) {
 }
 
 .uk-form-large:not(textarea):not([multiple]):not([size]) {
-    height: 55px;
+    height: 50px;
     padding-left: 12px;
     padding-right: 12px
 }
@@ -2141,7 +2141,7 @@ select.uk-form-width-xsmall {
         padding-right: 40px
     }
     .uk-card-body .uk-nav-default .uk-nav-sub {
-        padding-left: 55px
+        padding-left: 50px
     }
 }
 
@@ -2346,7 +2346,9 @@ select.uk-form-width-xsmall {
     box-sizing: border-box;
     margin: 0;
     border-radius: 3px;
-    font: inherit;
+     font-family: "Arial";
+    font-size: 15px;
+    font-weight: 400;
     overflow: visible;
     -webkit-appearance: none;
     vertical-align: middle;
@@ -2412,7 +2414,7 @@ select.uk-form-width-xsmall {
 
 
 .uk-search-default .uk-search-input {
-    height: 45px;
+    height: 40px;
     padding-left: 6px;
     padding-right: 6px;
     background: 0 0;
@@ -2424,7 +2426,7 @@ select.uk-form-width-xsmall {
 }
 
 .uk-search-default .uk-search-icon {
-    width: 60px;
+    width: 50px;
     background-color: #ffa384;
     color: white;
 }
@@ -2446,7 +2448,7 @@ select.uk-form-width-xsmall {
 .uk-search-navbar .uk-search-input {
     height: 40px;
     background: 0 0;
-    font-size: 1.2rem
+    font-size: 0.8rem
 }
 
 .uk-search-navbar .uk-search-icon {
@@ -2460,7 +2462,7 @@ select.uk-form-width-xsmall {
 .uk-search-large .uk-search-input {
     height: 80px;
     background: 0 0;
-    font-size: 1.625rem
+    font-size: 0.8rem
 }
 
 .uk-search-large .uk-search-icon {
@@ -2548,7 +2550,7 @@ ul.uk-nav-sub {
 .uk-nav-default .uk-nav-sub a,
 .uk-nav-default>li>a,
 .uk-nav-primary .uk-nav-sub a {
-    color: teal;
+    color: #666;
 }
 
 .uk-nav-default .uk-nav-sub a:focus,
@@ -2705,8 +2707,7 @@ ul.uk-nav-sub {
     align-items: center;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    min-height: 30px;
-    padding: 0 15px;
+    margin-top: 5px;
     font-size: .790rem;
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     text-decoration: none;
@@ -2735,15 +2736,15 @@ ul.uk-nav-sub {
 }
 
 .uk-navbar-item {
-    color: white
+    color: #fff
 }
 
 .uk-navbar-item :hover {
-    color: wheat
+    color: purple
 }
 
 .uk-navbar-item :hover {
-    color: wheat
+    color: purple
 }
 
 .uk-navbar-dropdown-nav .uk-nav-sub a,
@@ -2872,7 +2873,8 @@ ul.uk-nav-sub {
 
 .uk-navbar-container>.uk-container .uk-navbar-left {
     margin-left: -15px;
-    margin-right: -15px
+    margin-right: -15px;
+
 }
 
 .uk-navbar-container>.uk-container .uk-navbar-right {
@@ -7126,7 +7128,7 @@ iframe.uk-cover {
 }
 
 .tm-toolbar-container .uk-navbar-item {
-    color: #fff
+    color: #fff;
 }
 
 .tm-toolbar-container .uk-navbar-nav>li>a {
@@ -7146,24 +7148,23 @@ iframe.uk-cover {
 }
 
 .tm-navbar-container {
-    border-bottom: 1px solid #FEFEFA;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .tm-navbar-container-fixed {
-    z-index: 2005
+    z-index: 2005;
 }
 
 .tm-navbar-container .uk-navbar-item,
 .tm-navbar-container .uk-navbar-nav>li>a,
 .tm-navbar-container .uk-navbar-toggle {
-    height: 55px
+    height: 50px
 }
 
 .tm-navbar-button {
     position: relative;
-    padding: 0 10px;
-    background-color: white;
-    color: teal;
+    padding: 10px 10px;
+    color: #666;
 }
 
 @media (min-width:640px) {
@@ -8131,6 +8132,7 @@ iframe.uk-cover {
 }
 
 .tm-pseudo {
+    color: #666;
     border-bottom: 1px dotted
 }
 

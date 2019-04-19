@@ -19,6 +19,7 @@
   z-index: 5;
   margin-left: 50px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 #top_tab {
   padding-top: 10px;
@@ -32,20 +33,20 @@
 }
 .top_bar_cat{
   padding: 10px;
-  background-color:#000;
+  background-color:#666;
   color: #fff;
   height: 40px;
 }
 
 .bar_cat{
   padding: 10px;
-  background-color:teal;
+  background-color:#666;
   color: #fff;
   height: 40px;
 }
 .category_header{
    padding: 10px;
-  background-color: black;
+  background-color: #666;
   color: #fff;
   height: 40px;
    margin-top: 30px;

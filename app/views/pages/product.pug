@@ -22,15 +22,14 @@ block default
         div.uk-grid-small.uk-grid-collapse.uk-grid-match(uk-grid)
 
           //- Media
-          div(class="uk-width-1-1 uk-width-expand@m")
+          div(class="uk-width-1-2")
             div.uk-grid-collapse.uk-child-width-1-1(
               uk-slideshow="finite: true;"
               uk-list style="background-color:white;")
                
               //- Primary image
               div
-                div.uk-text-center.uk-margin-top=product.name
-                ul.uk-slideshow-items.uk-vertical-align(uk-lightbox style="max-height:400px;")
+                ul.uk-slideshow-items.uk-vertical-align(uk-lightbox style="")
                   li
                     if product.image
                       a.uk-card-body.tm-media-box.tm-media-box-zoom(href= product.image.large )
@@ -43,7 +42,7 @@ block default
                     each additionalImage in product.additionalImages
                       li
                         a.uk-card-body.tm-media-box.tm-media-box-zoom(href= additionalImage.large)
-                          figure.tm-media-box-wrap
+                          figure
                             img.b-lazy(src="images/ajax-loader.gif" data-src= additionalImage.large alt= product.name)
 
               //- Additional images
@@ -81,13 +80,13 @@ block default
                     ul(class="uk-slideshow-nav uk-dotnav uk-hidden@s")
 
           //- Info
-          div(class="uk-width-1-1 uk-width-1-3@m tm-product-info")
+          div(class="uk-width-1-1 uk-width-1-2@m tm-product-info")
             div.uk-card-body
 
               //- Brand
               div.uk-grid.uk-child-width-1-1(uk-grid)
                 a.uk-width-1-6(href= product.brand.href title= product.brand.name)
-                  img.b-lazy(src="images/ajax-loader.gif" data-src= product.brand.image alt= product.brand.name style="height: 40px;")
+                  img.b-lazy(src="images/ajax-loader.gif" data-src= product.brand.image alt= product.brand.name style="height: 60px;")
                 span.uk-width-auto.uk-width-expand(style="padding-left:20px;")
                   h4 #{product.name}
 

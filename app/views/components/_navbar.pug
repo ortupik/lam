@@ -1,5 +1,5 @@
-div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-container-fixed")
-  div.uk-container(uk-navbar)(style="height:55px;   padding-bottom:10px;")
+div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-container-fixed" )
+  div.uk-container(uk-navbar)(style="height:50px;   padding-bottom:5px; ")
 
     div.uk-navbar-left.uk-child-1-3
 
@@ -10,7 +10,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
 
       //- Logo
       a.uk-navbar-item.uk-logo(href="/")
-        img(src="images/logo.png" width="auto" style="height:50px;" alt="Logo")
+        img(src="images/logo.png" width="auto" style=" object-fit:contain;" alt="Logo")
 
       //- Navigation
       nav(class="uk-visible@m")
@@ -19,15 +19,15 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
     div.uk-navbar-center.uk-width-expand.uk-flex-center.uk-width-1-3(style="width:600px;")
       div#searchForm.uk-search.uk-search-default.uk-search-icon-flip(style="width:600px;background-color:#f0f0f0;")
         a#search_link.uk-search-icon-flip(href='', uk-search-icon='',style="border-radius-left-top:3px;")
-        input#searchField.uk-search-input(type='text', placeholder='search a product', style="margin-left:10px;")
+        input#searchField.uk-search-input(type='text', placeholder='Search for products, brands and more', style="margin-left:10px;")
 
      
     div.uk-navbar-right.uk-flex-center.uk-width-1-5
       //- User
       if(session != "not_logged_in")  
           a.uk-navbar-item.tm-navbar-button
-            +icon("user","1.4")(class="uk-margin-small-right")
-            span.tm-pseudo(style="font-size:15px;")  ACCOUNT
+            +icon("user","1.2")(class="uk-margin-small-right")
+            span(style="font-size:14px;")  ACCOUNT
           div(class="uk-padding-small uk-margin-remove"
               uk-dropdown="pos: bottom-right; offset: -10; delay-hide: 200;"
               style="min-width: 150px;") 
@@ -55,8 +55,8 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
 
       else
         a.uk-navbar-item.tm-navbar-button(href="/login")
-            +icon("lock","1.4")(class="uk-margin-small-right")
-            span.tm-pseudo(style="font-size:15px;") LOG IN
+            +icon("lock","1.2")(class="uk-margin-small-right")
+            span(style="font-size:14px;") LOG IN
 
 
       //- Cart
@@ -64,7 +64,7 @@ div.uk-navbar-container.tm-navbar-container(uk-sticky="cls-active: tm-navbar-con
         href="cart"
         uk-toggle="target: #cart-offcanvas"
         onclick="return false")
-        +icon("cart","1.4")
+        +icon("cart","1.2")
         span#badge_cart.uk-badge(class="uk-margin-small-left") 0
 
       

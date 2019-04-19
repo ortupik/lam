@@ -1,18 +1,18 @@
 [{
-    id: 100,
-    name: 'Generic Black Shoe 1',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 200,
+    name: 'Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_1.jpg',
-      medium: 'images/products/shoes/shoe_1.jpg',
-      large: 'images/products/shoes/shoe_1.jpg'
+      small: 'images/products/furniture/fun_1.jpg',
+      medium: 'images/products/furniture/fun_1.jpg',
+      large: 'images/products/furniture/fun_1.jpg'
     },
     additionalImages: [],
-    price: 4300,
-    oldPrice: 6900,
+    price: 50000,
+    oldPrice: 55000,
     brand: {
       name: '',
       image: 'images/brands/Boots.svg',
@@ -33,22 +33,22 @@
     }
   },
   {
-    id: 102,
-    name: 'Generic Black Shoe',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 201,
+    name: 'Sofa Set Brown',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_2.jpg',
-      medium: 'images/products/shoes/shoe_2.jpg',
-      large: 'images/products/shoes/shoe_2.jpg'
+      small: 'images/products/furniture/fun_2.jpg',
+      medium: 'images/products/furniture/fun_2.jpg',
+      large: 'images/products/furniture/fun_2.jpg'
     },
     additionalImages: [],
-    price: 4500,
-    oldPrice: 6900,
+    price: 50000,
+    oldPrice: 55000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -67,22 +67,22 @@
     }
   },
   {
-    id: 100,
-    name: 'Generic Black Shoe 3',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 203,
+    name: '7 Seater Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_3.jpg',
-      medium: 'images/products/shoes/shoe_3.jpg',
-      large: 'images/products/shoes/shoe_3.jpg'
+      small: 'images/products/furniture/fun_3.jpg',
+      medium: 'images/products/furniture/fun_3.jpg',
+      large: 'images/products/furniture/fun_3.jpg'
     },
     additionalImages: [],
-    price: 5000,
-    oldPrice: 8600,
+    price: 50000,
+    oldPrice: 55000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -101,22 +101,22 @@
     }
   },
   {
-    id: 100,
-    name: 'Generic Black Shoe 4',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 204,
+    name: '5 Seater Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_4.jpg',
-      medium: 'images/products/shoes/shoe_4.jpg',
-      large: 'images/products/shoes/shoe_4.jpg'
+      small: 'images/products/furniture/fun_4.jpg',
+      medium: 'images/products/furniture/fun_4.jpg',
+      large: 'images/products/furniture/fun_4.jpg'
     },
     additionalImages: [],
-    price: 8000,
-    oldPrice: 10000,
+    price: 47000,
+    oldPrice: 51000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -135,22 +135,22 @@
     }
   },
   {
-    id: 105,
-    name: 'Generic Brown Shoe 5',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 205,
+    name: '7 Seater Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_5.jpg',
-      medium: 'images/products/shoes/shoe_5.jpg',
-      large: 'images/products/shoes/shoe_5.jpg'
+      small: 'images/products/furniture/fun_5.jpg',
+      medium: 'images/products/furniture/fun_5.jpg',
+      large: 'images/products/furniture/fun_5.jpg'
     },
     additionalImages: [],
-    price: 3400,
-    oldPrice: 3900,
+    price: 48000,
+    oldPrice: 53000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -169,22 +169,22 @@
     }
   },
   {
-    id: 106,
-    name: 'Generic Black Shoe 6',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 206,
+    name: 'Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_6.jpg',
-      medium: 'images/products/shoes/shoe_6.jpg',
-      large: 'images/products/shoes/shoe_6.jpg'
+      small: 'images/products/furniture/fun_6.jpg',
+      medium: 'images/products/furniture/fun_6.jpg',
+      large: 'images/products/furniture/fun_6.jpg'
     },
     additionalImages: [],
-    price: 2900,
-    oldPrice: 5700,
+    price: 51000,
+    oldPrice: 54000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -203,22 +203,22 @@
     }
   },
   {
-    id: 107,
-    name: 'Generic Black Shoe 1',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 208,
+    name: 'Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_7.jpg',
-      medium: 'images/products/shoes/shoe_7.jpg',
-      large: 'images/products/shoes/shoe_7.jpg'
+      small: 'images/products/furniture/fun_8.jpg',
+      medium: 'images/products/furniture/fun_8.jpg',
+      large: 'images/products/furniture/fun_8.jpg'
     },
     additionalImages: [],
-    price: 3400,
-    oldPrice: 4700,
+    price: 30000,
+    oldPrice: 38000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -237,22 +237,22 @@
     }
   },
   {
-    id: 108,
-    name: 'Generic Black Shoe 8',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
+    id: 207,
+    name: 'Brand New Sofa Set',
+    type: 'Sofa',
+    category: "Cat20000",
+    subcategory:"Su40000",
     href: 'product',
     image: {
-      small: 'images/products/shoes/shoe_8.jpg',
-      medium: 'images/products/shoes/shoe_8.jpg',
-      large: 'images/products/shoes/shoe_8.jpg'
+      small: 'images/products/furniture/fun_7.jpg',
+      medium: 'images/products/furniture/fun_7.jpg',
+      large: 'images/products/furniture/fun_7.jpg'
     },
     additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
+    price: 49500,
+    oldPrice: 55000,
     brand: {
-      name: 'Boots',
+      name: '',
       image: 'images/brands/Boots.svg',
       href: '#',
     },
@@ -270,343 +270,4 @@
      
     }
   },
-  {
-    id: 109,
-    name: 'Generic Black Shoe 09',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_9.jpg',
-      medium: 'images/products/shoes/shoe_9.jpg',
-      large: 'images/products/shoes/shoe_9.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 110,
-    name: 'Generic Black Shoe 10',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_10.jpg',
-      medium: 'images/products/shoes/shoe_10.jpg',
-      large: 'images/products/shoes/shoe_10.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 111,
-    name: 'Generic Black Shoe 11',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_11.jpg',
-      medium: 'images/products/shoes/shoe_11.jpg',
-      large: 'images/products/shoes/shoe_11.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 112,
-    name: 'Generic Black Shoe 12',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_12.jpg',
-      medium: 'images/products/shoes/shoe_12.jpg',
-      large: 'images/products/shoes/shoe_12.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 113,
-    name: 'Generic Black Shoe 1',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_13.jpg',
-      medium: 'images/products/shoes/shoe_13.jpg',
-      large: 'images/products/shoes/shoe_13.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 114,
-    name: 'Generic Black Shoe 14',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_14.jpg',
-      medium: 'images/products/shoes/shoe_14.jpg',
-      large: 'images/products/shoes/shoe_14.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 115,
-    name: 'Generic Black Shoe 15',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_15.jpg',
-      medium: 'images/products/shoes/shoe_15.jpg',
-      large: 'images/products/shoes/shoe_15.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 116,
-    name: 'Generic Black Shoe 16',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_16.jpg',
-      medium: 'images/products/shoes/shoe_16.jpg',
-      large: 'images/products/shoes/shoe_16.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 117,
-    name: 'Generic Black Shoe 17',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_17.jpg',
-      medium: 'images/products/shoes/shoe_17.jpg',
-      large: 'images/products/shoes/shoe_17.jpg'
-    },
-    additionalImages: [],
-    price: 5000,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  },
-  {
-    id: 118,
-    name: 'Generic Black Shoe 18',
-    type: 'boot',
-    category: "Cat10000",
-    subcategory:"Su20000",
-    href: 'product',
-    image: {
-      small: 'images/products/shoes/shoe_18.jpg',
-      medium: 'images/products/shoes/shoe_18.jpg',
-      large: 'images/products/shoes/shoe_1.jpg'
-    },
-    additionalImages: [],
-    price: 3400,
-    oldPrice: 6900,
-    brand: {
-      name: 'Boots',
-      image: 'images/brands/Boots.svg',
-      href: '#',
-    },
-    variations: [],
-    specifications: [],
-    reviews: [],
-    questions: [],
-    isNotAvailable: false,
-    isOnSale: false,
-    isAddedToCart: true,
-    isAddedToFavorites: false,
-    isAddedToCompare: false,
-    statuses: ['new'],
-    properties: {
-     
-    }
-  }]
+  ]

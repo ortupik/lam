@@ -384,7 +384,7 @@ $(function(){
         
     	var product_html = '<article class="tm-product-card uk-first-column default_products_width">'+
 		   '<div class="tm-product-card-media">'+
-		      '<div class="">'+
+		      '<div class="" style="    padding: 10px;">'+
 		         '<a class="tm-media-box" href="product?id='+product.id+'">'+
 		            '<div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span></div>'+
 		            '<figure class="tm-media-box-wrap"><img class="b-lazy product_image" src="images/ajax-loader.gif" data-src="'+image_src+'" alt="'+product.name+'"></figure>'+

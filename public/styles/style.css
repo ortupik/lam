@@ -7303,8 +7303,8 @@ iframe.uk-cover {
 .product_image{
     width:100%;
     height:100%;
-    padding: 10px;
-    object-fit: contain;
+    padding: 1px;
+    object-fit: cover;
 }
 
 .product_image2{
@@ -8095,7 +8095,8 @@ iframe.uk-cover {
     display: block;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    height: 100%
+    height: 100%;
+    width: 100%;
 }
 
 .tm-media-box-frame {
@@ -8111,7 +8112,7 @@ iframe.uk-cover {
 .tm-media-box-wrap {
     position: relative;
     height: 200px;
-    margin: 0
+    margin: 0;
 }
 
 .tm-media-box-wrap_prod {

@@ -1,7 +1,7 @@
  .b-lazy { 
   width:auto;
   height:auto;
-  object-fit: contain;
+  object-fit: cover;
   padding-top:20px;
 }
 .b-lazy.b-loaded.product_image2 {

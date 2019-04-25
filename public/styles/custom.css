@@ -1,3 +1,16 @@
+#search_link{
+  padding: 10px;
+  margin-top: 2px;
+
+}
+#searchIconDiv{
+  background-color: #ffa384;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 40px;
+  background-color: #ffa384;
+  color: white;
+}
  .b-lazy { 
   width:auto;
   height:auto;
@@ -11,7 +24,8 @@
     object-fit: cover;
 }
 #searchForm{
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .top_bar{
   width: 100%;

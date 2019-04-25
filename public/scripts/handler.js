@@ -6,6 +6,33 @@ $(function(){
     var cart_subtotal = 0;
 
 
+     var options = {
+      url: function(phrase) {
+      	console.log(phrase)
+		return "products/search?searchText="+phrase;
+	  },
+
+      getValue: "name",
+
+      minCharNumber: 0,
+
+      list: {
+        match: {
+          enabled: true
+        },
+        maxNumberOfElements: 8,
+
+        hideOnEmptyPhrase: true
+      },
+
+      requestDelay: 0
+
+
+    };
+
+    $("#searchField").easyAutocomplete(options); 
+
+
 	function getQueryParams(qs) {
 	    qs = qs.split('+').join(' ');
 

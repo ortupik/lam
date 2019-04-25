@@ -147,5 +147,30 @@ exports.getBrands = function(req, res) {
 
 };
 
+/**
+ * Search Products
+ */
+exports.searchProducts = function(req, res) {
+
+	var searchText = req.param("searchText");
+
+	var displayLimit = 12;
+
+	var query = {
+	};
+
+	if(searchText){
+		query["name"] = { '$regex' : searchText, '$options' : 'i' };
+	}
+
+	var options = {
+	    limit: displayLimit
+	};
+
+	Product.paginate(query,options).then(function(result) {
+		res.json(result.docs); 
+	});
+
+};
 
 

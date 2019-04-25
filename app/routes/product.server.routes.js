@@ -9,6 +9,8 @@ module.exports = function(app) {
 
 	app.route('/products/all').get(products.getProducts);
 
+	app.route('/products/search').get(products.searchProducts);
+
 	app.route('/product').get(products.getProduct);
 
 	app.route("/product").post(products.getOneProduct);

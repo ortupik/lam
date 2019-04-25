@@ -3,6 +3,8 @@ extends /layouts/_pages
 block pages
   div.uk-grid-medium(uk-grid)
 
+
+
     //- Filters
     aside#filters.uk-width-1-5.tm-aside-column.tm-filters(
       uk-offcanvas="overlay: true; " +
@@ -22,6 +24,7 @@ block pages
               div.uk-width-expand
                 div.uk-h3 Filters
               button.uk-offcanvas-close(type="button" uk-close)
+
 
           //- Accordion
           div.uk-margin-remove.uk-flex-1.uk-overflow-auto(
@@ -82,3 +85,5 @@ block pages
       include /partials/_products
 
   script(src="scripts/handler.js")
+
+   

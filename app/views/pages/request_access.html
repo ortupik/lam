@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc.-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/favicon.ico" type="image/ico">
+  <title>Lambano People</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:200,300">
+  <!-- Bootstrap-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+  <div class="container body">
+    <div>
+      <!-- top navigation-->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav>
+            <div class="nav_title2" style="border: 0;"><a class="site_title" href="/"><img src="images/icons/logo.png" height="20" alt="Home"><span class="site_title_text">LAMBANO PEOPLE</span></a></div>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation-->
+    </div>
+  </div>
+  <div>
+    <div class="login_wrapper">
+      <div class="animate form login_form center">
+        <div class="motto">People and task management made simple</div>
+        <div class="bar_primary"></div>
+        <section class="login_content">
+          <div class="alert alert-warning" id="errorMessage" hidden=""> </div>
+          <div id="access_welcome_message"> </div><br>
+          <div>An access code has been sent to your email.</b></div><br>
+          <div>Please Enter the access code sent to you.</div>
+          <div class="alert alert-success" id="successMessage" hidden=""> </div>
+          <form id="validateAccessCode">
+            <div>
+              <input class="form-control" type="text" placeholder="Access Code" id="access_code" required="">
+            </div>
+            <div style="padding-top: 20px;">
+              <button class="btn btn-default submit btn_primary" type="submit"> Login </button>
+            </div>
+            <div class="clearfix" style="padding-bottom: 40px;"></div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery-->
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap-->
+  <script src="/js/bootstrap.min.js"></script>
+  <script>
+    var user = JSON.parse(localStorage.getItem("user"));
+    var fname = user.fname;
+    var message = "Hey " + fname + ",";
+    $("#access_welcome_message").text(message);
+  </script>
+  <script src="/js/handler.js"></script>
+</body>
+
+</html>

@@ -14,35 +14,31 @@ var fs = require('fs'),
 	methodOverride = require('method-override'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
-	passport = require('passport'),
-	MongoStore = require('connect-mongo')(session),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path');
 
-module.exports = function(mongoose) {
+module.exports = function(connection) {
 	// Initialize express app
 	var app = express();
-
-	// Globbing model files
-	config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
-		require(path.resolve(modelPath));
-	});
 
 	// Setting application local variables
 	app.locals.logged_in = false;
 	app.locals.title = config.app.title;
 	app.locals.description = config.app.description;
 	app.locals.keywords = config.app.keywords;
-	app.locals.facebookAppId = config.facebook.clientID;
 
-		// Passing the request url to environment locals
+
+	 	// Passing the request url to environment locals
 	app.use(function(req, res, next) {
+
 		res.locals.url = req.protocol + '://' + req.headers.host + req.url;
+
 		next();
 	});
 
+	
 
     app.use(function(req, res, next) { //allow cross origin requests
         res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -60,12 +56,13 @@ module.exports = function(mongoose) {
 
 
 	 // Initialize the ejs template engine
-  //  app.engine('html', require('ejs').renderFile);
+    app.engine('html', require('ejs').renderFile);
 
     app.set('view engine', 'pug');
 
-	app.set('views', './app/views');
-	app.locals.basedir = app.get('views');
+	app.set('views', './app/views/pages');
+	//app.locals.basedir = app.get('pages');
+
 
 	// Environment dependent middleware
 	if (process.env.NODE_ENV === 'development') {
@@ -92,25 +89,21 @@ module.exports = function(mongoose) {
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: config.sessionSecret,
-		store: new MongoStore({
+		secret: config.sessionSecret
+		/*store: new MongoStore({
 			 url: config.db
-		}),
+		}),*/
 	}));
-
-
-	// use passport session
-	app.use(passport.initialize());
-	app.use(passport.session());
 
 	// connect flash for flash messages
 	app.use(flash());
 
 	app.use(function(req,res,next){
-		if(req.session.passport.user == undefined){
+		if(req.session.user == undefined){
 			res.locals.session = "not_logged_in";
+			//res.redirect('/login');
 		}else{
-			res.locals.session = req.session.passport.user;
+			res.locals.session = req.session.user;
 		}	    
 	    next();
 	});
@@ -127,7 +120,7 @@ module.exports = function(mongoose) {
 
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
-		require(path.resolve(routePath))(app);
+		require(path.resolve(routePath))(app,connection);
 	});
 
 	// Assume 'not found' in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.
@@ -151,6 +144,8 @@ module.exports = function(mongoose) {
 			error: 'Not Found'
 		});
 	});*/
+
+
 
 	if (process.env.NODE_ENV === 'secure') {
 		// Log SSL usage

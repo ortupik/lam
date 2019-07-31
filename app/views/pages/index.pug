@@ -1,269 +1,317 @@
-extends /layouts/_default
-
-block vars
-  -
-    page = {
-      title: 'Home'
-    }
-
-block default  
-
-
-  div.top_bar
-    div.uk-grid.uk-grid-collapse.uk-grid-match(uk-grid)
-      
-      section#top_categories.uk-width-1-6
-        div.top_bar_cat.uk-text-center
-          span.uk-text-center(style="font-size:14px;") Shop By Categories
-
-        .uk-card.uk-card-small.uk-card-default.uk-card-body
-          
-          ul.uk-nav-default.uk-nav-parent-icon(uk-nav='')
-
-            li
-             a(href='category?c=Cat271057')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/smartphone-tablet.png")
-              |  Phones & Tablets
-           
-            li
-             a(href='category?c=Cat271057')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/workstation.png")
-              |  Laptops & Desktops
-
-            li
-             a(href='category?c=Cat271057')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/controller.png")
-              |  Gaming
-
-            li
-             a(href='category?c=Cat271057')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/compact-camera.png")
-              |  Cameras
-
-            li
-             a(href='category?c=Cat10000')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/clothes.png")
-              |  Clothes  
-
-            li
-             a(href='category?c=Cat10000')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/trainers.png")
-              |  Shoes   
-
-            li
-             a(href='category?c=Cat20000')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/sofa.png")
-              |  Furniture
-
-            li
-             a(href='category?c=Cat271057')
-              img.uk-margin-small-right(src="https://img.icons8.com/color/24/000000/robot.png")
-              |  Machinery  
-
-        
-       
-
-        div
-         div(class="uk-card-media-left uk-cover-container")
-          img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/deals_off.jpg" alt= "") 
-
-        div.uk-card.uk-card-small.uk-card-default.uk-card-body
-             
-          each category in categories
-            div
-              a(class="uk-link-muted " +
-                      "uk-text-center " +
-                      "uk-display-block " +
-                      "uk-padding-small " +
-                      "uk-box-shadow-hover-large"+
-                      "uk-flex"+
-                      "uk-flex-center"
-                href= category.href)
-                if category.image
-                  div.tm-ratio.tm-ratio-3-2
-                    div.tm-media-box
-                      figure
-                        img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src= category.image alt= category.title)
-                div.uk-margin-small-top
-                  div.uk-text-muted= category.title
-                  if category.comment
-                    div.uk-text-meta.uk-text-xsmall.uk-text-truncate= category.comment 
-    
-      
-      //- Media
-      div.uk-width-3-4
-      
-        //- Slider
-        section.uk-position-relative.uk-visible-toggle.uk-light(uk-slideshow="max-height: 350; ratio: 7:3 ; autoplay: true;")
-          div.uk-slideshow-items
-            each item in promo
-              li(style="background-color: " + item.background)
-                a(href="#")
-                  uk-height-1-1
-                    img.center(src= item.image
-                      width="1200"
-                        alt= item.title
-                        )
-
-          a.uk-position-center-left.uk-position-small.uk-hidden-hover(
-            href="#"
-            uk-slideshow-item="previous"
-            uk-slidenav-previous)
-          a.uk-position-center-right.uk-position-small.uk-hidden-hover(
-            href="#"
-            uk-slideshow-item="next"
-            uk-slidenav-next)
-
-          div.uk-position-bottom-center.uk-position-small
-            ul.uk-slideshow-nav.uk-dotnav
-
-
-        div#top_tab(uk-tab='')
-          li.uk-active
-            a(href='#') Daily Deals
-          li
-            a(href='#') Top Trending
-          li
-            a(href='#') New Arrivals
-          li
-            a(href='#') Best Selling
-          li
-            a(href='#') Fast Moving
-          li
-            a(href='#') Trading in  
-        
-
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-2 " +
-                  "uk-child-width-1-2@m " +
-                  "tm-products-grid"
-            uk-grid, style="")
-
-          - var count = 0
-          each product in products
-            if count >3 && count < 12
-              +product(product) 
-            - count++; 
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-1 " +
-                  "uk-child-width-1-1@m " +
-                  " "
-            uk-grid, style="margin-top:20px;" ) 
-          div(class="")
-           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/samsung4.jpg" alt= "" )
-
-        div.category_header.uk-text-center
-          span.uk-text-center(style="font-size:14px;") New Arrivals    
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-2 " +
-                  "uk-child-width-1-2@m " +
-                  "tm-products-grid"
-            uk-grid, style="")
-
-
-          - var count = 0
-          each product in products
-            if count > 15 && count < 24
-              +product(product) 
-            - count++;  
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-1 " +
-                  "uk-child-width-1-1@m " +
-                  " "
-            uk-grid, style="margin-top:20px;" ) 
-          div(class="")
-           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/sanyo.jpg" alt= "" )    
-
-        div.category_header.uk-text-center
-          span.uk-text-center(style="font-size:14px;") Top Trending   
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-2 " +
-                  "uk-child-width-1-2@m " +
-                  "tm-products-grid"
-            uk-grid, style="")
-
-          - var count = 0
-          each product in products
-            if count > 15 && count < 24
-              +product(product) 
-            - count++; 
-
-        div.uk-margin-small-top(class="uk-grid-collapse " +
-                  "uk-child-width-1-1 " +
-                  "uk-child-width-1-1@m " +
-                  " "
-            uk-grid, style="margin-top:20px;" ) 
-          div(class="")
-           img.item-brand.b-lazy(src="images/ajax-loader.gif" data-src="images/promo/electro.jpg" alt= "" )
-
-     
-  
-  //- Brands
-  section.uk-section.uk-section-default.uk-section-small
-    div.uk-container
-
-      h2.uk-text-center Popular Brands
-
-      div.uk-margin-medium-top(uk-slider="finite: true")
-        div.uk-position-relative
-          div.uk-grid-small.uk-flex-middle(uk-grid)
-
-            div(class="uk-visible@m")
-              a(href="#"
-                uk-slidenav-previous
-                uk-slider-item="previous")
-
-            div.uk-width-expand.uk-slider-container
-              ul(class="uk-slider-items " +
-                       "uk-child-width-1-4 " +
-                       "uk-child-width-1-6@s " +
-                       "uk-grid " +
-                       "uk-grid-large")
-                each brand in brands
+doctype html
+html(lang="en")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    // Meta, title, CSS, favicons, etc.
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="icon" href="images/favicon.ico" type="image/ico")
+    title Lambano People
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:200,300")
+    // Bootstrap
+    link(href="css/bootstrap.min.css" rel="stylesheet")
+    link(href="css/custom.css" rel="stylesheet")
+    link(href="css/font-awesome.min.css" rel="stylesheet")
+  body.nav-md
+    .container.body
+      .main_container
+        .col-md-3.left_col
+          .left_col.scroll-view
+            .navbar.nav_title(style="border: 0;")
+              a.site_title(href="/")
+                img(src="images/icons/logo.png" height="20" alt="Home")
+                span.site_title_text LAMBANO PEOPLE
+            .clearfix
+            br
+            // sidebar menu
+            #sidebar-menu.main_menu_side.hidden-print.main_menu
+              .menu_section
+                ul.nav.side-menu
                   li
-                    div.tm-ratio.tm-ratio-16-9
-                      a.uk-link-muted.tm-media-box.tm-grayscale(
-                        href="#"
-                        title= brand.name)
-                        figure
-                          img(src= brand.image alt= brand.name)
-
-            div(class="uk-visible@m")
-              a(href="#"
-                uk-slider-item="next"
-                uk-slidenav-next)
-
-        ul(class="uk-slider-nav " +
-                 "uk-dotnav " +
-                 "uk-flex-center " +
-                 "uk-margin-medium-top " +
-                 "uk-hidden@m")
-
-      div.uk-margin.uk-text-center
-        +link-to-all("see all brands", "brands")
-
-
-  //- Subscribe
-  section.uk-section.uk-section-primary.uk-section-small.uk-light
-    div.uk-container
-
-        div.uk-text-center
-          div.uk-h2.uk-margin-remove Subscribe for updates
-          div Be aware of new products and special offers.
-
-        div.uk-margin
-          form
-            div.uk-grid-small.uk-flex-center(uk-grid)
-              div(class="uk-width-1-1 uk-width-medium@s")
-                div.uk-inline.uk-width-1-1
-                  span.uk-form-icon(uk-icon="mail")
-                  input.uk-input(type="email" placeholder="Your email" required)
-              div
-                button.uk-button.uk-button-primary subscribe
-
-            
+                    a(href="/" style="margin: 0px;")
+                      i
+                        img(src="images/icons/approved.svg" height="20" alt="Dashboard")
+                      span    Dashboard
+                  li
+                    a(href="#" style="margin: 0px;")
+                      i
+                        img(src="images/icons/man-in-office-desk-with-computer.svg" height="20" alt="Admin")
+                      span     Admin
+                  if role == "1" || role == "2" || role == "3"  
+                      li
+                        a(href="/company" style="margin: 0px;")
+                          i
+                            img(src="images/icons/home.svg" height="20" alt="Company")
+                          span     Company
+                  li
+                    a(style="margin: 0px;")
+                      i
+                        img(src="images/icons/24-hours.svg" height="20" alt="Shifts")
+                      span     Shifts 
+                  li
+                    a(style="margin: 0px;")
+                      i
+                        img(src="images/icons/study.svg" height="20" alt="Training")
+                      span     Training 
+                  li
+                    a(style="margin: 0px;")
+                      i
+                        img(src="images/icons/placeholder.svg" height="20" alt="Locations")
+                      span     Locations
+                  li
+                    a(style="margin: 0px;")
+                      i
+                        img(src="images/icons/new-file.svg" height="20" alt="Logs")
+                      span       Logs
+                  li
+                    a(style="margin: 0px;" href="/logout")
+                      span       Log out     
+            // /sidebar menu
+        // top navigation
+        .top_nav
+          .nav_menu
+            nav
+              .nav.toggle
+                a#menu_toggle
+                  i.fa.fa-bars
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a.user-profile(href="javascript:;")
+                    img(src="images/img.png" alt="")
+                    span.user-name
+                li.nav_item
+                  a(href="#")
+                    img(src="images/icons/notification.svg" alt="")
+                li.nav_item
+                  a(href="#")
+                    img(src="images/icons/settings.svg" alt="")
+        // /top navigation
+        // page content
+        .right_col(role="main")
+          // top tiles
+          .tile_count.row
+            .bar_primary
+            #tsc.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-calendar-check-o.stats_icon
+                .col-md-6.description
+                  .count ---
+                  span.count_bottom Total Shifts Covered
+            #nhw.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-clock-o.stats_icon
+                .col-md-6.description
+                  .count ----
+                  span.count_bottom No. of Hours Worked
+            #nou.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-users.stats_icon
+                .col-md-6.description
+                  #num_users.count ---
+                  span.count_bottom Number of Users
+            #noc.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-home.stats_icon
+                .col-md-6.description
+                  #num_co.count ---
+                  span.count_bottom Number of Companies
+            #tod.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-calendar-minus-o.stats_icon
+                .col-md-6.description
+                  .count ---
+                  span.count_bottom Trainings out of Date
+                | 9
+            #sd.col-md-2.col-sm-4.col-xs-6.tile_stats_count(hidden="")
+              .row.tile_child
+                .col-md-2
+                  span
+                    i.fa.fa-2x.fa-user.stats_icon
+                .col-md-6.description
+                  .count ---
+                  span.count_bottom Supervisions Due
+          // /top tiles
+          // /page content
+          .row
+            .col-md-6.col-sm-6.col-xs-12
+              .x_panel.dashboard
+                .x_title
+                  .dash-title Available Shift
+                .x_content
+                  table.table.table-bordered
+                    thead
+                      tr
+                        th Date
+                        th Time
+                        th Location
+                        th Shift State
+                    tbody
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 21:00 - 22:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 12:00 - 14:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 12:00 - 14:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 21:00 - 22:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 12:00 - 14:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+                      tr
+                        td 28/08/19 - 31/08/19
+                        td 12:00 - 14:00
+                        td St Vincent Delaware NG8
+                        td
+                          span.accept Accept
+                          span.reject Reject
+            .col-md-6
+              .x_panel.dashboard
+                .x_title
+                  .revenue_total $3296.51
+                  .about_revenue Revenue, excluding tax and deductions
+                  div
+                    button.btn.btn-default.btn-sm View All
+                .x_content
+                  article.media.event
+                    .media-body
+                      a.title(href="#") St Vincents Lodge
+                      p.item-revenue.pull-right $206.51
+                      p 28-07-2019 - 30-07-2019
+                      p 16:00 - 18:00
+                  .line(style="padding-top: 8px;")
+                  article.media.event
+                    .media-body
+                      a.title(href="#") Andrews Place
+                      p.item-revenue.pull-right $198.00
+                      p 21-08-2019 - 31-08-2019
+                      p 21:00 - 23:00
+                  .line(style="padding-top: 8px;")
+                  article.media.event
+                    .media-body
+                      a.title(href="#") St Vincents Lodge
+                      p.item-revenue.pull-right $206.51
+                      p 28-07-2019 - 30-07-2019
+                      p 16:00 - 18:00
+                  .line(style="padding-top: 8px;")
+                  article.media.event
+                    .media-body
+                      a.title(href="#") Andrews Place
+                      p.item-revenue.pull-right $198.00
+                      p 21-08-2019 - 31-08-2019
+                      p 21:00 - 23:00
+          .row
+            .col-md-6
+              .x_panel.announcement
+                .x_title
+                  .main-title Announcement
+                  .about_announcement Important information about your company
+                .x_content
+                  article.media.event
+                    .media-body
+                      a.title(href="#") 28-07-2019 - John Doe
+                      p
+                        | Meeting will be at the end of the year. GM will be present at the event opening. Purpose to Attend.
+                  .line(style="padding-top: 8px;")
+                  article.media.event
+                    .media-body
+                      a.title(href="#") 31-08-2019 - Jane Clue
+                      p
+                        | All new interns to register at the counter place and feature this message at the entrance.
+                  .line(style="padding-top: 8px;")
+                  article.media.event
+                    .media-body
+                      a.title(href="#") 21-08-2019 - Patrick James
+                      p This is a new place holder message for all to read and contemplate.
+          // /footer content
+    // jQuery
+    script(src="js/jquery-3.2.1.min.js")
+    // Bootstrap
+    script(src="js/bootstrap.min.js")
+    script(src="js/custom.min.js")
+    script(type="text/javascript").
+      $.get("/stats/getStats", function(resp){
+      if(resp.success == 1){
+      var data = resp.data;
+      var row = data[0];
+      if(row.noc != undefined){
+      var numCo = row.noc;
+      $("#noc").removeAttr("hidden");
+      $("#noc").find(".count").text(numCo);
+      }
+      if(row.nou != undefined){
+      var numU = row.nou;
+      $("#nou").removeAttr("hidden");
+      $("#nou").find(".count").text(numU);
+      }
+      if(row.nhw != undefined){
+      var numH = row.nhw;
+      $("#nhw").removeAttr("hidden");
+      $("#nhw").find(".count").text(numH);
+      }
+      if(row.tsc != undefined){
+      var numtsc = row.tsc;
+      $("#tsc").removeAttr("hidden");
+      $("#tsc").find(".count").text(numtsc);
+      }
+      if(row.tod != undefined){
+      var numtod = row.tod;
+      $("#tod").removeAttr("hidden");
+      $("#tod").find(".count").text(numtod);
+      }
+      if(row.sd != undefined){
+      var numtsc = row.tsc;
+      $("#sd").removeAttr("hidden");
+      $("#sd").find(".count").text(numtsc);
+      }
+      }
+      });
+      /* $.post("/company/getCompanyStats", function(resp){
+      if(resp.success == 1){
+      var data = resp.data;
+      var numCo = data.num_co;
+      $("#num_co").text(numCo);
+      }
+      });
+      $.post("/users/getUsersStats", function(resp){
+      if(resp.success == 1){
+      var data = resp.data;
+      var numUsers = data.num_users;
+      $("#num_users").text(numUsers);
+      }
+      });*/
+    script(src="js/handler.js")

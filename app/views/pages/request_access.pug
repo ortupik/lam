@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    // Meta, title, CSS, favicons, etc.
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="icon" href="images/favicon.ico" type="image/ico")
+    title Lambano People
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:200,300")
+    // Bootstrap
+    link(href="css/bootstrap.min.css" rel="stylesheet")
+    link(href="css/custom.css" rel="stylesheet")
+    link(href="css/font-awesome.min.css" rel="stylesheet")
+  body.login
+    .container.body
+      div
+        // top navigation
+        .top_nav
+          .nav_menu
+            nav
+              .nav_title2(style="border: 0;")
+                a.site_title(href="/")
+                  img(src="images/icons/logo.png" height="20" alt="Home")
+                  span.site_title_text LAMBANO PEOPLE
+        // /top navigation
+    div
+      .login_wrapper
+        .animate.form.login_form.center
+          .motto People and task management made simple
+          .bar_primary
+          section.login_content
+            #errorMessage.alert.alert-warning(hidden="")  
+            #access_welcome_message  
+            br
+            div An access code has been sent to your email.
+            br
+            div Please Enter the access code sent to you.
+            #successMessage.alert.alert-success(hidden="")  
+            form#validateAccessCode
+              div
+                input#access_code.form-control(type="text" placeholder="Access Code" required="")
+              div(style="padding-top: 20px;")
+                button.btn.btn-default.submit.btn_primary(type="submit")  Login 
+              .clearfix(style="padding-bottom: 40px;")
+    // jQuery
+    script(src="/js/jquery-3.2.1.min.js")
+    // Bootstrap
+    script(src="/js/bootstrap.min.js")
+    script.
+      var user = JSON.parse(localStorage.getItem("user"));
+      var fname = user.fname;
+      var message = "Hey " + fname + ",";
+      $("#access_welcome_message").text(message);
+    script(src="/js/handler.js")

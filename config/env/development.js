@@ -1,13 +1,13 @@
 'use strict';
 
 //db: 'mongodb://heroku_hskbm0g1:6lo6nott6o6m46c57mgnva5qbi@ds131742.mlab.com:31742/heroku_hskbm0g1',
-//db: 'mongodb://127.0.0.1:27017/happystores',
+//db: 'mongodb://127.0.0.1:27017/lambano',
 module.exports = {
-	db: 'mongodb://127.0.0.1:27017/happystores',
-	db_name: "happystores",
+	db: 'mongodb://127.0.0.1:27017/lambano',
+	db_name: "",
 	port: 8080,
 	app: {
-		title: 'E-Commerce'
+		title: 'lambano'
 	},
 	facebook: {
 		clientID: '210126882934161',

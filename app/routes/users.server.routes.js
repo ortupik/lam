@@ -3,54 +3,84 @@
 /**
  * Module dependencies.
  */
-var passport = require('passport');
-var bodyParser = require('body-parser');
 var multer = require('multer');
 
-module.exports = function(app) {
+module.exports = function(app,connection) {
 	// User Routes
 	var users = require('../../app/controllers/users.server.controller');  
 
-	// Setting up the users profile api
-	app.route('/users/me').get(users.me);
-	app.route("/users/getName").post(users.getName);
-	app.route('/users').put(users.update); 
-	app.route('/users/accounts').delete(users.removeOAuthProvider);
+	app.post('/auth/signin', function(req, res, next) {
+		users.signin(connection,req.body,function(resp){
+       //if(resp.success == 1){
+       	 req.session.user = resp.user;
+      // }
+       res.json(resp);
+		});
+	});
 
-	// Setting up the users password api
-	app.route('/users/password').post(users.changePassword);
-	app.route('/auth/forgot').post(users.forgot);
-	app.route('/auth/reset/:token').get(users.validateResetToken);
-	app.route('/auth/reset/:token').post(users.reset);
+  app.get('/setup_password', function (req, res) {
+     var signup_code = req.query.signup_code;
+     users.getUserSigned(connection,signup_code,function(resp){
+        if(resp.success == 1){
+          res.render('setup_password.pug',{first_name:resp.data.first_name});
+        }else{
+          res.render('setup_password.pug',{errorMessage:"Invalid Sign Up Code"});
+        }
+    });
+     
+     
+  });
 
-	// Setting up the users authentication api
-	app.route('/auth/signup').post(users.signup);
-	app.route('/auth/signin').post(users.signin);
-	app.route('/auth/signout').get(users.signout);
+	app.post('/auth/updateSignUpPassword', function(req, res) {
 
-	// Setting the facebook oauth routes
-	app.route('/auth/facebook').get(passport.authenticate('facebook', {
-		scope: ['email']
-	}));
-	app.route('/auth/facebook/callback').get(users.oauthCallback('facebook'));
+		var data = req.body;
 
-	// Setting the twitter oauth routes
-	app.route('/auth/twitter').get(passport.authenticate('twitter'));
-	
-	app.route('/auth/twitter/callback').get(users.oauthCallback('twitter'));
+    console.log(data)
+  
+		users.updateSignUpPassword(connection,data,function(resp){
+       console.log(resp)
+       res.json(resp); 
+		});
+	});
 
-	// Setting the google oauth routes
-	app.route('/auth/google').get(passport.authenticate('google', {
-		scope: [
-			'https://www.googleapis.com/auth/userinfo.profile',
-			'https://www.googleapis.com/auth/userinfo.email'
-		]
-	}));
-	app.route('/auth/google/callback').get(users.oauthCallback('google'));
+  app.post('/auth/validate_code', function(req, res) {  
 
-	// Finish by binding the user middleware
-	app.param('userId', users.userByID);
+    var email = req.session.user.email;
+    var data = req.body;
+    data.email = email;
+  
+    users.validateAccessCode(connection,data,function(resp){
+       if(resp.success == 1){
+         req.session.verified_user = true;
+         req.session.user = resp.user;
+       }
+       res.json(resp); 
+    });
+  });
 
+  app.post('/users/getUsersStats', function(req, res, next) {
+     users.getUsersStats(connection,req.body,function(resp){
+        res.json(resp);
+     });
+  });
+
+  app.post('/users/getCompanyUsers', function(req, res, next) {
+     var data = req.body;
+     users.getCompanyUsers(connection,data,function(resp){
+        res.json(resp);
+    });
+  });
+  app.post('/users/create_user', function(req, res, next) {
+     if(req.session.user){
+       var managerData = req.session.user;
+       users.createUser(connection,req.body,managerData,function(resp){
+          res.json(resp);
+      });
+     }else{
+        res.json({success:0,message:"Please Login to Proceed"});
+     }
+     
+  });
 
 	var storage = multer.diskStorage({ //multers disk storage settings
         destination: function (req, file, cb) {

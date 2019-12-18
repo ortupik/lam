@@ -59,7 +59,8 @@ module.exports = function(app,connection) {
   });
 
   app.post('/users/getUsersStats', function(req, res, next) {
-     users.getUsersStats(connection,req.body,function(resp){
+     var user = req.session.user;
+     users.getUsersStats(connection,user,function(resp){
         res.json(resp);
      });
   });

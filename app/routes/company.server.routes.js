@@ -10,19 +10,23 @@ module.exports = function(app,connection) {
 		});
 	});
 
-	app.post('/company/getCompanyStats', function(req, res, next) {
-	   company.getCompanyStats(connection,req.body,function(resp){
+	app.post('/company/getCompanyStats', function(req, res, next) {	
+	   var user = req.session.user;	
+	   company.getCompanyStats(connection,user,function(resp){
 	      res.json(resp);
 		});
 	});
 
 	app.get('/company/getCompanyNameList', function(req, res, next) {
-	   company.getCompanyNameList(connection,null,function(resp){
+		var user = req.session.user;
+	   company.getCompanyNameList(connection,user,function(resp){
 	      res.json(resp);
 		});
 	});
 
     app.post('/stats/getCompanyInfoStats', function(req, res, next) {
+       var user = req.session.user;
+	   req.body.user = user;	
 	   stats.getCompanyInfoStats(connection,req.body,function(resp){
 	      res.json(resp);
 		});

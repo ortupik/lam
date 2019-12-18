@@ -1,6 +1,6 @@
 'use strict';
 
-const nodemailer = require("nodemailer");
+ const sgMail = require('@sendgrid/mail');
 
 /**
  * Signin 
@@ -88,7 +88,7 @@ var generateAccessCode = function(connection,data,callback){
        
      	data.access_code = access_code;
 
-     	sendEmail(data,function(resp){
+     	sendAccessCodeEmail(data,function(resp){
      		if(resp.success == 1){
      			 callback({success:1})
      		}else{
@@ -103,37 +103,6 @@ var generateAccessCode = function(connection,data,callback){
  });
 }
 
-function sendEmail(data,callback){
-          
-    var email = data.email;
-    var fname = data.fname;
-    var access_code = data.access_code;
-
-	var transporter = nodemailer.createTransport({
-	    service: 'gmail',
-	    auth: {
-	      user: 'techflay@gmail.com',
-	      pass: '#tech.254-flay'
-	    }
-	});
-
-	var mailOptions = {
-		from: "support@lambano.com",
-		to:email,
-		subject: 'Lambano Access Code',
-		html: "Dear "+fname+",<br><br>Please enter the access code below to proceed with sign in. <br><br> Access Code <b>"+access_code+"</b><br><br>Best Regards,<br>Lambano Team"
-	};
-
-	transporter.sendMail(mailOptions, function(error, info){
-	if (error) {
-	  console.log(error);
-	  callback({success:0})
-	} else {
-	  console.log('Email sent: ' + info.response);
-	  callback({success:1})
-	}
-}); 
-}
 
 /**
  * Validate Access Code 
@@ -166,11 +135,10 @@ exports.signout = function(req, res) {
 };
 
 exports.getUsersStats = function(connection,data,callback) { 
-
-   var query = connection.query("SELECT * FROM `users` WHERE `authorized_login` = 'Y'  ",[],function(err, rows, fields) {
-
+   
+   var query = connection.query("SELECT count(*) as num_users FROM `company`  t1  JOIN users t2 ON t1.company_id = t2.company_id AND t2.company_id = (SELECT company_id from users WHERE user_id = ?)   ",[data.user_id],function(err, rows, fields) {
       if (!err){
-           callback({message:'Got The Users Data', success:1, data:{num_users:rows.length}});  
+           callback({message:'Got The Users Data', success:1, data:{num_users:rows[0]['num_users']}});  
       }else{
         console.log(err);
         callback({message:"Could not retrive users stats !!", success:0, error_code:203});
@@ -218,6 +186,32 @@ exports.createUser = function(connection,data,managerData,callback) {
 
 }
 
+function sendAccessCodeEmail(data,callback){
+          
+    var email = data.email;
+    var fname = data.fname;
+    var access_code = data.access_code;
+
+    var html = "Dear "+fname+", Please enter this access code to proceed with sign in : <b>"+access_code+"</b>";
+
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      from: "support@lambano.com",
+      to:email,
+      subject: 'Lambano Access Code',
+      html: html
+    };
+    sgMail.send(msg) .then((resp) => {
+         console.log("Access code Mail Sent")
+        callback({success:1});
+    })
+    .catch((e) => {
+        console.log(e);
+        callback({success:0})
+    })
+
+
+}
 function sendSignUpCodeEmail(data,callback){
           
     var email = data.email;
@@ -226,33 +220,27 @@ function sendSignUpCodeEmail(data,callback){
     var manager = data.manager;
     var company = data.company;
 
-  var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'techflay@gmail.com',
-        pass: '#tech.254-flay'
-      }
-  });
+    var signup_url = "https://localhost/setup_password?signup_code="+signup_code;
+    var html = "Dear "+fname+", <br><br> Welcome to Lambano People, you have been added by "+manager+" from "+company+",<br> Please follow this link to activate your account <br> <br> <b> "+signup_url+"</b><br><br>Best Regards,<br>Lambano Team";
 
-  var signup_url = "https://167.71.131.228/setup_password?signup_code="+signup_code;
-  var html = "Dear "+fname+", <br><br> Welcome to Lambano People, you have been added by "+manager+" from "+company+",<br> Please follow this link to activate your account <br> <br> <b> "+signup_url+"</b><br><br>Best Regards,<br>Lambano Team";
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      from: "support@lambano.com",
+      to:email,
+      subject: 'Lambano Sign Up',
+      html: html
+    };
+    sgMail.send(msg) .then((resp) => {
+         console.log("Sign Up ur Mail Sent")
+         console.log(resp)
+        callback({success:1});
+    })
+    .catch((e) => {
+        console.log(e);
+        callback({success:0})
+    })
 
-  var mailOptions = {
-    from: "support@lambano.com",
-    to:email,
-    subject: 'Lambano Sign Up',
-    html: html
-  };
 
-  transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-    callback({success:0})
-  } else {
-    console.log('Email sent: ' + info.response);
-    callback({success:1})
-  }
-}); 
 }
 
 exports.getCompanyUsers = function(connection,data,callback) { 

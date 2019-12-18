@@ -1,12 +1,5 @@
 var mysql = require('mysql');
 
-/*var db_config = {
-    host     : 'us-cdbr-iron-east-04.cleardb.net',
-    user     : 'b002bf3f0d5b33',
-    password : '9adb4021',
-    database : 'heroku_45495343b6e2f33'
-}*/
-
 module.exports = function() {
  
 var db_config = {

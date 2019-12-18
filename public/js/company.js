@@ -188,7 +188,7 @@ $(function(){
               })
          }else{
           Swal.fire({
-            type: 'error',
+            type: 'error', 
             title: 'Oops...',
             text: res.message,
           });
